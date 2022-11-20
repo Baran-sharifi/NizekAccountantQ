@@ -2502,7 +2502,6 @@
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace min="-2" pref="230" max="-2" attributes="0"/>
                                   <Component id="jLabel6" min="-2" pref="178" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="1" attributes="0">
                                   <Component id="jLabel41" min="-2" pref="68" max="-2" attributes="0"/>
@@ -2512,7 +2511,6 @@
                                   <Component id="categoryFieldَAddress" min="-2" pref="309" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Component id="jLabel43" min="-2" pref="93" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="1" attributes="0">
                                   <Group type="103" groupAlignment="1" attributes="0">
@@ -2750,17 +2748,11 @@
                           </Group>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="dashboardBtnshowCheck1" min="-2" pref="145" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="dashboardBtnshowDoc1" min="-2" pref="145" max="-2" attributes="0"/>
-                                      </Group>
+                                      <Component id="dashboardBtnshowCheck1" alignment="0" min="-2" pref="145" max="-2" attributes="0"/>
+                                      <Component id="dashboardBtnshowDoc1" alignment="0" min="-2" pref="145" max="-2" attributes="0"/>
                                   </Group>
-                                  <EmptySpace pref="1" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
@@ -3765,7 +3757,7 @@
               <Group type="102" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jScrollPane4" pref="574" max="32767" attributes="0"/>
+                      <Component id="jScrollPane4" pref="443" max="32767" attributes="0"/>
                       <Group type="102" alignment="0" attributes="0">
                           <Component id="backshowCheck1" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
@@ -3780,7 +3772,7 @@
               <Group type="102" alignment="1" attributes="0">
                   <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jScrollPane4" pref="585" max="32767" attributes="0"/>
+                  <Component id="jScrollPane4" pref="380" max="32767" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="backshowCheck1" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
