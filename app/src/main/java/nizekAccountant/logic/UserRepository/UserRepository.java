@@ -369,6 +369,7 @@ public class UserRepository implements Storeable {
         for (String model : gottenFile) {
             String[] temp = model.split(", ");
             String[] time = temp[5].trim().split(":");
+            // Test
             Manager.addNormalDocument(new NormalDoc(
                     temp[1].trim(),
                     temp[2].trim(),
