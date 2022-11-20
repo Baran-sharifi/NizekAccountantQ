@@ -347,8 +347,7 @@ public class UserRepository implements Storeable {
     }
 
     @Override
-    public void readAndAddCheckDoc(File file) { 
-        if (file.exists()) {// requires Edit in Date!
+  public void readAndAddCheckDoc(File file) {   // requires Edit in Date!
         List<String> gottenFile = readWholeFile(file);
         for (String model : gottenFile) {
             String[] temp = model.split(", ");
@@ -357,30 +356,26 @@ public class UserRepository implements Storeable {
             Manager.addCheckDocument(new CheckDoc(
                     temp[1].trim(),
                     temp[2].trim(),
-                    ConverterTime.convertToPersianNeeded(date[2], date[1], date[0]),
+                    ConverterTime.convertDate(ConverterTime.convertToPersian(temp[4].trim())),
                     new TimeNizek(Integer.parseInt(time[0]), Integer.parseInt(time[1])),
                     Converter.setBooleanCashed(temp[3].trim()),
                     Manager.costumerList.get(Integer.parseInt(temp[6].trim().substring(0, 1)))));
-        }
         }
     }
 
     @Override
     public void readAndAddNormalDoc(File file) {
-        if (file.exists()) {
         List<String> gottenFile = readWholeFile(file);
         for (String model : gottenFile) {
             String[] temp = model.split(", ");
-            String[] date = temp[4].trim().split("-");
             String[] time = temp[5].trim().split(":");
             Manager.addNormalDocument(new NormalDoc(
                     temp[1].trim(),
                     temp[2].trim(),
-                    Converter.setBooleanCreditor(temp[3]),
-                    ConverterTime.convertToPersianNeeded(date[2], date[1], date[0]),
+                    Converter.setBooleanCreditor(temp[3].trim()),
+                    ConverterTime.convertDate(ConverterTime.convertToPersian(temp[4].trim())),
                     new TimeNizek(Integer.parseInt(time[0]), Integer.parseInt(time[1])),
                     Manager.costumerList.get(Integer.parseInt(temp[6].trim().substring(0, 1)))));
-        }
         }
     }
 

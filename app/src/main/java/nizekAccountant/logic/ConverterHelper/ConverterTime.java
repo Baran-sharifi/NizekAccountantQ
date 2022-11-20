@@ -27,6 +27,13 @@ public class ConverterTime {
                 Integer.parseInt(day));
         return jalaliDate2.toString();
     }
+    public static DateNizek convertDate(String date) {
+        String[] dateArray = date.split("-");
+        int intDay = Integer.parseInt(dateArray[0]);
+        int intMonth = Integer.parseInt(dateArray[1]);
+        int intyear = Integer.parseInt(dateArray[2]);
+        return new DateNizek(intDay,intMonth,intyear);
+    }
     public static DateNizek convertToPersianNeeded(String day, String month, String year) {
         DateConverter dateConverter = new DateConverter();
         JalaliDate jalaliDate2 = dateConverter.gregorianToJalali(

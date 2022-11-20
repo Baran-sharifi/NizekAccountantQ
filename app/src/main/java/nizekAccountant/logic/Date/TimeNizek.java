@@ -1,5 +1,6 @@
 package nizekAccountant.logic.Date;
 
+import java.time.LocalDateTime;
 import java.time.ZoneOffset;
 import java.time.ZonedDateTime;
 
@@ -8,10 +9,11 @@ public class TimeNizek {
     int hour;
 
 
-    public TimeNizek() {
-        ZonedDateTime zonedDateTime = ZonedDateTime.now(ZoneOffset.UTC);
-        this.minute = zonedDateTime.getMinute();
-        this.hour = zonedDateTime.getHour();
+     public TimeNizek() {
+//        ZonedDateTime zonedDateTime = ZonedDateTime.now(ZoneOffset.UTC);
+        LocalDateTime now = LocalDateTime.now();
+        this.minute = now.getMinute();
+        this.hour = now.getHour();
     }
 
  public TimeNizek(int hour, int minute) {
