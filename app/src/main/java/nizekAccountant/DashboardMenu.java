@@ -3326,9 +3326,10 @@ public class DashboardMenu extends javax.swing.JFrame {
 
     private void filteringDocsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_filteringDocsActionPerformed
         docFilter = filterDocSelector();
+        
+        System.out.println(docFilter);
         int selectedMonth = monthscheckCombo.getSelectedIndex();//the month
         String payeeFilterNameDoc = peopleDocList.getSelectedItem().toString();
-
         //============ slider cost==================================================
         int docCostFromValue = docSlider1.getValue();
         int docCostToValue = docSlider2.getValue();
