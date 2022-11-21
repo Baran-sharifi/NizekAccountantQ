@@ -1,7 +1,5 @@
 package nizekAccountant.logic.DocModels;
 
-import java.util.ArrayList;
-import java.util.List;
 import nizekAccountant.logic.Date.DateNizek;
 import nizekAccountant.logic.Date.TimeNizek;
 import nizekAccountant.logic.Login.Costumer;
