@@ -37,11 +37,14 @@ public class DashboardMenu extends javax.swing.JFrame {
     private ShowDocRepository docRepo;
     private ShowPeopleRepository peopleRepo;
     private ShowCheckRepository checkRepo;
-
+    
+    private FilterChecks filterChecks;
+    private FilterDocs filterDocs;
     private GraphicsManager btnmanager;
     //  private ButtonRounder btnRounder;
     GroupType b = new GroupType("مشتری");
-
+     String checkFilter;
+     String docFilter;
    
 
     public DashboardMenu() {
@@ -57,7 +60,7 @@ public class DashboardMenu extends javax.swing.JFrame {
        
         
         DefaultCategoryDataset dataset= new DefaultCategoryDataset();
-        dataset.setValue();
+      //  dataset.setValue();
         
         
         
@@ -109,7 +112,8 @@ public class DashboardMenu extends javax.swing.JFrame {
         addUserLogic = new AddUserLogic();
         
         changeStateCheckLogic = new ChangeStateCheckLogic();
-       
+        filterDocs=new FilterDocs(docFilter);
+        filterChecks= new FilterChecks(checkFilter);
         checkRepo = new ShowCheckRepository();
         peopleRepo = new ShowPeopleRepository();
         docRepo = new ShowDocRepository();
@@ -3304,11 +3308,14 @@ public class DashboardMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_backshowCheck6ActionPerformed
 
     private void filteringChecksActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_filteringChecksActionPerformed
+        
+        checkFilter=filterSelector();        
         landPage(filteredChecks);
     }//GEN-LAST:event_filteringChecksActionPerformed
 
     private void filteringDocsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_filteringDocsActionPerformed
         landPage(filteredDocs);
+        docFilter=filterSelector();
     }//GEN-LAST:event_filteringDocsActionPerformed
 
     public void filterVisibelity(JRadioButton Rbtn) {
@@ -3423,7 +3430,27 @@ public class DashboardMenu extends javax.swing.JFrame {
         });
     
     
-    }    
+    }
+
+
+ public String filterSelector(){
+      if(payeeCheckRBtn.isSelected()){
+            return "payee";
+       }else if(TimeCheckRBtn.isSelected()){
+        return "time";
+       }else if(costCheckRBtn.isSelected()){
+           return "cost";
+       }
+      return"" ;
+     } 
+
+
+
+
+
+
+
+    
     
     
     

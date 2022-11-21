@@ -180,7 +180,7 @@ public class UserRepository implements Storeable {
         return filteredList;
     }
 
-    public List<CheckDoc> readFilterBasedOnCostCheck(int beforeCost, int afterCost) {
+    public List<CheckDoc> readFilterBasedOnCostCheck(double beforeCost, double afterCost) {
         List<CheckDoc> filteredList = new ArrayList<>();
         for (CheckDoc object : Manager.checkDocList) {
             if (Integer.parseInt(object.getCost()) >= beforeCost && Integer.parseInt(object.getCost()) <= afterCost) {

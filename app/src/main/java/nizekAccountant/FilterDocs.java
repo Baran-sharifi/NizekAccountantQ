@@ -4,8 +4,12 @@
  */
 package nizekAccountant;
 
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.event.TableModelListener;
 import javax.swing.table.TableModel;
+import nizekAccountant.logic.DocModels.CheckDoc;
+import nizekAccountant.logic.DocModels.NormalDoc;
 import nizekAccountant.logic.UserRepository.UserRepository;
 
 /**
@@ -14,7 +18,46 @@ import nizekAccountant.logic.UserRepository.UserRepository;
  */
 public class FilterDocs implements TableModel {
     UserRepository userRepository = new UserRepository();
+ String selectedFilter;
+    
+    
+    public FilterDocs(String selectedFilter) {
+        this.selectedFilter=selectedFilter;
+        
+    }
+    
+    
+    
+    
+    
+    
 
+    //declaring a new list the new list points to the list we pass to it
+    
+    
+    public List<NormalDoc> filteredListPassing(){
+    List<NormalDoc> filteredList= new ArrayList<>();
+    
+    switch(selectedIFilter){
+    
+    
+    
+    
+    }
+    
+    
+    
+        
+        
+        
+        return filteredList;
+    
+    }
+    
+    
+    
+    
+    
     @Override
     public int getRowCount() {
 //return filtredDoclists.size();
