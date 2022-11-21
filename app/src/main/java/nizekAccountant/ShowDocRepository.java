@@ -108,6 +108,9 @@ public class ShowDocRepository implements TableModel {
 
     //edit table
     @Override
+    
+    
+    
     public void setValueAt(Object aValue, int rowIndex, int columnIndex) {
 
         switch (columnIndex) {
