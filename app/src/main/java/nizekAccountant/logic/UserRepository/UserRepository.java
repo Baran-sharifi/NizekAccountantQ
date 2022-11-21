@@ -189,7 +189,17 @@ public class UserRepository implements Storeable {
         }
         return filteredList;
     }
+ public List<CheckDoc> filteredChecksBasedOnDateRange(DateNizek beforeDate, DateNizek afterDate) {
+        List<CheckDoc> filteredList = new ArrayList<>();
+        for (CheckDoc checkDoc: Manager.checkDocList) {
+            if ((Integer.parseInt(checkDoc.getDate().forDateFormat()) >= Integer.parseInt(beforeDate.forDateFormat()))
+                    && (Integer.parseInt(checkDoc.getDate().forDateFormat()) <= Integer.parseInt(afterDate.forDateFormat()))) {
+                filteredList.add(checkDoc);
+            }
+        }
 
+        return filteredList;
+    }
     @Override
     public String readFile(Costumer costumer, String inputNationalID) {
         return "Unused!";

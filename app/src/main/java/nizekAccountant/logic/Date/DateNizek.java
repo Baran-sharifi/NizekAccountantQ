@@ -40,6 +40,9 @@ public class DateNizek {
     public String toString() {
         return String.format("%d/%d/%d", year,month,day);
     }
+     public String forDateFormat() {
+        return String.format("%d%02d%02d", year,month,day);
+    }
 
     @Override
     public boolean equals(Object o) {
