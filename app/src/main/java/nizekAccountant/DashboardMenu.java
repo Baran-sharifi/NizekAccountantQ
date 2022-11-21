@@ -17,6 +17,7 @@ import javax.swing.event.ChangeListener;
 import nizekAccountant.logic.AccountingCalculations.Accounting;
 import static nizekAccountant.logic.ModelManager.Manager.userRepository;
 import nizekAccountant.logic.UserRepository.UserRepository;
+import org.jfree.data.category.DefaultCategoryDataset;
 
 /**
  * @author Lenovo
@@ -55,8 +56,8 @@ public class DashboardMenu extends javax.swing.JFrame {
        
        
         
-        
-        
+        DefaultCategoryDataset dataset= new DefaultCategoryDataset();
+        dataset.setValue();
         
         
         
@@ -2642,9 +2643,9 @@ public class DashboardMenu extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, filteredChecksLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel58, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(29, 29, 29)
-                .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 450, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
                 .addComponent(backshowCheck6, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(16, 16, 16))
         );
