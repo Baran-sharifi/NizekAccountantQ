@@ -8,6 +8,8 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.swing.event.TableModelListener;
 import javax.swing.table.TableModel;
+import nizekAccountant.logic.Date.DateNizek;
+import nizekAccountant.logic.Date.TimeNizek;
 import nizekAccountant.logic.DocModels.CheckDoc;
 import nizekAccountant.logic.DocModels.NormalDoc;
 import nizekAccountant.logic.UserRepository.UserRepository;
@@ -18,50 +20,57 @@ import nizekAccountant.logic.UserRepository.UserRepository;
  */
 public class FilterDocs implements TableModel {
     UserRepository userRepository = new UserRepository();
- String selectedFilter;
-    
-    
-    public FilterDocs(String selectedFilter) {
-        this.selectedFilter=selectedFilter;
-        
+    String payeeNameDoc;
+    String selectedFilter;   
+    DateNizek after;
+    DateNizek before;
+    int beforeCost;
+    int afterCost;
+
+    public FilterDocs(String payeeNameDoc,DateNizek after, DateNizek before, int beforeCost, int afterCost,String selectedFilter) {
+        this.payeeNameDoc = payeeNameDoc;
+        this.after = after;
+        this.before = before;
+        this.beforeCost = beforeCost;
+        this.afterCost = afterCost;
+        this.selectedFilter = selectedFilter;
     }
-    
-    
-    
-    
-    
+
+   
+
+  
+
     
 
-    //declaring a new list the new list points to the list we pass to it
-    
-    
-    public List<NormalDoc> filteredListPassing(){
-    List<NormalDoc> filteredList= new ArrayList<>();
-    
-    switch(selectedIFilter){
-    
-    
-    
-    
-    }
-    
-    
-    
-        
-        
-        
+    public List<NormalDoc> getDocFilter() {
+        List<NormalDoc> filteredList = new ArrayList<>();
+
+        switch (selectedFilter) {
+
+            case "payee" -> {
+              return  userRepository.findNormalDocBasedOnName(payeeNameDoc);
+            }
+            case "cost" -> {
+              return  userRepository.readFilterBasedOnCostNormal(beforeCost,afterCost);
+                
+            }
+            case "time" -> {
+              return  userRepository.filteredNormalDocsBasedOnDateRange(before, after);
+                
+            }
+        }
+
         return filteredList;
-    
+
     }
-    
-    
+
     
     
     
     @Override
     public int getRowCount() {
-//return filtredDoclists.size();
-        return 0;
+return getDocFilter().size();
+        
     }
 
     @Override
@@ -128,31 +137,30 @@ public class FilterDocs implements TableModel {
 
          switch (columnIndex) {
             case 0 -> {
-               //  return Manager.normalDocList.get(rowIndex).getUser().getName();
+                 return getDocFilter().get(rowIndex).getUser().getName();
             }
             case 1 -> {
-               //  return Manager.normalDocList.get(rowIndex).getCost();
+                 return getDocFilter().get(rowIndex).getCost();
             }
             case 2 -> {
-              //  return Manager.normalDocList.get(rowIndex).convertCreditor(Manager.normalDocList.get(rowIndex).isCreditor());
+                return getDocFilter().get(rowIndex).convertCreditor(getDocFilter().get(rowIndex).isCreditor());
             }
             case 3 -> {
-              //    return Manager.normalDocList.get(rowIndex).getDate();
+                return getDocFilter().get(rowIndex).getDate();
             }
             case 4 -> {
                 
-            //  return Manager.normalDocList.get(rowIndex).getTime();
+             return getDocFilter().get(rowIndex).getTime();
             }
            
             case 5 ->{
-            // return Manager.normalDocList.get(rowIndex).getDescription();
+            return getDocFilter().get(rowIndex).getDescription();
             }            
             default -> throw new IndexOutOfBoundsException(String.format("Column index not exist. (%d)", columnIndex));
         }
 
 
 
-return null;
 
 
 
@@ -162,22 +170,22 @@ return null;
     public void setValueAt(Object aValue, int rowIndex, int columnIndex) {
          switch (columnIndex) {
             case 0 -> {
-//               Manager.costumerList.get(rowIndex).setName((String) aValue);
+               getDocFilter().get(rowIndex).getUser().setName((String) aValue);
             }
             case 1 -> {
-//                 Manager.normalDocList.get(rowIndex).setCost((String) aValue);
+                getDocFilter().get(rowIndex).setCost((String) aValue);
             }
             case 2 -> {
-//                Manager.normalDocList.get(rowIndex).setCreditor((boolean) aValue);
+               getDocFilter().get(rowIndex).setCreditor((boolean) aValue);
             }
             case 3 -> {
-//                Manager.normalDocList.get(rowIndex).setDate((DateNizek) aValue);
+                getDocFilter().get(rowIndex).setDate((DateNizek) aValue);
             }
             case 4 -> {
-//                Manager.normalDocList.get(rowIndex).setTime((TimeNizek) aValue);
+                getDocFilter().get(rowIndex).setTime((TimeNizek) aValue);
             }
             case 5 -> {
-//                Manager.normalDocList.get(rowIndex).setDescription((String) aValue);
+               getDocFilter().get(rowIndex).setDescription((String) aValue);
             }
 
             default -> throw new IndexOutOfBoundsException(String.format("Column index not exist. (%d)", columnIndex));

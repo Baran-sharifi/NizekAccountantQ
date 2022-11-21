@@ -90,7 +90,17 @@ public class UserRepository implements Storeable {
         }
         return filteredList;
     }
-
+    
+    public List<NormalDoc> findNormalDocBasedOnName(String name) {
+        List<NormalDoc> filteredList = new ArrayList<>();
+        for (NormalDoc NormalDoc : Manager.normalDocList) {
+            if (name.equals(NormalDoc.getUser().getName())) {
+                filteredList.add(NormalDoc);
+            }
+        }
+        return filteredList;
+    }
+    
     public Costumer findCostumerBasedOnIndex(int index) {
         return Manager.costumerList.get(index);
     }
@@ -140,7 +150,7 @@ public class UserRepository implements Storeable {
         return filteredList;
     }
 
-    public List<NormalDoc> readFilterBasedOnCostNormal(int beforeCost, int afterCost) {
+    public List<NormalDoc> readFilterBasedOnCostNormal(double beforeCost, double afterCost) {
         List<NormalDoc> filteredList = new ArrayList<>();
         for (NormalDoc object : Manager.normalDocList) {
             if (Integer.parseInt(object.getCost()) >= beforeCost && Integer.parseInt(object.getCost()) <= afterCost) {
@@ -180,7 +190,7 @@ public class UserRepository implements Storeable {
         return filteredList;
     }
 
-    public List<CheckDoc> readFilterBasedOnCostCheck(double beforeCost, double afterCost) {
+    public List<CheckDoc> readFilterBasedOnCostCheck(int beforeCost, int afterCost) {
         List<CheckDoc> filteredList = new ArrayList<>();
         for (CheckDoc object : Manager.checkDocList) {
             if (Integer.parseInt(object.getCost()) >= beforeCost && Integer.parseInt(object.getCost()) <= afterCost) {
@@ -200,7 +210,21 @@ public class UserRepository implements Storeable {
 
         return filteredList;
     }
-    @Override
+
+ 
+ public List<NormalDoc> filteredNormalDocsBasedOnDateRange(DateNizek beforeDate, DateNizek afterDate){
+     List<NormalDoc> filteredList = new ArrayList<>();
+        for (NormalDoc normalDoc: Manager.normalDocList) {
+            if ((Integer.parseInt(normalDoc.getDate().forDateFormat()) >= Integer.parseInt(beforeDate.forDateFormat()))
+                    && (Integer.parseInt(normalDoc.getDate().forDateFormat()) <= Integer.parseInt(afterDate.forDateFormat()))) {
+                filteredList.add(normalDoc);
+            }
+        }
+
+        return filteredList;
+    }
+
+ @Override
     public String readFile(Costumer costumer, String inputNationalID) {
         return "Unused!";
     }
@@ -275,7 +299,12 @@ public class UserRepository implements Storeable {
     @Override
     public void writeToFileNormalDoc(List<NormalDoc> normalDocList) {
         try {
+            File file= new File("C:\\csvProject\\normalFile.csv");
+            
+            if(file.createNewFile()){
+            
             FileWriter fileWriter = new FileWriter("C:\\csvProject\\normalFile.csv");
+            
             BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
             PrintWriter printWriter = new PrintWriter(bufferedWriter);
             for (NormalDoc object : normalDocList) {
@@ -290,6 +319,7 @@ public class UserRepository implements Storeable {
             }
             printWriter.flush();
             printWriter.close();
+            }
 
         } catch (IOException e) {
             e.printStackTrace();
