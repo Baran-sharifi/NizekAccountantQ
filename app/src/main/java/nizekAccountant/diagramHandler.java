@@ -8,7 +8,7 @@ package nizekAccountant;
  *
  * @author Lenovo
  */
-public class diagramHandler extends javax.swing.JFrame {
+public class diagramHandler   {
 
     /**
      * Creates new form diagramHandler
@@ -37,11 +37,11 @@ public class diagramHandler extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGap(0, 501, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGap(0, 508, Short.MAX_VALUE)
         );
 
         pack();

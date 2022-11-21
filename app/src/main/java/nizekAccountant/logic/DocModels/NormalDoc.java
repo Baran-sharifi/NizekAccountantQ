@@ -5,6 +5,7 @@ import nizekAccountant.logic.Date.TimeNizek;
 import nizekAccountant.logic.Login.Costumer;
 
 public class NormalDoc {
+
     private Costumer costumer;
     private String cost;
     private String description;
@@ -12,7 +13,8 @@ public class NormalDoc {
     private DateNizek dateNizek;
     private TimeNizek timeNizek;
     private String payee;
-
+//a list of days
+//    static List<DayModel> listOfDays = new ArrayList<DayModel>();
     private int userID;
     private final String filePath = "C:\\csvProject\\normalDoc.csv";
     private final String isCreditorFilePath = "C:\\csvProject\\creditor.csv";
@@ -21,13 +23,12 @@ public class NormalDoc {
     public NormalDoc(String cost, String description, boolean isCreditor, DateNizek dateNizek, TimeNizek timeNizek, Costumer costumer) {
         this.cost = cost;
         this.description = description;
-        this.isCreditor  = isCreditor;
-        this.dateNizek   = dateNizek;
-        this.timeNizek   = timeNizek;
-        this.costumer    = costumer;
+        this.isCreditor = isCreditor;
+        this.dateNizek = dateNizek;
+        this.timeNizek = timeNizek;
+        this.costumer = costumer;
         userID = costumer.getID();
         payee = costumer.getName();
-
     }
 
     public Costumer getUser() {
@@ -35,14 +36,14 @@ public class NormalDoc {
     }
 //public NormalDoc() {}
 
-
     public String getPayee() {
-      return this.payee;
+        return this.payee;
     }
-   
+
     public void setUser(Costumer costumer) {
         this.costumer = costumer;
     }
+
     public void setCost(String cost) {
         this.cost = cost;
     }
@@ -63,10 +64,10 @@ public class NormalDoc {
         this.timeNizek = timeNizek;
     }
 
-
     public int getUserID() {
         return userID;
     }
+
     public String getCost() {
         return cost;
     }
@@ -79,14 +80,17 @@ public class NormalDoc {
         if (docStatus == false) {
             return "بدهکار";
         }
-       return "بدهکار";
+        return "بدهکار";
     }
+
     public boolean isCreditor() {
         return this.isCreditor;
     }
+
     public DateNizek getDate() {
         return dateNizek;
     }
+
     public TimeNizek getTime() {
         return timeNizek;
     }
@@ -98,9 +102,11 @@ public class NormalDoc {
     public String getNotCreditorFilePath() {
         return notCreditorFilePath;
     }
+
     public String getIsCreditorFilePath() {
         return isCreditorFilePath;
     }
+
     public String convertCreditor(boolean isCreditor) {
         String result = "Undefined!";
         if (isCreditor) {
@@ -108,7 +114,7 @@ public class NormalDoc {
         } else {
             result = "بدهکار";
         }
-        return  result;
+        return result;
     }
 
     @Override
@@ -122,4 +128,44 @@ public class NormalDoc {
                 getTime().toString()
         );
     }
+
+//    static class DayModel {
+//
+//        public double costDayModel;
+//        public double debt;
+//        public double credit;
+//        public DateNizek dateForChart;
+//
+//        public DayModel(DateNizek dateForChart) {
+//            this.dateForChart = dateForChart;
+//        }
+//
+//
+//// adds to list if its not added before
+//        public void addDayModel(DateNizek dateNz) {
+//            for (DayModel days : listOfDays) {
+//                if (days.dateForChart != dateNz) {
+//                    listOfDays.add(new DayModel(dateNz));
+//                }else{
+//                
+//                
+//                
+//                }
+//            }
+//
+//        }
+//
+//     public  DayModel dayReturner(DateNizek selectedDate) {
+//
+//            for (DayModel day : listOfDays) {
+//
+//                if (day.dateForChart.equals(selectedDate)) {
+//                    return day;
+//                }
+//            }
+//            return null;
+//        }
+//
+//    }
+
 }
