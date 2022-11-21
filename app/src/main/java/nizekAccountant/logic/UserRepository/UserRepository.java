@@ -229,7 +229,7 @@ public class UserRepository implements Storeable {
     @Override
     public void writeToFileCostumer(List<Costumer> costumerList) {
         try {
-            FileWriter fileWriter = new FileWriter("C:\\csvProject\\costumerFile.csv");
+            FileWriter fileWriter = new FileWriter("/Users/persuara/Desktop/repository/costumerFile.csv");
             BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
             PrintWriter printWriter = new PrintWriter(bufferedWriter);
             for (Costumer object : costumerList) {
@@ -251,7 +251,7 @@ public class UserRepository implements Storeable {
     @Override
     public void writeToFileCheckDoc(List<CheckDoc> checkDocList) {
         try {
-            FileWriter fileWriter = new FileWriter("C:\\csvProject\\checkFile.csv");
+            FileWriter fileWriter = new FileWriter("/Users/persuara/Desktop/repository/checkFile.csv");
             BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
             PrintWriter printWriter = new PrintWriter(bufferedWriter);
             for (CheckDoc object : checkDocList) {
@@ -275,7 +275,7 @@ public class UserRepository implements Storeable {
     @Override
     public void writeToFileNormalDoc(List<NormalDoc> normalDocList) {
         try {
-            FileWriter fileWriter = new FileWriter("C:\\csvProject\\normalFile.csv");
+            FileWriter fileWriter = new FileWriter("/Users/persuara/Desktop/repository/normalFile.csv");
             BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
             PrintWriter printWriter = new PrintWriter(bufferedWriter);
             for (NormalDoc object : normalDocList) {
@@ -299,7 +299,7 @@ public class UserRepository implements Storeable {
     @Override
     public void writeToFileAdmin() {
         try {
-            FileWriter fileWriter = new FileWriter("adminFile.csv");
+            FileWriter fileWriter = new FileWriter("/Users/persuara/Desktop/repository/adminFile.csv");
             BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
             PrintWriter printWriter = new PrintWriter(bufferedWriter);
             for (Admin object : Manager.adminList) {
@@ -326,7 +326,6 @@ public class UserRepository implements Storeable {
             String line;
             while ((line = br.readLine()) != null) {
                 String[] emp = line.split(",");
-//                emp[1] = ConvertTime.convertToPersian(emp[1]);
                 String a = Arrays.toString(emp);
                 arraylist.add(a);
             }
@@ -361,11 +360,13 @@ public class UserRepository implements Storeable {
         List<String> gottenFile = readWholeFile(file);
         for (String model : gottenFile) {
             String[] temp = model.split(", ");
+            System.out.println(Arrays.toString(temp));
             String[] date = temp[4].trim().split("-");
             String[] time = temp[5].trim().split(":");
             Manager.addCheckDocument(new CheckDoc(
                     temp[1].trim(),
-                    temp[2].trim(),
+                    temp[2],
+
                     ConverterTime.convertDate(ConverterTime.convertToPersian(temp[4].trim())),
                     new TimeNizek(Integer.parseInt(time[0]), Integer.parseInt(time[1])),
                     Converter.setBooleanCashed(temp[3].trim()),
@@ -378,6 +379,7 @@ public class UserRepository implements Storeable {
         List<String> gottenFile = readWholeFile(file);
         for (String model : gottenFile) {
             String[] temp = model.split(", ");
+            System.out.println(Arrays.toString(temp));
             String[] time = temp[5].trim().split(":");
             // Test
             Manager.addNormalDocument(new NormalDoc(

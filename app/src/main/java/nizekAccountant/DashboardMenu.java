@@ -57,19 +57,19 @@ public class DashboardMenu extends javax.swing.JFrame {
        
         
         DefaultCategoryDataset dataset= new DefaultCategoryDataset();
-        dataset.setValue();
+//        dataset.setValue();
         
         
         
         
     
         
-        
+       
         
         UserRepository userRepository = new UserRepository();
-        userRepository.readAndAddCostumer(new File("C:\\csvProject\\costumerFile.csv"));
-        userRepository.readAndAddCheckDoc(new File("C:\\csvProject\\checkFile.csv"));
-        userRepository.readAndAddNormalDoc(new File("C:\\csvProject\\normalFile.csv"));
+        userRepository.readAndAddCostumer(new File("/Users/persuara/Desktop/repository/costumerFile.csv"));
+        userRepository.readAndAddCheckDoc(new File("/Users/persuara/Desktop/repository/checkFile.csv"));
+        userRepository.readAndAddNormalDoc(new File("/Users/persuara/Desktop/repository/normalFile.csv"));
         DefaultComboBoxModel<String> defaultComboBoxModel1 = new DefaultComboBoxModel<>();
         DefaultComboBoxModel<String> defaultComboBoxModel2 = new DefaultComboBoxModel<>();
         DefaultComboBoxModel<String> defaultComboBoxModel3 = new DefaultComboBoxModel<>();
@@ -2970,7 +2970,7 @@ public class DashboardMenu extends javax.swing.JFrame {
         System.out.println(indexCostumerDoc);
        String selectedDoc = addDocCombo.getSelectedItem().toString();
         System.out.println(selectedDoc);
-        String descriptionDoc = discriptionTextAdd.getText();
+        String descriptionDoc = discriptionDocAdd.getText();
         String addCostDoc = costDocAdd.getText();        
         String addDocSelectedPayee = addDocCombo.getSelectedItem().toString();
        
@@ -3018,9 +3018,6 @@ public class DashboardMenu extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(addDocPanel, "فیلد  های ورودی را صحیح وارد کنید",
                     "اطلاعات نامعتبر", JOptionPane.ERROR_MESSAGE);
         }
-
-//  refactor id to nationalId
-        peopleDocList.addItem(userName);
 
     }//GEN-LAST:event_btnconfirmActionPerformed
 

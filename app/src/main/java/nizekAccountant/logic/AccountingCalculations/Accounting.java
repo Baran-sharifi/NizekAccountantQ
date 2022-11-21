@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Accounting {
+
     static UserRepository userRepository = new UserRepository();
 
     public static double calculateMoneyFromFile(File file) {
@@ -23,11 +24,12 @@ public class Accounting {
         }
         return result;
     }
+
     //Calculates the sum of NormalDocs if only and only isCreditor is true
     public static double calculateMoneyFromModelNormalCreditor(List<NormalDoc> normalDocList) {
         List<Double> moneyList = new ArrayList<>();
         double result = 0;
-        for (NormalDoc normalDoc: normalDocList) {
+        for (NormalDoc normalDoc : normalDocList) {
             if (normalDoc.isCreditor()) {
                 moneyList.add(Converter.convertToDouble(normalDoc.getCost()));
             }
@@ -37,11 +39,12 @@ public class Accounting {
         }
         return result;
     }
+
     //Calculates the sum of NormalDocs if only and only isCreditor is false
     public static double calculateMoneyFromModelNormalNotCreditor(List<NormalDoc> normalDocList) {
         List<Double> moneyList = new ArrayList<>();
         double result = 0;
-        for (NormalDoc normalDoc: normalDocList) {
+        for (NormalDoc normalDoc : normalDocList) {
             if (!normalDoc.isCreditor()) {
                 moneyList.add(Converter.convertToDouble(normalDoc.getCost()));
             }
@@ -51,25 +54,28 @@ public class Accounting {
         }
         return result;
     }
+
     public static double calculateTheResultOfNormalDoc() {
         return calculateMoneyFromModelNormalCreditor(Manager.normalDocList) - calculateMoneyFromModelNormalNotCreditor(Manager.normalDocList);
     }
+
     public static String getTheStatusOfNormalDoc() {
         String status = "";
         if (calculateTheResultOfNormalDoc() > 0) {
             status = "بستانکار";
-        } else if (calculateTheResultOfNormalDoc() < 0){
+        } else if (calculateTheResultOfNormalDoc() < 0) {
             status = "بدهکار";
         } else {
             status = "سر به سر";
         }
         return status;
     }
+
     //Calculates the sum of Checks if only and only isCashed is true
-    public static double calculateMoneyFromModelCheckCashed(List<CheckDoc> checkDocList) {
+    public static double calculateMoneyFromModelCheckCashed() {
         List<Double> moneyList = new ArrayList<>();
         double result = 0;
-        for (CheckDoc checkDoc: checkDocList) {
+        for (CheckDoc checkDoc : Manager.checkDocList) {
             if (checkDoc.isCashedd()) {
                 moneyList.add(Converter.convertToDouble(checkDoc.getCost()));
             }
@@ -79,11 +85,12 @@ public class Accounting {
         }
         return result;
     }
+
     //Calculates the sum of CheckDoc if only and only isCashed is false
-    public static double calculateMoneyFromModelCheckNotCashed(List<CheckDoc> checkDocList) {
+    public static double calculateMoneyFromModelCheckNotCashed() {
         List<Double> moneyList = new ArrayList<>();
         double result = 0;
-        for (CheckDoc checkDoc : checkDocList) {
+        for (CheckDoc checkDoc : Manager.checkDocList) {
             if (!checkDoc.isCashedd()) {
                 moneyList.add(Converter.convertToDouble(checkDoc.getCost()));
             }
@@ -93,6 +100,34 @@ public class Accounting {
         }
         return result;
     }
+    public static double calculateMoneyFromModelNormalCreditor() {
+        List<Double> moneyList = new ArrayList<>();
+        double result = 0;
+        for (NormalDoc normalDoc : Manager.normalDocList) {
+            if (normalDoc.isCreditor()) {
+                moneyList.add(Converter.convertToDouble(normalDoc.getCost()));
+            }
+        }
+        for (int i = 0; i < moneyList.size(); i++) {
+            result += moneyList.get(i);
+        }
+        return result;
+    }
+    
+    public static double calculateMoneyFromModelNormalDebtor() {
+        List<Double> moneyList = new ArrayList<>();
+        double result = 0;
+        for (NormalDoc normalDoc : Manager.normalDocList) {
+            if (!normalDoc.isCreditor()) {
+                moneyList.add(Converter.convertToDouble(normalDoc.getCost()));
+            }
+        }
+        for (int i = 0; i < moneyList.size(); i++) {
+            result += moneyList.get(i);
+        }
+        return result;
+    }
+
     public static double reportAllTransactionNORMAL(List<NormalDoc> normalDocList) {
         double creditorSum = calculateMoneyFromFile(new File(normalDocList.get(0).getIsCreditorFilePath()));
         double notCreditorSum = calculateMoneyFromFile(new File(normalDocList.get(0).getNotCreditorFilePath()));
@@ -137,6 +172,7 @@ public class Accounting {
             result += (doubleList.get(i) * integerList.get(i));
             sum += doubleList.get(i);
         }
-        return  (result/sum);
+        return (result / sum);
     }
+    
 }

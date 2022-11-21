@@ -29,9 +29,9 @@ public class ConverterTime {
     }
     public static DateNizek convertDate(String date) {
         String[] dateArray = date.split("-");
-        int intDay = Integer.parseInt(dateArray[0]);
+        int intDay = Integer.parseInt(dateArray[2]);
         int intMonth = Integer.parseInt(dateArray[1]);
-        int intyear = Integer.parseInt(dateArray[2]);
+        int intyear = Integer.parseInt(dateArray[0]);
         return new DateNizek(intDay,intMonth,intyear);
     }
     public static DateNizek convertToPersianNeeded(String day, String month, String year) {

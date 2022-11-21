@@ -98,7 +98,6 @@ public class ShowDocRepository implements TableModel {
                 
               return Manager.normalDocList.get(rowIndex).getTime();
             }
-           
             case 5 ->{
              return Manager.normalDocList.get(rowIndex).getDescription();
             }            
