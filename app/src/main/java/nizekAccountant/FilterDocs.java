@@ -27,13 +27,26 @@ public class FilterDocs implements TableModel {
     int beforeCost;
     int afterCost;
 
-    public FilterDocs(String payeeNameDoc,DateNizek after, DateNizek before, int beforeCost, int afterCost,String selectedFilter) {
-        this.payeeNameDoc = payeeNameDoc;
-        this.after = after;
-        this.before = before;
-        this.beforeCost = beforeCost;
+public FilterDocs(String selectedFilter,int beforeCost, int afterCost){
+    
+    this.selectedFilter=selectedFilter;
+     this.beforeCost = beforeCost;
         this.afterCost = afterCost;
-        this.selectedFilter = selectedFilter;
+    }
+    
+    
+    public FilterDocs(String selectedFilter,DateNizek after, DateNizek before){
+     this.selectedFilter=selectedFilter;
+    this.after = after;
+        this.before = before;
+    }
+    
+    
+    
+    public FilterDocs(String selectedFilter,String payeeNameDoc){
+      this.payeeNameDoc = payeeNameDoc;
+       this.selectedFilter = selectedFilter;
+    
     }
 
    
@@ -43,24 +56,27 @@ public class FilterDocs implements TableModel {
     
 
     public List<NormalDoc> getDocFilter() {
-        List<NormalDoc> filteredList = new ArrayList<>();
+        List<NormalDoc> filteredList;
 
         switch (selectedFilter) {
 
             case "payee" -> {
-              return  userRepository.findNormalDocBasedOnName(payeeNameDoc);
+              
+                filteredList=userRepository.findNormalDocBasedOnName(payeeNameDoc);
+            
+            return filteredList;
             }
             case "cost" -> {
-              return  userRepository.readFilterBasedOnCostNormal(beforeCost,afterCost);
-                
+              filteredList=  userRepository.readFilterBasedOnCostNormal(beforeCost,afterCost);
+                  return filteredList;
             }
             case "time" -> {
-              return  userRepository.filteredNormalDocsBasedOnDateRange(before, after);
-                
+              filteredList= userRepository.filteredNormalDocsBasedOnDateRange(before, after);
+                  return filteredList;
             }
         }
 
-        return filteredList;
+        return null;
 
     }
 

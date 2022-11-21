@@ -3285,7 +3285,7 @@ public class DashboardMenu extends javax.swing.JFrame {
                 checkCostFromValue = checkcostToValue;
                 checkcostToValue = temp;
             }
-                     
+
             checkCostFrom.setText(Double.toString(checkCostFromValue));
             checkCostTo.setText(Double.toString(checkcostToValue));
 
@@ -3306,18 +3306,13 @@ public class DashboardMenu extends javax.swing.JFrame {
             DateNizek dateNZKTo = new DateNizek(CheckfilterDTo, CheckfilterMTo, CheckfilterYTo);
 
             filterChecks = new FilterChecks(checkFilter, dateNZKTo, dateNZKFrom);
-        } else if(payeeCheckRBtn.isSelected()){
-        
-        String payeeFilterNameCheck = peopleCheckList.getSelectedItem().toString();
-        
-        filterChecks = new FilterChecks(checkFilter,payeeFilterNameCheck);
-        
-        
+        } else if (payeeCheckRBtn.isSelected()) {
+
+            String payeeFilterNameCheck = peopleCheckList.getSelectedItem().toString();
+
+            filterChecks = new FilterChecks(checkFilter, payeeFilterNameCheck);
+
         }
-            
-            
-            
-            
 
         filteredCheckTable.setModel(filterChecks);
 
@@ -3326,45 +3321,48 @@ public class DashboardMenu extends javax.swing.JFrame {
 
     private void filteringDocsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_filteringDocsActionPerformed
         docFilter = filterDocSelector();
-        
-        System.out.println(docFilter);
-        int selectedMonth = monthscheckCombo.getSelectedIndex();//the month
-        String payeeFilterNameDoc = peopleDocList.getSelectedItem().toString();
-        //============ slider cost==================================================
-        int docCostFromValue = docSlider1.getValue();
-        int docCostToValue = docSlider2.getValue();
-        if (docCostFromValue > docCostToValue) {
-            int temp = docCostFromValue;
-            docCostFromValue = docCostToValue;
-            docCostToValue = temp;
-        }
-        //===========slider cost things :) ==========================================         
-        DocCostFrom.setText(Integer.toString(docCostFromValue));
-        DocCostTo.setText(Integer.toString(docCostToValue));
 
-        docSlider1.setValue(docCostFromValue);
-        docSlider2.setValue(docCostToValue);
-        //    checkWeightLabel.setText(String.valueOf(Accounting.calculateWeight()));
-        //====================Date from and to ============================================           
-        if (TimeDocRBtn.isSelected()) {
+        if (costDocRBtn.isSelected()) {
+            int docCostFromValue = docSlider1.getValue();
+            int docCostToValue = docSlider2.getValue();
+            if (docCostFromValue > docCostToValue) {
+                int temp = docCostFromValue;
+                docCostFromValue = docCostToValue;
+                docCostToValue = temp;
+            }
+
+            DocCostFrom.setText(Double.toString(docCostFromValue));
+            DocCostTo.setText(Double.toString(docCostToValue));
+
+            docSlider1.setValue(docCostFromValue);
+            docSlider2.setValue(docCostToValue);
+            //  checkWeightLabel.setText(String.valueOf(Accounting.calculateWeight()));
+            filterDocs = new FilterDocs(docFilter, docCostFromValue, docCostToValue);
+        } else if (TimeDocRBtn.isSelected()) {
             int DocfilterDfrom = Integer.parseInt(DRangeChecksYear1.getText());//integer 
             int DocfilterMfrom = Integer.parseInt(DRangeChecksMonth.getText());
             int DocfilterYfrom = Integer.parseInt(DRangeChecksYear.getText());
-            DateNizek dateNZKFromDoc = new DateNizek(DocfilterDfrom, DocfilterMfrom, DocfilterYfrom);
+            DateNizek dateNZKFrom = new DateNizek(DocfilterDfrom, DocfilterMfrom, DocfilterYfrom);
 
             int DocfilterDTo = Integer.parseInt(DRangeDocsDay3.getText());
             int DocfilterMTo = Integer.parseInt(DRangeDocsMonth2.getText());
             int DocfilterYTo = Integer.parseInt(DRangeDocsYear2.getText());
 
-            DateNizek dateNZKToDoc = new DateNizek(DocfilterDTo, DocfilterMTo, DocfilterYTo);
-            //
+            DateNizek dateNZKTo = new DateNizek(DocfilterDTo, DocfilterMTo, DocfilterYTo);
+
+            filterDocs = new FilterDocs(docFilter, dateNZKTo, dateNZKFrom);
+        } else if (payeeDocRBtn.isSelected()) {
+
+            String payeeFilterNameCheck = peopleDocList.getSelectedItem().toString();
+
+            filterDocs = new FilterDocs(docFilter, payeeFilterNameCheck);
 
         }
 
-        landPage(filteredDocs);
-        //     filterDocs=new FilterDocs(docFilter);
+       
         filteredDocTable.setModel(filterDocs);
-
+        landPage(filteredDocs);
+//    checkWeightLabel.setText(String.valueOf(Accounting.calculateWeight()));
     }//GEN-LAST:event_filteringDocsActionPerformed
 
     private void DRangeDocsmonthActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DRangeDocsmonthActionPerformed
@@ -3491,7 +3489,7 @@ public class DashboardMenu extends javax.swing.JFrame {
         }
         return "";
     }
-    
+
     public String filterDocSelector() {
         if (payeeDocRBtn.isSelected()) {
             return "payee";
@@ -3502,23 +3500,6 @@ public class DashboardMenu extends javax.swing.JFrame {
         }
         return "";
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
 
     /**
      * @param args e command line argumentsthe command line arguments
