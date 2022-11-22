@@ -9,5 +9,10 @@ package nizekAccountant;
  * @author Lenovo
  */
 public class showDocLogic {
+ 
+    
+    
+    
+    
     
 }

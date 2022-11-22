@@ -10,4 +10,18 @@ package nizekAccountant;
  */
 public class ShowCheckLogic {
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 }

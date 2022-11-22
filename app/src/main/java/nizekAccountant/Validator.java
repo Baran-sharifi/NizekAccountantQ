@@ -90,8 +90,53 @@ public class Validator {
     
     }
     
+static boolean dayFieldIsValid(String day){
+boolean range=false;
+    String regex="^\\d{1,2}";
+Pattern pattern = Pattern.compile(regex);
+        Matcher matcher = pattern.matcher(day);
+        int dayInt=Integer.parseInt(day);
+    if(dayInt>0&&dayInt<=31){
+  range=true;
+ }        
+        return (matcher.matches()&&range);
+       
     
+}    
     
+static boolean monthIsValid(String month){
+boolean range=false;
+    String regex="^\\d{1,2}";
+Pattern pattern = Pattern.compile(regex);
+        Matcher matcher = pattern.matcher(month);
+        int monthInt=Integer.parseInt(month);
+    if(monthInt>0&&monthInt<=12){
+  range=true;
+ }        
+        return (matcher.matches()&&range);
+
+}
+ 
+static boolean yearIsValidDoc(String year){
+
+boolean range=false;
+    String regex="^\\d{4}";
+Pattern pattern = Pattern.compile(regex);
+        Matcher matcher = pattern.matcher(year);
+        int yearInt=Integer.parseInt(year);
+        return (matcher.matches());
+ }        
+
+
+
+
+
+
+
+}
+
+
+
 
     // static boolean isReadyToAdd(){} 
-}
+

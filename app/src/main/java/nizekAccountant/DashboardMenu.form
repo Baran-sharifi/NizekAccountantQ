@@ -1132,28 +1132,28 @@
                   <EmptySpace min="91" pref="91" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
-                          <Component id="DRangeDocsYear4" min="-2" pref="64" max="-2" attributes="0"/>
+                          <Component id="DRangeDocsYearTo" min="-2" pref="64" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="jLabel49" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="DRangeDocsmonth" min="-2" pref="64" max="-2" attributes="0"/>
+                          <Component id="DRangeDocsmonthTo" min="-2" pref="64" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
                           <Component id="jLabel50" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
-                          <Component id="DRangeDocsYear3" min="-2" pref="64" max="-2" attributes="0"/>
+                          <Component id="DRangeDocsYearFrom" min="-2" pref="64" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="jLabel48" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
-                          <Component id="DRangeDocsMonth" min="-2" pref="64" max="-2" attributes="0"/>
+                          <Component id="DRangeDocsMonthFrom" min="-2" pref="64" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="jLabel51" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="DRangeDocsDay" min="-2" pref="64" max="-2" attributes="0"/>
-                      <Component id="DRangeDocsDay2" min="-2" pref="64" max="-2" attributes="0"/>
+                      <Component id="DRangeDocsDayFrom" min="-2" pref="64" max="-2" attributes="0"/>
+                      <Component id="DRangeDocsDayTo" min="-2" pref="64" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
@@ -1174,14 +1174,14 @@
                   <Group type="103" groupAlignment="1" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
                           <Component id="backshowDoc" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="ShowDocsbtn" min="-2" pref="119" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" attributes="0">
-                                  <EmptySpace min="-2" pref="110" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="268" max="-2" attributes="0"/>
                                   <Component id="jLabel31" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="ShowDocsbtn" min="-2" pref="119" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Component id="filteringDocs" min="-2" max="-2" attributes="0"/>
                               </Group>
@@ -1308,22 +1308,22 @@
                           <Component id="jLabel23" min="-2" pref="29" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="DRangeDocsmonth" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="DRangeDocsDay2" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="DRangeDocsmonthTo" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="DRangeDocsDayTo" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel49" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel50" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="DRangeDocsYear4" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="DRangeDocsYearTo" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="4" pref="4" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                                  <Component id="DRangeDocsMonth" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="DRangeDocsMonthFrom" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLabel48" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLabel51" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="DRangeDocsYear3" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="DRangeDocsDay" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="DRangeDocsYearFrom" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="DRangeDocsDayFrom" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <Component id="jLabel8" alignment="1" min="-2" pref="39" max="-2" attributes="0"/>
                           </Group>
@@ -1331,13 +1331,13 @@
                           <Component id="jLabel27" min="-2" pref="80" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="71" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="ShowDocsbtn" alignment="3" min="-2" pref="52" max="-2" attributes="0"/>
                       <Component id="backshowDoc" alignment="3" min="-2" pref="52" max="-2" attributes="0"/>
+                      <Component id="ShowDocsbtn" alignment="3" min="-2" pref="52" max="-2" attributes="0"/>
                       <Component id="filteringDocs" alignment="3" min="-2" pref="52" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" pref="109" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="90" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -1565,7 +1565,7 @@
             <Property name="text" type="java.lang.String" value="&#x628;&#x627;&#x632;&#x647; &#x6cc; &#x632;&#x645;&#x627;&#x646;&#x6cc; &#x645;&#x648;&#x631;&#x62f; &#x646;&#x638;&#x631; &#x631;&#x627; &#x648;&#x627;&#x631;&#x62f; &#x6a9;&#x646;&#x6cc;&#x62f;"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="DRangeDocsMonth">
+        <Component class="javax.swing.JTextField" name="DRangeDocsMonthFrom">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="66" green="66" red="66" type="rgb"/>
@@ -1582,7 +1582,7 @@
             </Property>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="DRangeDocsDay">
+        <Component class="javax.swing.JTextField" name="DRangeDocsDayFrom">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="66" green="66" red="66" type="rgb"/>
@@ -1599,10 +1599,10 @@
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="DRangeDocsDayActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="DRangeDocsDayFromActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JTextField" name="DRangeDocsmonth">
+        <Component class="javax.swing.JTextField" name="DRangeDocsmonthTo">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="66" green="66" red="66" type="rgb"/>
@@ -1619,10 +1619,10 @@
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="DRangeDocsmonthActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="DRangeDocsmonthToActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JTextField" name="DRangeDocsDay2">
+        <Component class="javax.swing.JTextField" name="DRangeDocsDayTo">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="66" green="66" red="66" type="rgb"/>
@@ -1705,7 +1705,7 @@
             <Property name="text" type="java.lang.String" value="/"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="DRangeDocsYear3">
+        <Component class="javax.swing.JTextField" name="DRangeDocsYearFrom">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="66" green="66" red="66" type="rgb"/>
@@ -1722,7 +1722,7 @@
             </Property>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="DRangeDocsYear4">
+        <Component class="javax.swing.JTextField" name="DRangeDocsYearTo">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="66" green="66" red="66" type="rgb"/>

@@ -112,10 +112,7 @@ public class DashboardMenu extends javax.swing.JFrame {
         docsTable.setModel(docRepo);
         peopleTable.setModel(peopleRepo);
         //   ButtonRounder btnRounder =new ButtonRounder(10);
-//        filteredDocTable.setModel(filterDocs);
-//        filteredCheckTable.setModel(filterChecks);
-//        
-        
+  
         checkSlider1.setMaximum(10000);
         checkSlider1.setMaximum(10000);
 
@@ -234,18 +231,18 @@ public class DashboardMenu extends javax.swing.JFrame {
         costDocRBtn = new javax.swing.JRadioButton();
         jLabel36 = new javax.swing.JLabel();
         jLabel23 = new javax.swing.JLabel();
-        DRangeDocsMonth = new javax.swing.JTextField();
-        DRangeDocsDay = new javax.swing.JTextField();
-        DRangeDocsmonth = new javax.swing.JTextField();
-        DRangeDocsDay2 = new javax.swing.JTextField();
+        DRangeDocsMonthFrom = new javax.swing.JTextField();
+        DRangeDocsDayFrom = new javax.swing.JTextField();
+        DRangeDocsmonthTo = new javax.swing.JTextField();
+        DRangeDocsDayTo = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         jLabel27 = new javax.swing.JLabel();
         jLabel48 = new javax.swing.JLabel();
         jLabel49 = new javax.swing.JLabel();
         jLabel50 = new javax.swing.JLabel();
         jLabel51 = new javax.swing.JLabel();
-        DRangeDocsYear3 = new javax.swing.JTextField();
-        DRangeDocsYear4 = new javax.swing.JTextField();
+        DRangeDocsYearFrom = new javax.swing.JTextField();
+        DRangeDocsYearTo = new javax.swing.JTextField();
         docSlider1 = new javax.swing.JSlider();
         docSlider2 = new javax.swing.JSlider();
         jLabel57 = new javax.swing.JLabel();
@@ -1009,31 +1006,31 @@ public class DashboardMenu extends javax.swing.JFrame {
         jLabel23.setForeground(new java.awt.Color(255, 255, 255));
         jLabel23.setText("بازه ی زمانی مورد نظر را وارد کنید");
 
-        DRangeDocsMonth.setBackground(new java.awt.Color(102, 102, 102));
-        DRangeDocsMonth.setForeground(new java.awt.Color(255, 255, 255));
-        DRangeDocsMonth.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "ماه", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(255, 255, 255))); // NOI18N
+        DRangeDocsMonthFrom.setBackground(new java.awt.Color(102, 102, 102));
+        DRangeDocsMonthFrom.setForeground(new java.awt.Color(255, 255, 255));
+        DRangeDocsMonthFrom.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "ماه", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(255, 255, 255))); // NOI18N
 
-        DRangeDocsDay.setBackground(new java.awt.Color(102, 102, 102));
-        DRangeDocsDay.setForeground(new java.awt.Color(255, 255, 255));
-        DRangeDocsDay.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "روز", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(255, 255, 255))); // NOI18N
-        DRangeDocsDay.addActionListener(new java.awt.event.ActionListener() {
+        DRangeDocsDayFrom.setBackground(new java.awt.Color(102, 102, 102));
+        DRangeDocsDayFrom.setForeground(new java.awt.Color(255, 255, 255));
+        DRangeDocsDayFrom.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "روز", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(255, 255, 255))); // NOI18N
+        DRangeDocsDayFrom.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                DRangeDocsDayActionPerformed(evt);
+                DRangeDocsDayFromActionPerformed(evt);
             }
         });
 
-        DRangeDocsmonth.setBackground(new java.awt.Color(102, 102, 102));
-        DRangeDocsmonth.setForeground(new java.awt.Color(255, 255, 255));
-        DRangeDocsmonth.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "ماه", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(255, 255, 255))); // NOI18N
-        DRangeDocsmonth.addActionListener(new java.awt.event.ActionListener() {
+        DRangeDocsmonthTo.setBackground(new java.awt.Color(102, 102, 102));
+        DRangeDocsmonthTo.setForeground(new java.awt.Color(255, 255, 255));
+        DRangeDocsmonthTo.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "ماه", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(255, 255, 255))); // NOI18N
+        DRangeDocsmonthTo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                DRangeDocsmonthActionPerformed(evt);
+                DRangeDocsmonthToActionPerformed(evt);
             }
         });
 
-        DRangeDocsDay2.setBackground(new java.awt.Color(102, 102, 102));
-        DRangeDocsDay2.setForeground(new java.awt.Color(255, 255, 255));
-        DRangeDocsDay2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "روز", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(255, 255, 255))); // NOI18N
+        DRangeDocsDayTo.setBackground(new java.awt.Color(102, 102, 102));
+        DRangeDocsDayTo.setForeground(new java.awt.Color(255, 255, 255));
+        DRangeDocsDayTo.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "روز", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(255, 255, 255))); // NOI18N
 
         jLabel8.setFont(new java.awt.Font("B Roya", 1, 14)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
@@ -1059,13 +1056,13 @@ public class DashboardMenu extends javax.swing.JFrame {
         jLabel51.setForeground(new java.awt.Color(255, 255, 255));
         jLabel51.setText("/");
 
-        DRangeDocsYear3.setBackground(new java.awt.Color(102, 102, 102));
-        DRangeDocsYear3.setForeground(new java.awt.Color(255, 255, 255));
-        DRangeDocsYear3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "سال", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(255, 255, 255))); // NOI18N
+        DRangeDocsYearFrom.setBackground(new java.awt.Color(102, 102, 102));
+        DRangeDocsYearFrom.setForeground(new java.awt.Color(255, 255, 255));
+        DRangeDocsYearFrom.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "سال", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(255, 255, 255))); // NOI18N
 
-        DRangeDocsYear4.setBackground(new java.awt.Color(102, 102, 102));
-        DRangeDocsYear4.setForeground(new java.awt.Color(255, 255, 255));
-        DRangeDocsYear4.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "سال", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(255, 255, 255))); // NOI18N
+        DRangeDocsYearTo.setBackground(new java.awt.Color(102, 102, 102));
+        DRangeDocsYearTo.setForeground(new java.awt.Color(255, 255, 255));
+        DRangeDocsYearTo.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "سال", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(255, 255, 255))); // NOI18N
 
         docSlider1.setBackground(new java.awt.Color(255, 255, 255));
         docSlider1.setForeground(new java.awt.Color(51, 51, 255));
@@ -1097,25 +1094,25 @@ public class DashboardMenu extends javax.swing.JFrame {
                 .addGap(91, 91, 91)
                 .addGroup(showDocPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(showDocPanelLayout.createSequentialGroup()
-                        .addComponent(DRangeDocsYear4, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(DRangeDocsYearTo, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel49)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(DRangeDocsmonth, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(DRangeDocsmonthTo, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(4, 4, 4)
                         .addComponent(jLabel50))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, showDocPanelLayout.createSequentialGroup()
-                        .addComponent(DRangeDocsYear3, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(DRangeDocsYearFrom, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel48)
                         .addGap(9, 9, 9)
-                        .addComponent(DRangeDocsMonth, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(DRangeDocsMonthFrom, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel51)))
                 .addGap(18, 18, 18)
                 .addGroup(showDocPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(DRangeDocsDay, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(DRangeDocsDay2, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(DRangeDocsDayFrom, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(DRangeDocsDayTo, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(showDocPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(showDocPanelLayout.createSequentialGroup()
@@ -1131,13 +1128,13 @@ public class DashboardMenu extends javax.swing.JFrame {
                 .addGroup(showDocPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(showDocPanelLayout.createSequentialGroup()
                         .addComponent(backshowDoc)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(ShowDocsbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGroup(showDocPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(showDocPanelLayout.createSequentialGroup()
-                                .addGap(110, 110, 110)
+                                .addGap(268, 268, 268)
                                 .addComponent(jLabel31))
                             .addGroup(showDocPanelLayout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(ShowDocsbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(filteringDocs))))
                     .addGroup(showDocPanelLayout.createSequentialGroup()
@@ -1232,29 +1229,29 @@ public class DashboardMenu extends javax.swing.JFrame {
                         .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(32, 32, 32)
                         .addGroup(showDocPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(DRangeDocsmonth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(DRangeDocsDay2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(DRangeDocsmonthTo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(DRangeDocsDayTo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel49)
                             .addComponent(jLabel50)
-                            .addComponent(DRangeDocsYear4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(DRangeDocsYearTo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(showDocPanelLayout.createSequentialGroup()
                         .addGap(4, 4, 4)
                         .addGroup(showDocPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(showDocPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(DRangeDocsMonth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(DRangeDocsMonthFrom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(jLabel48)
                                 .addComponent(jLabel51)
-                                .addComponent(DRangeDocsYear3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(DRangeDocsDay, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(DRangeDocsYearFrom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(DRangeDocsDayFrom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jLabel8, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel27, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(52, 52, 52)
+                .addGap(71, 71, 71)
                 .addGroup(showDocPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(ShowDocsbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(backshowDoc, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ShowDocsbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(filteringDocs, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(109, 109, 109))
+                .addGap(90, 90, 90))
         );
 
         addDocPanel.setBackground(new java.awt.Color(153, 153, 153));
@@ -3213,8 +3210,8 @@ public class DashboardMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_peopleDocListActionPerformed
 
     private void monthsDocComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_monthsDocComboActionPerformed
-        DRangeDocsMonth.setText(Integer.toString(monthsDocCombo.getSelectedIndex()+1));
-        DRangeDocsmonth.setText(Integer.toString(monthsDocCombo.getSelectedIndex()+1));
+        DRangeDocsMonthFrom.setText(Integer.toString(monthsDocCombo.getSelectedIndex()+1));
+        DRangeDocsmonthTo.setText(Integer.toString(monthsDocCombo.getSelectedIndex()+1));
     }//GEN-LAST:event_monthsDocComboActionPerformed
 
     private void MonthlyDocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MonthlyDocActionPerformed
@@ -3250,21 +3247,19 @@ public class DashboardMenu extends javax.swing.JFrame {
                 docSlider2.setValue(DocCostToValue);
 
             }
-
-            System.out.println("DocCostFromValue" + DocCostFromValue);
-            System.out.println("DocCostTOValue" + DocCostToValue);
         }
         if (TimeDocRBtn.isSelected()) {
             if (MonthlyDoc.isSelected()) {
                 int selectedMonth1 = monthsDocCombo.getSelectedIndex();
             } else {
-                String filterDfrom = DRangeDocsDay.getText();
-                String filterMfrom = DRangeDocsMonth.getText();
-                String filterYfrom = DRangeDocsYear3.getText();
+                String filterDfrom = DRangeDocsDayFrom.getText();
+                String filterMfrom = DRangeDocsMonthFrom.getText();
+                String filterYfrom = DRangeDocsYearFrom.getText();
 
-                String filterDTo = DRangeDocsDay2.getText();
-                String filterMTo = DRangeDocsmonth.getText();
-                String filterYTo = DRangeDocsYear4.getText();
+                String filterDTo = DRangeDocsDayTo.getText();
+                String filterMTo = DRangeDocsmonthTo.getText();
+                String filterYTo = DRangeDocsYearTo.getText();
+            
             }
         }
     }//GEN-LAST:event_ShowDocsbtnActionPerformed
@@ -3403,18 +3398,30 @@ public class DashboardMenu extends javax.swing.JFrame {
             //  checkWeightLabel.setText(String.valueOf(Accounting.calculateWeight()));
             filterDocs = new FilterDocs(docFilter, docCostFromValue, docCostToValue);
         } else if (TimeDocRBtn.isSelected()) {
-            int DocfilterDfrom = Integer.parseInt(DRangeDocsDay.getText());//integer 
-            int DocfilterMfrom = Integer.parseInt(DRangeDocsMonth.getText());
-            int DocfilterYfrom = Integer.parseInt(DRangeDocsYear3.getText());
+//===================================================================================================================            
+            int DocfilterDfrom = Integer.parseInt(DRangeDocsDayFrom.getText());//integer 
+            int DocfilterMfrom = Integer.parseInt(DRangeDocsMonthFrom.getText());
+            int DocfilterYfrom = Integer.parseInt(DRangeDocsYearFrom.getText());
             DateNizek dateNZKFrom = new DateNizek(DocfilterDfrom, DocfilterMfrom, DocfilterYfrom);
-
-            int DocfilterDTo = Integer.parseInt(DRangeDocsDay3.getText());
-            int DocfilterMTo = Integer.parseInt(DRangeDocsMonth2.getText());
-            int DocfilterYTo = Integer.parseInt(DRangeDocsYear2.getText());
-
+boolean validFrom=(Validator.dayFieldIsValid(DRangeDocsDayFrom.getText())
+        &&Validator.monthIsValid(DRangeDocsMonthFrom.getText())&&
+        Validator.yearIsValidDoc(DRangeDocsYearFrom.getText()));
+//==================================================================================================================            
+            int DocfilterDTo = Integer.parseInt(DRangeDocsDayTo.getText());
+            int DocfilterMTo = Integer.parseInt(DRangeDocsmonthTo.getText());
+            int DocfilterYTo = Integer.parseInt(DRangeDocsYearTo.getText());
             DateNizek dateNZKTo = new DateNizek(DocfilterDTo, DocfilterMTo, DocfilterYTo);
-
+   
+boolean validTo=(Validator.dayFieldIsValid(DRangeDocsDayTo.getText())
+        &&Validator.monthIsValid(DRangeDocsmonthTo.getText())&&
+        Validator.yearIsValidDoc(DRangeDocsYearTo.getText()));
             filterDocs = new FilterDocs(docFilter, dateNZKTo, dateNZKFrom);
+if(!(validTo&&validFrom)){
+  JOptionPane.showMessageDialog(addDocPanel, "فیلد های تاریخ را صحیح وارد کنید",
+                "", JOptionPane.ERROR_MESSAGE);
+}
+        
+        
         } else if (payeeDocRBtn.isSelected()) {
 
             String payeeFilterNameCheck = peopleDocList.getSelectedItem().toString();
@@ -3429,13 +3436,13 @@ public class DashboardMenu extends javax.swing.JFrame {
 //    checkWeightLabel.setText(String.valueOf(Accounting.calculateWeight()));
     }//GEN-LAST:event_filteringDocsActionPerformed
 
-    private void DRangeDocsmonthActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DRangeDocsmonthActionPerformed
+    private void DRangeDocsmonthToActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DRangeDocsmonthToActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_DRangeDocsmonthActionPerformed
+    }//GEN-LAST:event_DRangeDocsmonthToActionPerformed
 
-    private void DRangeDocsDayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DRangeDocsDayActionPerformed
+    private void DRangeDocsDayFromActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DRangeDocsDayFromActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_DRangeDocsDayActionPerformed
+    }//GEN-LAST:event_DRangeDocsDayFromActionPerformed
 
     private void convertToDocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_convertToDocActionPerformed
         for (CheckDoc check : Manager.checkDocList) {
@@ -3618,15 +3625,15 @@ public class DashboardMenu extends javax.swing.JFrame {
     private javax.swing.JTextField DRangeChecksMonth;
     private javax.swing.JTextField DRangeChecksYear;
     private javax.swing.JTextField DRangeChecksYear1;
-    private javax.swing.JTextField DRangeDocsDay;
-    private javax.swing.JTextField DRangeDocsDay2;
     private javax.swing.JTextField DRangeDocsDay3;
-    private javax.swing.JTextField DRangeDocsMonth;
+    private javax.swing.JTextField DRangeDocsDayFrom;
+    private javax.swing.JTextField DRangeDocsDayTo;
     private javax.swing.JTextField DRangeDocsMonth2;
+    private javax.swing.JTextField DRangeDocsMonthFrom;
     private javax.swing.JTextField DRangeDocsYear2;
-    private javax.swing.JTextField DRangeDocsYear3;
-    private javax.swing.JTextField DRangeDocsYear4;
-    private javax.swing.JTextField DRangeDocsmonth;
+    private javax.swing.JTextField DRangeDocsYearFrom;
+    private javax.swing.JTextField DRangeDocsYearTo;
+    private javax.swing.JTextField DRangeDocsmonthTo;
     private javax.swing.JLabel DocCostFrom;
     private javax.swing.JLabel DocCostTo;
     private javax.swing.JPanel LoginPanel;
