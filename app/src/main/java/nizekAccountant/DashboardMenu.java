@@ -38,34 +38,22 @@ public class DashboardMenu extends javax.swing.JFrame {
     private ShowPeopleRepository peopleRepo;
     private ShowCheckRepository checkRepo;
 
+    private FilterChecks filterChecks;
+    private FilterDocs filterDocs;
     private GraphicsManager btnmanager;
     //  private ButtonRounder btnRounder;
     GroupType b = new GroupType("مشتری");
-
-   
+    String checkFilter;
+    String docFilter;
 
     public DashboardMenu() {
         initComponents();
         btnmanager = new GraphicsManager(102, 102, 255, dimension);
         landPage(dashboard);
-        disableFilter();   
+        disableFilter();
         SliderListener();
         // Test
-    
-       
-       
-       
-        
-        DefaultCategoryDataset dataset= new DefaultCategoryDataset();
-//        dataset.setValue();
-        
-        
-        
-        
-    
-        
-       
-        
+
         UserRepository userRepository = new UserRepository();
         userRepository.readAndAddCostumer(new File("/Users/persuara/Desktop/repository/costumerFile.csv"));
         userRepository.readAndAddCheckDoc(new File("/Users/persuara/Desktop/repository/checkFile.csv"));
@@ -74,16 +62,14 @@ public class DashboardMenu extends javax.swing.JFrame {
         DefaultComboBoxModel<String> defaultComboBoxModel2 = new DefaultComboBoxModel<>();
         DefaultComboBoxModel<String> defaultComboBoxModel3 = new DefaultComboBoxModel<>();
         DefaultComboBoxModel<String> defaultComboBoxModel4 = new DefaultComboBoxModel<>();
- 
+
 //============comboBoxes setting==============================================        
-        
         payeesComboBox.setModel(defaultComboBoxModel1);
         for (Costumer item : Manager.costumerList) {
             defaultComboBoxModel1.addElement(item.getName());
             System.out.println("payee combo box is fine");
         }
 
-        
         peopleDocList.setModel(defaultComboBoxModel2);
         for (Costumer item : Manager.costumerList) {
             defaultComboBoxModel2.addElement(item.getName());
@@ -96,29 +82,35 @@ public class DashboardMenu extends javax.swing.JFrame {
             System.out.println("peoplecheck list is fine");
         }
 
-
         addDocCombo.setModel(defaultComboBoxModel4);
         for (Costumer item : Manager.costumerList) {
             defaultComboBoxModel4.addElement(item.getName());
             System.out.println("addDoc combo is fine");
         }
 
-       
         addCheckLogic = new AddCheckLogic();
         addDocLogic = new AddDocLogic();
         addUserLogic = new AddUserLogic();
-        
+
         changeStateCheckLogic = new ChangeStateCheckLogic();
-       
+
         checkRepo = new ShowCheckRepository();
         peopleRepo = new ShowPeopleRepository();
         docRepo = new ShowDocRepository();
-        
+
         checksTable.setModel(checkRepo);
         docsTable.setModel(docRepo);
         peopleTable.setModel(peopleRepo);
         //   ButtonRounder btnRounder =new ButtonRounder(10);
-        //===========changing button colors====================
+//        filteredDocTable.setModel(filterDocs);
+//        filteredCheckTable.setModel(filterChecks);
+//        
+        docSlider1.setMaximum(10000);
+        docSlider2.setMaximum(10000);
+        checkSlider1.setMaximum(10000);
+        checkSlider1.setMaximum(10000);
+
+//===========changing button colors====================
         btnmanager.btnChangeColor(filteringChecks);
         btnmanager.btnChangeColor(filteringDocs);
         btnmanager.btnChangeColor(addPeopleback);
@@ -381,7 +373,7 @@ public class DashboardMenu extends javax.swing.JFrame {
         backshowCheck5 = new javax.swing.JButton();
         filteredChecks = new javax.swing.JPanel();
         jScrollPane6 = new javax.swing.JScrollPane();
-        filteredDocTable1 = new javax.swing.JTable();
+        filteredCheckTable = new javax.swing.JTable();
         jLabel58 = new javax.swing.JLabel();
         backshowCheck6 = new javax.swing.JButton();
 
@@ -1005,7 +997,7 @@ public class DashboardMenu extends javax.swing.JFrame {
         DRangeDocsDay.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "روز", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Helvetica Neue", 0, 13), new java.awt.Color(255, 255, 255))); // NOI18N
 
         DRangeDocsmonth.setBackground(new java.awt.Color(102, 102, 102));
-        DRangeDocsmonth.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "ماه", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Helvetica Neue", 0, 13), new java.awt.Color(255, 255, 255))); // NOI18N
+
 
         DRangeDocsDay2.setBackground(new java.awt.Color(102, 102, 102));
         DRangeDocsDay2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "روز", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Helvetica Neue", 0, 13), new java.awt.Color(255, 255, 255))); // NOI18N
@@ -1073,9 +1065,9 @@ public class DashboardMenu extends javax.swing.JFrame {
                         .addComponent(DRangeDocsYear4, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel49)
-                        .addGap(4, 4, 4)
-                        .addComponent(DRangeDocsmonth, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(DRangeDocsmonth, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(4, 4, 4)
                         .addComponent(jLabel50))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, showDocPanelLayout.createSequentialGroup()
                         .addComponent(DRangeDocsYear3, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -2599,7 +2591,7 @@ public class DashboardMenu extends javax.swing.JFrame {
 
         filteredChecks.setBackground(new java.awt.Color(102, 102, 102));
 
-        filteredDocTable1.setModel(new javax.swing.table.DefaultTableModel(
+        filteredCheckTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null},
                 {null, null, null, null, null, null},
@@ -2610,7 +2602,7 @@ public class DashboardMenu extends javax.swing.JFrame {
                 "طرف حساب", "ارزش معامله", "وضعیت", "تاریخ پاس", "زمان ثبت", "توضیحات"
             }
         ));
-        jScrollPane6.setViewportView(filteredDocTable1);
+        jScrollPane6.setViewportView(filteredCheckTable);
 
         jLabel58.setFont(new java.awt.Font("B Roya", 1, 18)); // NOI18N
         jLabel58.setForeground(new java.awt.Color(255, 255, 255));
@@ -2918,8 +2910,8 @@ public class DashboardMenu extends javax.swing.JFrame {
         int indexCostumer = payeesComboBox.getSelectedIndex();
         System.out.println(indexCostumer);
         boolean checkCashed = isCashedBtn.isSelected();
-       String selected1 = payeesComboBox.getSelectedItem().toString();
-       System.out.println(selected1);
+        String selected1 = payeesComboBox.getSelectedItem().toString();
+        System.out.println(selected1);
         String descriptionDoc = discriptionTextAdd.getText();
         String costDoc = payeeCostAdd.getText();
         int checkDay = Integer.parseInt(TimeCheckAddDay.getText());
@@ -2959,27 +2951,27 @@ public class DashboardMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_backshowCheckActionPerformed
 
     private void submitDocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitDocActionPerformed
- int indexCostumerDoc = addDocCombo.getSelectedIndex();
- boolean DocIsCreditor=creditorBtn.isSelected();
- 
-  int docDayValue=Integer.parseInt(docDay.getText());
-  int docMonthValue=Integer.parseInt(docMonth.getText());
-  int docYearValue=Integer.parseInt(docYear.getText());
- 
- 
+        int indexCostumerDoc = addDocCombo.getSelectedIndex();
+        boolean DocIsCreditor = creditorBtn.isSelected();
+
+        int docDayValue = Integer.parseInt(docDay.getText());
+        int docMonthValue = Integer.parseInt(docMonth.getText());
+        int docYearValue = Integer.parseInt(docYear.getText());
+
         System.out.println(indexCostumerDoc);
-       String selectedDoc = addDocCombo.getSelectedItem().toString();
+        String selectedDoc = addDocCombo.getSelectedItem().toString();
         System.out.println(selectedDoc);
-        String descriptionDoc = discriptionDocAdd.getText();
-        String addCostDoc = costDocAdd.getText();        
-        String addDocSelectedPayee = addDocCombo.getSelectedItem().toString();
        
+        String descriptionDoc = discriptionTextAdd.getText();
+        String addCostDoc = costDocAdd.getText();
+        String addDocSelectedPayee = addDocCombo.getSelectedItem().toString();
+
         if (addDocLogic.canSubmitDoc(selectedDoc, addCostDoc, descriptionDoc)) {
             Manager.addNormalDocument(new NormalDoc(
                     addCostDoc,
                     descriptionDoc,
                     DocIsCreditor,
-                    new DateNizek(docDayValue,docMonthValue,docYearValue),
+                    new DateNizek(docDayValue, docMonthValue, docYearValue),
                     new TimeNizek(),
                     userRepository.findCostumerBasedOnIndex(indexCostumerDoc)));
         } else {
@@ -3018,6 +3010,11 @@ public class DashboardMenu extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(addDocPanel, "فیلد  های ورودی را صحیح وارد کنید",
                     "اطلاعات نامعتبر", JOptionPane.ERROR_MESSAGE);
         }
+
+        peopleDocList.addItem(userName);
+        payeesComboBox.addItem(userName);
+        addDocCombo.addItem(userName);
+        peopleCheckList.addItem(userName);
 
     }//GEN-LAST:event_btnconfirmActionPerformed
 
@@ -3196,29 +3193,28 @@ public class DashboardMenu extends javax.swing.JFrame {
 
     private void ShowDocsbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ShowDocsbtnActionPerformed
         landPage(docsReport);
-       if(costDocRBtn.isSelected()){
+        if (costDocRBtn.isSelected()) {
             int DocCostFromValue = docSlider1.getValue();
-            int DocCostToValue=docSlider2.getValue();
-            System.out.println("DocCostFromValue"+DocCostFromValue);
-             System.out.println("DocCostTOValue"+DocCostToValue);
-            
-            
-            if(DocCostFromValue>DocCostToValue){
-            int temp=DocCostFromValue;
-            DocCostFromValue=DocCostToValue;
-            DocCostToValue=temp;
-            
-            DocCostFrom.setText(Integer.toString(DocCostFromValue));
-             DocCostTo.setText(Integer.toString(DocCostToValue));
-            
-           docSlider1.setValue(DocCostFromValue);
-            docSlider2.setValue(DocCostToValue);
-            
+            int DocCostToValue = docSlider2.getValue();
+            System.out.println("DocCostFromValue" + DocCostFromValue);
+            System.out.println("DocCostTOValue" + DocCostToValue);
+
+            if (DocCostFromValue > DocCostToValue) {
+                int temp = DocCostFromValue;
+                DocCostFromValue = DocCostToValue;
+                DocCostToValue = temp;
+
+                DocCostFrom.setText(Integer.toString(DocCostFromValue));
+                DocCostTo.setText(Integer.toString(DocCostToValue));
+
+                docSlider1.setValue(DocCostFromValue);
+                docSlider2.setValue(DocCostToValue);
+
             }
-            
-                  System.out.println("DocCostFromValue"+DocCostFromValue);
-             System.out.println("DocCostTOValue"+DocCostToValue);
-       } 
+
+            System.out.println("DocCostFromValue" + DocCostFromValue);
+            System.out.println("DocCostTOValue" + DocCostToValue);
+        }
         if (TimeDocRBtn.isSelected()) {
             if (MonthlyDoc.isSelected()) {
                 int selectedMonth1 = monthsDocCombo.getSelectedIndex();
@@ -3281,10 +3277,8 @@ public class DashboardMenu extends javax.swing.JFrame {
 
     private void dashboardBtnshowCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dashboardBtnshowCheckActionPerformed
         landPage(showCheckpanel);
-        
-        
-        
-        
+
+
     }//GEN-LAST:event_dashboardBtnshowCheckActionPerformed
 
     private void costDocAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_costDocAddActionPerformed
@@ -3296,20 +3290,109 @@ public class DashboardMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_docMonthActionPerformed
 
     private void backshowCheck5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backshowCheck5ActionPerformed
-       landPage(dashboard);
+        landPage(dashboard);
     }//GEN-LAST:event_backshowCheck5ActionPerformed
 
     private void backshowCheck6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backshowCheck6ActionPerformed
-       landPage(dashboard);
+        landPage(dashboard);
     }//GEN-LAST:event_backshowCheck6ActionPerformed
 
     private void filteringChecksActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_filteringChecksActionPerformed
+        checkFilter = filterSelector();
+
+        int selectedMonth = monthscheckCombo.getSelectedIndex();//the month
+        //============ slider cost==================================================
+        if (costCheckRBtn.isSelected()) {
+            int checkCostFromValue = checkSlider1.getValue();
+            int checkcostToValue = checkSlider2.getValue();
+            if (checkCostFromValue > checkcostToValue) {
+                int temp = checkCostFromValue;
+                checkCostFromValue = checkcostToValue;
+                checkcostToValue = temp;
+            }
+
+            checkCostFrom.setText(Double.toString(checkCostFromValue));
+            checkCostTo.setText(Double.toString(checkcostToValue));
+
+            checkSlider1.setValue(checkCostFromValue);
+            checkSlider2.setValue(checkcostToValue);
+            //  checkWeightLabel.setText(String.valueOf(Accounting.calculateWeight()));
+            filterChecks = new FilterChecks(checkFilter, checkCostFromValue, checkcostToValue);
+        } else if (TimeCheckRBtn.isSelected()) {
+            int CheckfilterDfrom = Integer.parseInt(DRangeChecksYear1.getText());//integer 
+            int CheckfilterMfrom = Integer.parseInt(DRangeChecksMonth.getText());
+            int CheckfilterYfrom = Integer.parseInt(DRangeChecksYear.getText());
+            DateNizek dateNZKFrom = new DateNizek(CheckfilterDfrom, CheckfilterMfrom, CheckfilterYfrom);
+
+            int CheckfilterDTo = Integer.parseInt(DRangeDocsDay3.getText());
+            int CheckfilterMTo = Integer.parseInt(DRangeDocsMonth2.getText());
+            int CheckfilterYTo = Integer.parseInt(DRangeDocsYear2.getText());
+
+            DateNizek dateNZKTo = new DateNizek(CheckfilterDTo, CheckfilterMTo, CheckfilterYTo);
+
+            filterChecks = new FilterChecks(checkFilter, dateNZKTo, dateNZKFrom);
+        } else if (payeeCheckRBtn.isSelected()) {
+
+            String payeeFilterNameCheck = peopleCheckList.getSelectedItem().toString();
+
+            filterChecks = new FilterChecks(checkFilter, payeeFilterNameCheck);
+
+        }
+
+        filteredCheckTable.setModel(filterChecks);
+
         landPage(filteredChecks);
     }//GEN-LAST:event_filteringChecksActionPerformed
 
     private void filteringDocsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_filteringDocsActionPerformed
+        docFilter = filterDocSelector();
+
+        if (costDocRBtn.isSelected()) {
+            int docCostFromValue = docSlider1.getValue();
+            int docCostToValue = docSlider2.getValue();
+            if (docCostFromValue > docCostToValue) {
+                int temp = docCostFromValue;
+                docCostFromValue = docCostToValue;
+                docCostToValue = temp;
+            }
+
+            DocCostFrom.setText(Double.toString(docCostFromValue));
+            DocCostTo.setText(Double.toString(docCostToValue));
+
+            docSlider1.setValue(docCostFromValue);
+            docSlider2.setValue(docCostToValue);
+            //  checkWeightLabel.setText(String.valueOf(Accounting.calculateWeight()));
+            filterDocs = new FilterDocs(docFilter, docCostFromValue, docCostToValue);
+        } else if (TimeDocRBtn.isSelected()) {
+            int DocfilterDfrom = Integer.parseInt(DRangeChecksYear1.getText());//integer 
+            int DocfilterMfrom = Integer.parseInt(DRangeChecksMonth.getText());
+            int DocfilterYfrom = Integer.parseInt(DRangeChecksYear.getText());
+            DateNizek dateNZKFrom = new DateNizek(DocfilterDfrom, DocfilterMfrom, DocfilterYfrom);
+
+            int DocfilterDTo = Integer.parseInt(DRangeDocsDay3.getText());
+            int DocfilterMTo = Integer.parseInt(DRangeDocsMonth2.getText());
+            int DocfilterYTo = Integer.parseInt(DRangeDocsYear2.getText());
+
+            DateNizek dateNZKTo = new DateNizek(DocfilterDTo, DocfilterMTo, DocfilterYTo);
+
+            filterDocs = new FilterDocs(docFilter, dateNZKTo, dateNZKFrom);
+        } else if (payeeDocRBtn.isSelected()) {
+
+            String payeeFilterNameCheck = peopleDocList.getSelectedItem().toString();
+
+            filterDocs = new FilterDocs(docFilter, payeeFilterNameCheck);
+
+        }
+
+       
+        filteredDocTable.setModel(filterDocs);
         landPage(filteredDocs);
+//    checkWeightLabel.setText(String.valueOf(Accounting.calculateWeight()));
     }//GEN-LAST:event_filteringDocsActionPerformed
+
+    private void DRangeDocsmonthActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DRangeDocsmonthActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_DRangeDocsmonthActionPerformed
 
     public void filterVisibelity(JRadioButton Rbtn) {
         docSlider2.setEnabled(costDocRBtn.isSelected());
@@ -3328,7 +3411,7 @@ public class DashboardMenu extends javax.swing.JFrame {
         payeeLabel.setEnabled(payeeDocRBtn.isSelected());
         costLabel.setEnabled(costDocRBtn.isSelected());
         peopleDocList.setEnabled(payeeDocRBtn.isSelected());
-       // checkSlider2.setEnabled(costDocRBtn.isSelected());
+        // checkSlider2.setEnabled(costDocRBtn.isSelected());
         daily.setEnabled(TimeDocRBtn.isSelected());
         weeklyDoc.setEnabled(TimeDocRBtn.isSelected());
         MonthlyDoc.setEnabled(TimeDocRBtn.isSelected());
@@ -3346,10 +3429,7 @@ public class DashboardMenu extends javax.swing.JFrame {
     }
 
     public void disableFilter() {
-   
-        
-        
-        
+
         monthsDocCombo.setEnabled(TimeDocRBtn.isSelected() && MonthlyDoc.isSelected());
         weeklyCheckRBtn.setEnabled(false);
         dailyCheckRBtn.setEnabled(false);
@@ -3369,8 +3449,8 @@ public class DashboardMenu extends javax.swing.JFrame {
 
     public void landPage(JPanel panel) {
 
-        filteredDocs.setVisible(panel==filteredDocs);
-        filteredChecks.setVisible(panel==filteredChecks);
+        filteredDocs.setVisible(panel == filteredDocs);
+        filteredChecks.setVisible(panel == filteredChecks);
         chart.setVisible(panel == chart);
         tarazName.setVisible(panel == tarazName);
         LoginPanel.setVisible(panel == LoginPanel);
@@ -3389,67 +3469,63 @@ public class DashboardMenu extends javax.swing.JFrame {
     }
 
 //==================sliders setting===================================
-    public void SliderListener(){
-    //checkSlider1.setMaximum(checkListMax);
-     checkSlider1.addChangeListener(new ChangeListener() {
+    public void SliderListener() {
+        //checkSlider1.setMaximum(checkListMax);
+        checkSlider1.addChangeListener(new ChangeListener() {
             @Override
             public void stateChanged(ChangeEvent e) {
-                checkCostFrom.setText(""+((JSlider)e.getSource()).getValue());
+                checkCostFrom.setText("" + ((JSlider) e.getSource()).getValue());
             }
         });
-    
-  //  checkSlider2.setMaximum(checkListMax);
-         checkSlider2.addChangeListener(new ChangeListener() {
+
+        //  checkSlider2.setMaximum(checkListMax);
+        checkSlider2.addChangeListener(new ChangeListener() {
             @Override
             public void stateChanged(ChangeEvent e) {
-                checkCostTo.setText(""+((JSlider)e.getSource()).getValue());
+                checkCostTo.setText("" + ((JSlider) e.getSource()).getValue());
             }
         });
-      //  docSlider1.setMaximum(docListMax);
-         
-         docSlider1.addChangeListener(new ChangeListener() {
+        //  docSlider1.setMaximum(docListMax);
+
+        docSlider1.addChangeListener(new ChangeListener() {
             @Override
             public void stateChanged(ChangeEvent e) {
-                DocCostFrom.setText(""+((JSlider)e.getSource()).getValue());
+                DocCostFrom.setText("" + ((JSlider) e.getSource()).getValue());
             }
         });
-    
-    //docSlider2.setMaximum(docListMax);
-         docSlider2.addChangeListener(new ChangeListener() {
+
+        //docSlider2.setMaximum(docListMax);
+        docSlider2.addChangeListener(new ChangeListener() {
             @Override
             public void stateChanged(ChangeEvent e) {
-                DocCostTo.setText(""+((JSlider)e.getSource()).getValue());
+                DocCostTo.setText("" + ((JSlider) e.getSource()).getValue());
             }
         });
-    
-    
-    }    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+
+    }
+
+    public String filterSelector() {
+        if (payeeCheckRBtn.isSelected()) {
+            return "payee";
+        } else if (TimeCheckRBtn.isSelected()) {
+            return "time";
+        } else if (costCheckRBtn.isSelected()) {
+            return "cost";
+        }
+        return "";
+    }
+
+    public String filterDocSelector() {
+        if (payeeDocRBtn.isSelected()) {
+            return "payee";
+        } else if (TimeDocRBtn.isSelected()) {
+            return "time";
+        } else if (costDocRBtn.isSelected()) {
+            return "cost";
+        }
+        return "";
+    }
+
     /**
      * @param args e command line argumentsthe command line arguments
      */
@@ -3591,9 +3667,9 @@ public class DashboardMenu extends javax.swing.JFrame {
     protected javax.swing.JTextField emailfieldLogin;
     private javax.swing.JRadioButton employeeBtn;
     private javax.swing.JButton enterBtn;
+    private javax.swing.JTable filteredCheckTable;
     private javax.swing.JPanel filteredChecks;
     private javax.swing.JTable filteredDocTable;
-    private javax.swing.JTable filteredDocTable1;
     private javax.swing.JPanel filteredDocs;
     private javax.swing.JButton filteringChecks;
     private javax.swing.JButton filteringDocs;

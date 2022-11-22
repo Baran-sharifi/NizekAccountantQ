@@ -16,20 +16,84 @@ import nizekAccountant.logic.UserRepository.UserRepository;
  * @author Lenovo
  */
 public class FilterChecks implements TableModel {
+    String payeeName;
+    DateNizek after;
+    DateNizek before;
+    int beforeCost;
+    int afterCost;
+    String selectedFilter;
+    UserRepository userRepository1 = new UserRepository();
 
-    UserRepository userRepository = new UserRepository();
+//    public FilterChecks(String payeeName, DateNizek after, DateNizek before, int beforeCost, int afterCost, String selectedFilter) {
+//        this.payeeName = payeeName;
+//        this.after = after;
+//        this.before = before;
+//        this.beforeCost = beforeCost;
+//        this.afterCost = afterCost;
+//        this.selectedFilter = selectedFilter;
+//    }
+    
+    public FilterChecks(String selectedFilter,int beforeCost, int afterCost){
+    
+    this.selectedFilter=selectedFilter;
+     this.beforeCost = beforeCost;
+        this.afterCost = afterCost;
+    }
+    
+    
+    public FilterChecks(String selectedFilter,DateNizek after, DateNizek before){
+     this.selectedFilter=selectedFilter;
+    this.after = after;
+        this.before = before;
+    }
+    
+    
+    
+    public FilterChecks(String selectedFilter,String payeeName){
+      this.payeeName = payeeName;
+       this.selectedFilter = selectedFilter;
+    
+    }
+    
+    
+    
+    
+    
+    
+    
+    
 
-    public static List<CheckDoc> returnFilteredList() {
-        List<CheckDoc> filteredList = new ArrayList<>();
-        
-        return filteredList;
+  
+    public List<CheckDoc> getChecksFilter() {
+        List<CheckDoc> filteredList;
+
+        switch (selectedFilter) {
+
+            case "payee" -> {
+              filteredList=   userRepository1.findCheckBasedOnName(payeeName);
+                return filteredList;
+            }
+            case "cost" -> {
+               filteredList=  userRepository1.readFilterBasedOnCostCheck(beforeCost, afterCost);
+            return filteredList;
+            }
+            case "time" -> {
+                filteredList= userRepository1.filteredChecksBasedOnDateRange(before, after);
+      return filteredList;
+            }
+
+        }
+
+        return null;
+
+
     }
 
     @Override
     public int getRowCount() {
-//return filteredlist.Size()ک
+        return getChecksFilter().size();
 
-        return 0;
+
     }
 
     @Override
@@ -92,28 +156,28 @@ public class FilterChecks implements TableModel {
     public Object getValueAt(int rowIndex, int columnIndex) {
         switch (columnIndex) {
             case 0 -> {
-                //  return Manager.checkDocList.get(rowIndex).getUser().getName();
+
+                return getChecksFilter().get(rowIndex).getUser().getName();
             }
             case 1 -> {
-                //  return Manager.checkDocList.get(rowIndex).getCost();
+                return getChecksFilter().get(rowIndex).getCost();
             }
             case 2 -> {
-                //   return Manager.checkDocList.get(rowIndex).convertCashed(Manager.checkDocList.get(rowIndex).isCashedd());
+                return getChecksFilter().get(rowIndex).convertCashed(getChecksFilter().get(rowIndex).isCashedd());
             }
             case 3 -> {
-                // return Manager.checkDocList.get(rowIndex).getDate();
+                return getChecksFilter().get(rowIndex).getDate();
+
             }
             case 4 -> {
-                //return Manager.checkDocList.get(rowIndex).getTime();
+                return getChecksFilter().get(rowIndex).getTime();
             }
             case 5 -> {
-                //return Manager.checkDocList.get(rowIndex).getDescription();
+                return getChecksFilter().get(rowIndex).getDescription();
             }
             default ->
                 throw new IndexOutOfBoundsException(String.format("Column index not exist. (%d)", columnIndex));
         }
-
-        return null;
 
     }
 
@@ -121,22 +185,23 @@ public class FilterChecks implements TableModel {
     public void setValueAt(Object aValue, int rowIndex, int columnIndex) {
         switch (columnIndex) {
             case 0 -> {
-                //  Manager.costumerList.get(rowIndex).setName((String) aValue);
+
+                getChecksFilter().get(rowIndex).getUser().setName((String) aValue);
             }
             case 1 -> {
-                //    Manager.checkDocList.get(rowIndex).setCost((String) aValue);
+                getChecksFilter().get(rowIndex).setCost((String) aValue);
             }
             case 2 -> {
-                //   Manager.checkDocList.get(rowIndex).setIsCashed((boolean) aValue);
+                getChecksFilter().get(rowIndex).setIsCashed((boolean) aValue);
             }
             case 3 -> {
-                //   Manager.checkDocList.get(rowIndex).setDateNizek((DateNizek) aValue);
+                getChecksFilter().get(rowIndex).setDateNizek((DateNizek) aValue);
             }
             case 4 -> {
-                //   Manager.checkDocList.get(rowIndex).setTimeNizek((TimeNizek) aValue);
+                getChecksFilter().get(rowIndex).setTimeNizek((TimeNizek) aValue);
             }
             case 5 -> {
-                //   Manager.checkDocList.get(rowIndex).setDescription((String) aValue);
+                getChecksFilter().get(rowIndex).setDescription((String) aValue);
             }
 
             default ->
@@ -146,12 +211,12 @@ public class FilterChecks implements TableModel {
 
     @Override
     public void addTableModelListener(TableModelListener l) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+     
     }
 
     @Override
     public void removeTableModelListener(TableModelListener l) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+      
     }
 
 }
