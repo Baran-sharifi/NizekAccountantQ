@@ -8,6 +8,8 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.swing.event.TableModelListener;
 import javax.swing.table.TableModel;
+import nizekAccountant.logic.Date.DateNizek;
+import nizekAccountant.logic.Date.TimeNizek;
 import nizekAccountant.logic.DocModels.CheckDoc;
 import nizekAccountant.logic.UserRepository.UserRepository;
 

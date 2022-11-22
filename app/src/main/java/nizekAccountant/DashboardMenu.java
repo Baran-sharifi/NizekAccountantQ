@@ -995,9 +995,19 @@ public class DashboardMenu extends javax.swing.JFrame {
 
         DRangeDocsDay.setBackground(new java.awt.Color(102, 102, 102));
         DRangeDocsDay.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "روز", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Helvetica Neue", 0, 13), new java.awt.Color(255, 255, 255))); // NOI18N
+        DRangeDocsDay.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DRangeDocsDayActionPerformed(evt);
+            }
+        });
 
         DRangeDocsmonth.setBackground(new java.awt.Color(102, 102, 102));
-
+        DRangeDocsmonth.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "ماه", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Helvetica Neue", 0, 13), new java.awt.Color(255, 255, 255))); // NOI18N
+        DRangeDocsmonth.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DRangeDocsmonthActionPerformed(evt);
+            }
+        });
 
         DRangeDocsDay2.setBackground(new java.awt.Color(102, 102, 102));
         DRangeDocsDay2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "روز", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Helvetica Neue", 0, 13), new java.awt.Color(255, 255, 255))); // NOI18N
@@ -2330,7 +2340,7 @@ public class DashboardMenu extends javax.swing.JFrame {
             .addGroup(checksReportLayout.createSequentialGroup()
                 .addGap(166, 166, 166)
                 .addComponent(checkWeightLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(160, Short.MAX_VALUE))
         );
         checksReportLayout.setVerticalGroup(
             checksReportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2340,7 +2350,7 @@ public class DashboardMenu extends javax.swing.JFrame {
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 298, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(checkWeightLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 117, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
                 .addComponent(backshowCheck)
                 .addContainerGap())
         );
@@ -3356,17 +3366,17 @@ public class DashboardMenu extends javax.swing.JFrame {
                 docCostToValue = temp;
             }
 
-            DocCostFrom.setText(Double.toString(docCostFromValue));
-            DocCostTo.setText(Double.toString(docCostToValue));
+            DocCostFrom.setText(Integer.toString(docCostFromValue));
+            DocCostTo.setText(Integer.toString(docCostToValue));
 
             docSlider1.setValue(docCostFromValue);
             docSlider2.setValue(docCostToValue);
             //  checkWeightLabel.setText(String.valueOf(Accounting.calculateWeight()));
             filterDocs = new FilterDocs(docFilter, docCostFromValue, docCostToValue);
         } else if (TimeDocRBtn.isSelected()) {
-            int DocfilterDfrom = Integer.parseInt(DRangeChecksYear1.getText());//integer 
-            int DocfilterMfrom = Integer.parseInt(DRangeChecksMonth.getText());
-            int DocfilterYfrom = Integer.parseInt(DRangeChecksYear.getText());
+            int DocfilterDfrom = Integer.parseInt(DRangeDocsDay.getText());//integer 
+            int DocfilterMfrom = Integer.parseInt(DRangeDocsMonth.getText());
+            int DocfilterYfrom = Integer.parseInt(DRangeDocsYear3.getText());
             DateNizek dateNZKFrom = new DateNizek(DocfilterDfrom, DocfilterMfrom, DocfilterYfrom);
 
             int DocfilterDTo = Integer.parseInt(DRangeDocsDay3.getText());
@@ -3387,12 +3397,17 @@ public class DashboardMenu extends javax.swing.JFrame {
        
         filteredDocTable.setModel(filterDocs);
         landPage(filteredDocs);
+        
 //    checkWeightLabel.setText(String.valueOf(Accounting.calculateWeight()));
     }//GEN-LAST:event_filteringDocsActionPerformed
 
     private void DRangeDocsmonthActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DRangeDocsmonthActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_DRangeDocsmonthActionPerformed
+
+    private void DRangeDocsDayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DRangeDocsDayActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_DRangeDocsDayActionPerformed
 
     public void filterVisibelity(JRadioButton Rbtn) {
         docSlider2.setEnabled(costDocRBtn.isSelected());

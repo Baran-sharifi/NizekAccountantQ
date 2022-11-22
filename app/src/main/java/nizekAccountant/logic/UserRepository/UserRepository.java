@@ -260,7 +260,6 @@ public class UserRepository implements Storeable {
         }
          return max;
     }
-    @Override 
  public List<NormalDoc> filteredNormalDocsBasedOnDateRange(DateNizek beforeDate, DateNizek afterDate){
      List<NormalDoc> filteredList = new ArrayList<>();
         for (NormalDoc normalDoc: Manager.normalDocList) {
