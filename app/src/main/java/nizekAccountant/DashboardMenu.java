@@ -2984,8 +2984,7 @@ public class DashboardMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_submitDocActionPerformed
 
     private void btnconfirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnconfirmActionPerformed
-        String category;
-        GroupType type = new GroupType("category");
+        String category="";
         String emailfieldUser = emailField.getText();
         String addressfieldUser = AddressField.getText();
         String userName = addName.getText();
@@ -2998,6 +2997,7 @@ public class DashboardMenu extends javax.swing.JFrame {
         } else if (clientBtn.isSelected()) {
             category = "مشتری";
         }
+        GroupType type = new GroupType(category);
         if (addUserLogic.canSubmitPeople(userName, phone, nationalId, addressfieldUser, emailfieldUser)) {
             Costumer costumer = new Costumer(userName,
                     nationalId, type, addressfieldUser,
@@ -3016,7 +3016,7 @@ public class DashboardMenu extends javax.swing.JFrame {
         payeesComboBox.addItem(userName);
         addDocCombo.addItem(userName);
         peopleCheckList.addItem(userName);
-
+        changeStateComboBox.addItem(userName);
     }//GEN-LAST:event_btnconfirmActionPerformed
 
     private void employeeBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_employeeBtnActionPerformed
