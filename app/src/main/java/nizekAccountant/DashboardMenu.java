@@ -55,9 +55,9 @@ public class DashboardMenu extends javax.swing.JFrame {
         // Test
 
         UserRepository userRepository = new UserRepository();
-        userRepository.readAndAddCostumer(new File("C:\\csvProject\\costumerFile.csv"));
-        userRepository.readAndAddCheckDoc(new File("C:\\csvProject\\checkFile.csv"));
-        userRepository.readAndAddNormalDoc(new File("C:\\csvProject\\normalFile.csv"));
+        userRepository.readAndAddCostumer(new File("/Users/persuara/Desktop/repository/costumerFile.csv"));
+        userRepository.readAndAddCheckDoc(new File("/Users/persuara/Desktop/repository/checkFile.csv"));
+        userRepository.readAndAddNormalDoc(new File("/Users/persuara/Desktop/repository/normalFile.csv"));
         DefaultComboBoxModel<String> defaultComboBoxModel1 = new DefaultComboBoxModel<>();
         DefaultComboBoxModel<String> defaultComboBoxModel2 = new DefaultComboBoxModel<>();
         DefaultComboBoxModel<String> defaultComboBoxModel3 = new DefaultComboBoxModel<>();
@@ -2936,7 +2936,7 @@ public class DashboardMenu extends javax.swing.JFrame {
     private void registerChangeCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerChangeCheckActionPerformed
 
         for (CheckDoc check : Manager.checkDocList) {
-            if (check.getPayee().equals(changeStateComboBox.getSelectedItem().toString()) &&Integer.toString( check.getIdentifier()).equals(checkIdentifier.getText())) {
+            if (check.getPayee().equals(changeStateComboBox.getSelectedItem().toString()) && Integer.toString(check.getIdentifier()).equals(checkIdentifier.getText())) {
                 check.isCashed = isCreditorToggle.isSelected();
             }
         }
@@ -2962,7 +2962,7 @@ public class DashboardMenu extends javax.swing.JFrame {
         System.out.println(indexCostumerDoc);
         String selectedDoc = addDocCombo.getSelectedItem().toString();
         System.out.println(selectedDoc);
-       
+
         String descriptionDoc = discriptionTextAdd.getText();
         String addCostDoc = costDocAdd.getText();
         String addDocSelectedPayee = addDocCombo.getSelectedItem().toString();
@@ -3069,27 +3069,28 @@ public class DashboardMenu extends javax.swing.JFrame {
 
     private void ShowChecksbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ShowChecksbtnActionPerformed
         landPage(checksReport);
-        Double weight = Accounting.calculateWeight();
-         checkWeightLabel.setText(String.valueOf(weight));
+        if (!(Manager.checkDocList.isEmpty())) {
+            Double weight = Accounting.calculateWeight();
+            checkWeightLabel.setText(String.valueOf(weight));
+        }
 
         int selectedMonth = monthscheckCombo.getSelectedIndex();//the month
         if (costCheckRBtn.isSelected()) {
             int checkCostFromValue = checkSlider1.getValue();
-            int checkcostToValue=checkSlider2.getValue();
-            if(checkCostFromValue>checkcostToValue){
-            int temp=checkCostFromValue;
-            checkCostFromValue=checkcostToValue;
-            checkcostToValue=temp;
-            
-            checkCostFrom.setText(Integer.toString(checkCostFromValue));
-             checkCostTo.setText(Integer.toString(checkcostToValue));
-               
-           checkSlider1.setValue(checkCostFromValue);
-            checkSlider2.setValue(checkcostToValue);
-            
-           
+            int checkcostToValue = checkSlider2.getValue();
+            if (checkCostFromValue > checkcostToValue) {
+                int temp = checkCostFromValue;
+                checkCostFromValue = checkcostToValue;
+                checkcostToValue = temp;
+
+                checkCostFrom.setText(Integer.toString(checkCostFromValue));
+                checkCostTo.setText(Integer.toString(checkcostToValue));
+
+                checkSlider1.setValue(checkCostFromValue);
+                checkSlider2.setValue(checkcostToValue);
+
             }
-        
+
         } else if (TimeCheckRBtn.isSelected()) {
             if (MonthlyCheckRBtn.isSelected()) {
                 String CheckfilterDfrom = DRangeChecksYear.getText();
@@ -3102,7 +3103,7 @@ public class DashboardMenu extends javax.swing.JFrame {
                 String CheckfilterYTo = DRangeDocsYear2.getText();
             }
         }
-       
+
     }//GEN-LAST:event_ShowChecksbtnActionPerformed
 
     private void groupDocSubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_groupDocSubmitActionPerformed
@@ -3385,10 +3386,9 @@ public class DashboardMenu extends javax.swing.JFrame {
 
         }
 
-       
         filteredDocTable.setModel(filterDocs);
         landPage(filteredDocs);
-        
+
 //    checkWeightLabel.setText(String.valueOf(Accounting.calculateWeight()));
     }//GEN-LAST:event_filteringDocsActionPerformed
 
