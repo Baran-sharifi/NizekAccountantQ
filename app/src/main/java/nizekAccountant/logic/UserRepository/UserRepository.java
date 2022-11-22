@@ -203,6 +203,52 @@ public class UserRepository implements Storeable {
 
         return filteredList;
     }
+ // Filters Documents Based On the Provided ID!
+  public List<CheckDoc> filterCheckDocumentsById(int id) {
+        List<CheckDoc> filteredList = new ArrayList<>();
+        for (CheckDoc checkDoc: Manager.checkDocList) {
+            if (id == checkDoc.getUserID()) {
+                filteredList.add(checkDoc);
+            }
+        }
+        return filteredList;
+    }
+    public List<NormalDoc> filterNormalDocumentsById(int id) {
+        List<NormalDoc> filteredList = new ArrayList<>();
+        for (NormalDoc normalDoc: Manager.normalDocList) {
+            if (id == normalDoc.getUserID()) {
+                filteredList.add(normalDoc);
+            }
+        }
+        return filteredList;
+    }
+    // Get the Max cost Value of Documents!
+     public double getMaxCheckDoc() {
+        List<Double> costList = new ArrayList<>();
+        double max = 0;
+        for (CheckDoc checkDoc: Manager.checkDocList) {
+            costList.add(Double.valueOf(checkDoc.getCost()));
+        }
+        for (int i = 0; i < costList.size() - 1; i++) {
+             if (costList.get(i) < costList.get(i + 1)) {
+                 max = costList.get(i + 1);
+             }
+        }
+         return max;
+    }
+    public double getMaxNormalDoc() {
+        List<Double> costList = new ArrayList<>();
+        double max = 0;
+        for (NormalDoc normalDoc: Manager.normalDocList) {
+            costList.add(Double.valueOf(normalDoc.getCost()));
+        }
+        for (int i = 0; i < costList.size() - 1; i++) {
+             if (costList.get(i) < costList.get(i + 1)) {
+                 max = costList.get(i + 1);
+             }
+        }
+         return max;
+    }
     @Override
     public String readFile(Costumer costumer, String inputNationalID) {
         return "Unused!";
@@ -230,12 +276,12 @@ public class UserRepository implements Storeable {
 
     // *************** WRITE METHODS
     @Override
-    public void writeToFileCostumer(List<Costumer> costumerList) {
+    public void writeToFileCostumer() {
         try {
             FileWriter fileWriter = new FileWriter("/Users/persuara/Desktop/repository/costumerFile.csv");
             BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
             PrintWriter printWriter = new PrintWriter(bufferedWriter);
-            for (Costumer object : costumerList) {
+            for (Costumer object : Manager.costumerList) {
                 printWriter.printf("%s, %s, %s, %s, %s, %s\n",
                         object.getName(),
                         object.getNationalID(),
@@ -252,12 +298,12 @@ public class UserRepository implements Storeable {
     }
 
     @Override
-    public void writeToFileCheckDoc(List<CheckDoc> checkDocList) {
+    public void writeToFileCheckDoc() {
         try {
             FileWriter fileWriter = new FileWriter("/Users/persuara/Desktop/repository/checkFile.csv");
             BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
             PrintWriter printWriter = new PrintWriter(bufferedWriter);
-            for (CheckDoc object : checkDocList) {
+            for (CheckDoc object : Manager.checkDocList) {
                 printWriter.printf("%s, %s, %s, %s, %s, %s, %d, %d\n",
                         object.getUser().getName(),
                         object.getCost(),
@@ -277,12 +323,12 @@ public class UserRepository implements Storeable {
     }
 
     @Override
-    public void writeToFileNormalDoc(List<NormalDoc> normalDocList) {
+    public void writeToFileNormalDoc() {
         try {
             FileWriter fileWriter = new FileWriter("/Users/persuara/Desktop/repository/normalFile.csv");
             BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
             PrintWriter printWriter = new PrintWriter(bufferedWriter);
-            for (NormalDoc object : normalDocList) {
+            for (NormalDoc object : Manager.normalDocList) {
                 printWriter.printf("%s, %s, %s, %s, %s, %s, %d, %d\n",
                         object.getUser().getName(),
                         object.getCost(),
@@ -341,7 +387,7 @@ public class UserRepository implements Storeable {
 
         return arraylist;
     }
-
+    // Read And PARSE TO MODELS! 
     @Override
     public void readAndAddCostumer(File file) {
         if (file.exists()) {
@@ -411,6 +457,7 @@ public class UserRepository implements Storeable {
         }
     }
 
+    // VALIDATE ADMIN
     public boolean validateAdmin(String inputEmail, String inputPassword) {
         for (Admin admin : Manager.adminList) {
             if (inputEmail.equals(admin.getEmail()) && inputPassword.equals(admin.getPassword())) {
@@ -419,37 +466,31 @@ public class UserRepository implements Storeable {
         }
         return false;
     }
+    
 
-    public void removeIdFromDataBase(NormalDoc normalDoc, int deleteLine) { //changed delete line to delete id!
-        String tempFileAddress = "temp.csv";
-        File oldFile = new File(normalDoc.getFilePath());
-        File newFile = new File(tempFileAddress);
-        String currentLine;
-        int line = 0;
-        try {
-            FileWriter fileWriter = new FileWriter(tempFileAddress, true);
-            BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
-            PrintWriter printWriter = new PrintWriter(bufferedWriter);
-            FileReader fileReader = new FileReader(normalDoc.getFilePath());
-            BufferedReader bufferedReader = new BufferedReader(fileReader);
-            while ((currentLine = bufferedReader.readLine()) != null) {
-                line++;
-                if (deleteLine != line) {
-                    printWriter.println(currentLine);
-                }
+    // Remove Methods!
+    public void removeFromNormalDocList(int deleteLine) {
+        for (NormalDoc normalDoc: Manager.normalDocList) {
+            if (deleteLine == normalDoc.getIdentifier()) {
+                Manager.removeFromList(normalDoc);
+                Manager.saveNormal();
             }
-            printWriter.flush();
-            printWriter.close();
-            fileReader.close();
-            bufferedReader.close();
-            bufferedWriter.close();
-            fileWriter.close();
-            oldFile.delete();
-            File dump = new File(normalDoc.getFilePath());
-            newFile.renameTo(dump);
-        } catch (IOException e) {
-            e.printStackTrace();
-            System.out.println("Couldn't write a new file!" + normalDoc.getFilePath());
+        }
+    }
+    public void removeFromCheckDocList(int deleteLine) {
+        for (CheckDoc checkDoc: Manager.checkDocList) {
+            if (deleteLine == checkDoc.getIdentifier()) {
+                Manager.removeFromList(checkDoc);
+                Manager.saveCheck();
+            }
+        }
+    }
+    public void removeFromCostumerList(int deleteLine) {
+        for (Costumer costumer: Manager.costumerList) {
+            if (deleteLine == costumer.getID()) {
+                Manager.removeFromList(costumer);
+                Manager.saveCostumer();
+            }
         }
     }
 

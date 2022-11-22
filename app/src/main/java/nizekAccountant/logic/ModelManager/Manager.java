@@ -18,17 +18,17 @@ public class Manager {
 
     public static void addNormalDocument(NormalDoc normalDoc) {
         normalDocList.add(normalDoc);
-        userRepository.writeToFileNormalDoc(Manager.normalDocList);
+        userRepository.writeToFileNormalDoc();
     }
 
     public static void addCheckDocument(CheckDoc checkDoc) {
         checkDocList.add(checkDoc);
-        userRepository.writeToFileCheckDoc(Manager.checkDocList);
+        userRepository.writeToFileCheckDoc();
     }
 
     public static void addCostumer(Costumer costumer) {
         costumerList.add(costumer);
-        userRepository.writeToFileCostumer(Manager.costumerList);
+        userRepository.writeToFileCostumer();
     }
     public static void addAdmin(Admin admin) {
         adminList.add(admin);
@@ -45,5 +45,14 @@ public class Manager {
 
     public static void removeFromList(Costumer costumer) {
         costumerList.remove(costumer);
+    }
+     public static void saveNormal() {
+        userRepository.writeToFileNormalDoc();
+    }
+    public static void saveCheck() {
+        userRepository.writeToFileCheckDoc();
+    }
+    public static void saveCostumer() {
+        userRepository.writeToFileCostumer();
     }
 }

@@ -23,11 +23,11 @@ public interface Storeable {
 
     void writeToFileAdmin();
 
-    void writeToFileCostumer(List<Costumer> costumerList);
+   void writeToFileCostumer();
 
-    void writeToFileCheckDoc(List<CheckDoc> checkDocList);
+    void writeToFileCheckDoc();
 
-    void writeToFileNormalDoc(List<NormalDoc> normalDocList);
+    void writeToFileNormalDoc();
 
     ///********** WRITE ADMIN
 
