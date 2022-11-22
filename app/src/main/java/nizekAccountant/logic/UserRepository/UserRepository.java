@@ -215,7 +215,7 @@ public class UserRepository implements Storeable {
     }
 
  // Filters Documents Based On the Provided ID!
-  public List<CheckDoc> filterCheckDocumentsById(int id) {
+  public List<CheckDoc> filterCheckDocumentsByIdUser(int id) {
         List<CheckDoc> filteredList = new ArrayList<>();
         for (CheckDoc checkDoc: Manager.checkDocList) {
             if (id == checkDoc.getUserID()) {
@@ -224,7 +224,7 @@ public class UserRepository implements Storeable {
         }
         return filteredList;
     }
-    public List<NormalDoc> filterNormalDocumentsById(int id) {
+    public List<NormalDoc> filterNormalDocumentsByIdUser(int id) {
         List<NormalDoc> filteredList = new ArrayList<>();
         for (NormalDoc normalDoc: Manager.normalDocList) {
             if (id == normalDoc.getUserID()) {
@@ -561,6 +561,24 @@ public class UserRepository implements Storeable {
             }
         }
         return arrayCost;
+    }
+    public CheckDoc filterCheckDocumentsById(int id) {
+        List<CheckDoc> filteredList = new ArrayList<>();
+        for (CheckDoc checkDoc: Manager.checkDocList) {
+            if (id == checkDoc.getIdentifier()) {
+                filteredList.add(checkDoc);
+            }
+        }
+        return filteredList.get(0);
+    }
+    public NormalDoc filterNormalDocumentsById(int id) {
+        List<NormalDoc> filteredList = new ArrayList<>();
+        for (NormalDoc normalDoc: Manager.normalDocList) {
+            if (id == normalDoc.getIdentifier()) {
+                filteredList.add(normalDoc);
+            }
+        }
+        return filteredList.get(0);
     }
 
 }
