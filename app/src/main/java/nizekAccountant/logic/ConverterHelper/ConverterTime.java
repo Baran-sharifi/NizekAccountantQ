@@ -8,6 +8,8 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.util.Date;
+import java.util.TimeZone;
+import nizekAccountant.logic.Date.TimeNizek;
 
 public class ConverterTime {
    public static String convertToGregorian(DateNizek dateNizek) {
@@ -57,6 +59,17 @@ public class ConverterTime {
             e.printStackTrace();
         }
         return differenceInDays;
+    }
+    public static TimeNizek convertToIran(String time) throws ParseException {
+
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("hh:mm");
+        simpleDateFormat.setTimeZone(TimeZone.getTimeZone("UTC"));
+        Date timeFresh = simpleDateFormat.parse(time);
+        SimpleDateFormat sdfgmt = new SimpleDateFormat("hh:mm");
+        sdfgmt.setTimeZone(TimeZone.getTimeZone("Asia/Tehran"));
+        String[] array =  sdfgmt.format(timeFresh).split(":");
+
+        return new TimeNizek(Integer.parseInt(array[0]), Integer.parseInt(array[1]));
     }
 
 }

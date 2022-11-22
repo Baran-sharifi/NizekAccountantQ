@@ -34,7 +34,7 @@ public class ShowCheckRepository implements TableModel {
 
     @Override
     public int getColumnCount() {
-        return 6;
+        return 7;
     }
 
     @Override
@@ -58,6 +58,10 @@ public class ShowCheckRepository implements TableModel {
             case 5 -> {
                 return "توضیحات";
             }
+            case 6 -> {
+                return "شناسه سند";
+            }
+        
 
             default ->
                 throw new IndexOutOfBoundsException(String.format("Column index not exist. (%d)", columnIndex));
@@ -72,7 +76,7 @@ public class ShowCheckRepository implements TableModel {
     @Override
     public boolean isCellEditable(int rowIndex, int columnIndex) {
         switch (columnIndex) {
-            case 0 -> {
+            case 0,6 -> {
                 return false;
             }
             case 1, 3, 2, 4, 5 -> {
@@ -104,6 +108,9 @@ public class ShowCheckRepository implements TableModel {
             case 5 -> {
                 return Manager.checkDocList.get(rowIndex).getDescription();
             }
+            case 6 -> {
+                return Manager.checkDocList.get(rowIndex).getIdentifier();
+            }
             default ->
                 throw new IndexOutOfBoundsException(String.format("Column index not exist. (%d)", columnIndex));
         }
@@ -129,6 +136,9 @@ public class ShowCheckRepository implements TableModel {
             }
             case 5 -> {
                 Manager.checkDocList.get(rowIndex).setDescription((String) aValue);
+            }
+             case 6 -> {
+                Manager.checkDocList.get(rowIndex).setIdentifier((int) aValue);
             }
 
             default -> throw new IndexOutOfBoundsException(String.format("Column index not exist. (%d)", columnIndex));

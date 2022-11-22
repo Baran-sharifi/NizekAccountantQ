@@ -172,7 +172,9 @@ public class Accounting {
             result += (doubleList.get(i) * integerList.get(i));
             sum += doubleList.get(i);
         }
-        return (result / sum);
+
+       
+        return (int) result / sum;
     }
     
 }

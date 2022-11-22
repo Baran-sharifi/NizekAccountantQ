@@ -8,7 +8,10 @@ import nizekAccountant.logic.DocModels.NormalDoc;
 import nizekAccountant.logic.Login.Costumer;
 
 import java.io.*;
+import java.text.ParseException;
 import java.util.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import nizekAccountant.logic.Date.TimeNizek;
 import nizekAccountant.logic.Date.DateNizek;
 import nizekAccountant.logic.Login.GroupType;
@@ -255,14 +258,15 @@ public class UserRepository implements Storeable {
             BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
             PrintWriter printWriter = new PrintWriter(bufferedWriter);
             for (CheckDoc object : checkDocList) {
-                printWriter.printf("%s, %s, %s, %s, %s, %s, %d\n",
+                printWriter.printf("%s, %s, %s, %s, %s, %s, %d, %d\n",
                         object.getUser().getName(),
                         object.getCost(),
                         object.getDescription(),
                         object.convertCashed(object.isCashedd()),
                         ConverterTime.convertToGregorian(object.getDate()),
                         object.getTime(),
-                        object.getUserID());
+                        object.getUserID(),
+                        object.getIdentifier());
             }
             printWriter.flush();
             printWriter.close();
@@ -279,14 +283,15 @@ public class UserRepository implements Storeable {
             BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
             PrintWriter printWriter = new PrintWriter(bufferedWriter);
             for (NormalDoc object : normalDocList) {
-                printWriter.printf("%s, %s, %s, %s, %s, %s, %d\n",
+                printWriter.printf("%s, %s, %s, %s, %s, %s, %d, %d\n",
                         object.getUser().getName(),
                         object.getCost(),
                         object.getDescription(),
                         object.convertCreditor(object.isCreditor()),
                         ConverterTime.convertToGregorian(object.getDate()),
                         object.getTime(),
-                        object.getUserID());
+                        object.getUserID(),
+                        object.getIdentifier());
             }
             printWriter.flush();
             printWriter.close();
@@ -361,19 +366,18 @@ public class UserRepository implements Storeable {
         for (String model : gottenFile) {
             String[] temp = model.split(", ");
             System.out.println(Arrays.toString(temp));
-            String[] date = temp[4].trim().split("-");
+//            String[] date = temp[4].trim().split("-");
             String[] time = temp[5].trim().split(":");
-            Manager.addCheckDocument(new CheckDoc(
-                    temp[1].trim(),
-                    temp[2],
-
-                    ConverterTime.convertDate(ConverterTime.convertToPersian(temp[4].trim())),
-                    new TimeNizek(Integer.parseInt(time[0]), Integer.parseInt(time[1])),
-                    Converter.setBooleanCashed(temp[3].trim()),
-                    Manager.costumerList.get(Integer.parseInt(temp[6].trim().substring(0, 1)))));
-        }
+    
+                Manager.addCheckDocument(new CheckDoc(
+                        temp[1].trim(),
+                        temp[2],
+                        ConverterTime.convertDate(ConverterTime.convertToPersian(temp[4].trim())),
+                        new TimeNizek(Integer.parseInt(time[0]), Integer.parseInt(time[1])),
+                        Converter.setBooleanCashed(temp[3].trim()),
+                        Manager.costumerList.get(Integer.parseInt(temp[6].trim().substring(0, 1)))));
     }
-
+  }
     @Override
     public void readAndAddNormalDoc(File file) {
         List<String> gottenFile = readWholeFile(file);

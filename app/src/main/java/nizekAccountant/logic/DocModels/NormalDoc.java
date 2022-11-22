@@ -3,6 +3,7 @@ package nizekAccountant.logic.DocModels;
 import nizekAccountant.logic.Date.DateNizek;
 import nizekAccountant.logic.Date.TimeNizek;
 import nizekAccountant.logic.Login.Costumer;
+import nizekAccountant.logic.ModelManager.Manager;
 
 public class NormalDoc {
 
@@ -13,6 +14,7 @@ public class NormalDoc {
     private DateNizek dateNizek;
     private TimeNizek timeNizek;
     private String payee;
+    int identifier = 0;
 //a list of days
 //    static List<DayModel> listOfDays = new ArrayList<DayModel>();
     private int userID;
@@ -29,6 +31,14 @@ public class NormalDoc {
         this.costumer = costumer;
         userID = costumer.getID();
         payee = costumer.getName();
+        identifier = Manager.normalDocList.size();
+    }
+
+    public int getIdentifier() {
+        return this.identifier;
+    }
+     public int setIdentifier(int id) {
+        return this.identifier = id;
     }
 
     public Costumer getUser() {
@@ -167,5 +177,4 @@ public class NormalDoc {
 //        }
 //
 //    }
-
 }

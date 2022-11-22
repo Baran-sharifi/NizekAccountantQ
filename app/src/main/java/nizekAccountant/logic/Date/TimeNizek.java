@@ -10,10 +10,10 @@ public class TimeNizek {
 
 
      public TimeNizek() {
-//        ZonedDateTime zonedDateTime = ZonedDateTime.now(ZoneOffset.UTC);
-        LocalDateTime now = LocalDateTime.now();
-        this.minute = now.getMinute();
-        this.hour = now.getHour();
+        ZonedDateTime zonedDateTime = ZonedDateTime.now(ZoneOffset.UTC);
+//        LocalDateTime now = LocalDateTime.now();
+        this.minute = zonedDateTime.getMinute();
+        this.hour = zonedDateTime.getHour();
     }
 
  public TimeNizek(int hour, int minute) {

@@ -3,6 +3,7 @@ package nizekAccountant.logic.DocModels;
 import nizekAccountant.logic.Date.DateNizek;
 import nizekAccountant.logic.Date.TimeNizek;
 import nizekAccountant.logic.Login.Costumer;
+import nizekAccountant.logic.ModelManager.Manager;
 
 public class CheckDoc {
 
@@ -13,6 +14,7 @@ public class CheckDoc {
     private TimeNizek timeNizek;
     public boolean isCashed;
     public String payee;
+    int identifier = 0;
     private String filePath = "C:\\csvProject\\checkFile.csv";
     private String cashedFilePath = "C:\\csvProject\\cashedCheck.csv";
     private String notCashedFilePath = "C:\\csvProject\\notCashedCheck.csv";
@@ -29,10 +31,17 @@ public class CheckDoc {
         userID = costumer.getID();
         payee = costumer.getName();
         isCashed = false;
+        identifier = Manager.checkDocList.size();
     }
 
     public String getPayee() {
         return this.payee;
+    }
+    public int getIdentifier() {
+    return this.identifier;
+    }
+    public int setIdentifier(int id) {
+        return this.identifier = id;
     }
 
     public static String statusIsCashed(String checkStatus) {
