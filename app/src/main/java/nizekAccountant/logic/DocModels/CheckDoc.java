@@ -54,6 +54,14 @@ public class CheckDoc {
         return status;
     }
 
+    public Costumer getCostumer() {
+        return costumer;
+    }
+
+    public TimeNizek getTimeNizek() {
+        return timeNizek;
+    }
+
     public int getUserID() {
         return userID;
     }
