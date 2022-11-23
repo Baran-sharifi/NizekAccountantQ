@@ -99,9 +99,9 @@
           <Component id="dashboard" alignment="0" max="32767" attributes="0"/>
           <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
-                  <EmptySpace min="0" pref="39" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="42" max="32767" attributes="0"/>
                   <Component id="LoginPanel" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="0" pref="39" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="43" max="32767" attributes="0"/>
               </Group>
           </Group>
           <Group type="103" rootIndex="2" groupAlignment="0" attributes="0">
@@ -112,9 +112,9 @@
           </Group>
           <Group type="103" rootIndex="3" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
-                  <EmptySpace min="0" pref="12" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="16" max="32767" attributes="0"/>
                   <Component id="stateChangePanel" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="0" pref="13" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="16" max="32767" attributes="0"/>
               </Group>
           </Group>
           <Group type="103" rootIndex="4" groupAlignment="0" attributes="0">
@@ -126,22 +126,22 @@
           </Group>
           <Group type="103" rootIndex="5" groupAlignment="0" attributes="0">
               <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace min="0" pref="25" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="32" max="32767" attributes="0"/>
                   <Component id="addDocPanel" min="-2" max="-2" attributes="0"/>
               </Group>
           </Group>
           <Group type="103" rootIndex="6" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
-                  <EmptySpace min="0" pref="85" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="88" max="32767" attributes="0"/>
                   <Component id="addPeoplePanel" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="0" pref="85" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="89" max="32767" attributes="0"/>
               </Group>
           </Group>
           <Group type="103" rootIndex="7" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
-                  <EmptySpace min="0" pref="91" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="95" max="32767" attributes="0"/>
                   <Component id="addCategoryPanel" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="0" pref="92" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="95" max="32767" attributes="0"/>
               </Group>
           </Group>
           <Group type="103" rootIndex="8" groupAlignment="0" attributes="0">
@@ -153,37 +153,37 @@
           </Group>
           <Group type="103" rootIndex="9" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
-                  <EmptySpace min="0" pref="162" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="166" max="32767" attributes="0"/>
                   <Component id="checksReport" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="0" pref="163" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="166" max="32767" attributes="0"/>
               </Group>
           </Group>
           <Group type="103" rootIndex="10" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
-                  <EmptySpace min="0" pref="162" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="166" max="32767" attributes="0"/>
                   <Component id="docsReport" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="0" pref="163" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="166" max="32767" attributes="0"/>
               </Group>
           </Group>
           <Group type="103" rootIndex="11" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
-                  <EmptySpace min="0" pref="90" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="93" max="32767" attributes="0"/>
                   <Component id="peopleReports" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="0" pref="90" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="94" max="32767" attributes="0"/>
               </Group>
           </Group>
           <Group type="103" rootIndex="12" groupAlignment="0" attributes="0">
               <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace pref="69" max="32767" attributes="0"/>
+                  <EmptySpace pref="72" max="32767" attributes="0"/>
                   <Component id="tarazName" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="45" max="32767" attributes="0"/>
+                  <EmptySpace pref="49" max="32767" attributes="0"/>
               </Group>
           </Group>
           <Group type="103" rootIndex="13" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
-                  <EmptySpace min="0" pref="68" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="72" max="32767" attributes="0"/>
                   <Component id="chart" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="0" pref="69" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="72" max="32767" attributes="0"/>
               </Group>
           </Group>
           <Group type="103" rootIndex="14" groupAlignment="0" attributes="0">
@@ -543,7 +543,7 @@
                           </Group>
                       </Group>
                   </Group>
-                  <EmptySpace min="0" pref="80" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="87" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -1152,25 +1152,20 @@
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="DRangeDocsDayFrom" min="-2" pref="64" max="-2" attributes="0"/>
-                      <Component id="DRangeDocsDayTo" min="-2" pref="64" max="-2" attributes="0"/>
+                      <Component id="DRangeDocsDayFrom" alignment="0" min="-2" pref="64" max="-2" attributes="0"/>
+                      <Component id="DRangeDocsDayTo" alignment="0" min="-2" pref="64" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace max="32767" attributes="0"/>
+                  <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
-                          <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="32767" attributes="0"/>
-                          <Component id="jLabel23" min="-2" pref="218" max="-2" attributes="0"/>
-                          <EmptySpace max="32767" attributes="0"/>
-                      </Group>
-                      <Group type="102" attributes="0">
-                          <Component id="jLabel27" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="32767" attributes="0"/>
-                      </Group>
+                      <Component id="jLabel27" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
                   </Group>
+                  <EmptySpace pref="138" max="32767" attributes="0"/>
+                  <Component id="jLabel23" min="-2" pref="218" max="-2" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
               </Group>
               <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace pref="41" max="32767" attributes="0"/>
+                  <EmptySpace pref="48" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="1" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
                           <Component id="backshowDoc" min="-2" max="-2" attributes="0"/>
@@ -1188,7 +1183,7 @@
                           </Group>
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
-                          <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
                               <Group type="102" alignment="1" attributes="0">
                                   <Component id="monthsDocCombo" min="-2" pref="159" max="-2" attributes="0"/>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
@@ -1199,7 +1194,8 @@
                                   <Component id="daily" min="-2" pref="98" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="1" attributes="0">
-                                  <Component id="DocCostFrom" min="-2" pref="99" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="192" max="-2" attributes="0"/>
+                                  <Component id="DocCostFrom" max="32767" attributes="0"/>
                                   <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="1" attributes="0">
                                       <Component id="costLabel" min="-2" pref="42" max="-2" attributes="0"/>
@@ -1232,16 +1228,17 @@
                       </Group>
                   </Group>
                   <EmptySpace min="-2" pref="175" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="103" groupAlignment="1" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
                           <Component id="jLabel36" min="-2" pref="66" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
-                          <Group type="103" groupAlignment="1" attributes="0">
-                              <Component id="payeeLabel" min="-2" pref="76" max="-2" attributes="0"/>
-                              <Component id="peopleDocList" min="-2" pref="205" max="-2" attributes="0"/>
-                          </Group>
+                          <Component id="payeeLabel" min="-2" pref="76" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="1" attributes="0">
+                          <Component id="peopleDocList" min="-2" pref="205" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -1258,7 +1255,7 @@
                               <Component id="daily" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="weeklyDoc" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="MonthlyDoc" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="monthsDocCombo" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
+                              <Component id="monthsDocCombo" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Component id="jLabel57" min="-2" max="-2" attributes="0"/>
                       </Group>
@@ -1299,7 +1296,7 @@
                           <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
                           <Component id="payeeLabel" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="peopleDocList" min="-2" max="-2" attributes="0"/>
+                          <Component id="peopleDocList" min="-2" pref="34" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace pref="129" max="32767" attributes="0"/>
@@ -1317,21 +1314,21 @@
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="4" pref="4" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                                  <Component id="DRangeDocsMonthFrom" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel48" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel51" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="DRangeDocsYearFrom" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="DRangeDocsDayFrom" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <Component id="jLabel8" alignment="1" min="-2" pref="39" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="DRangeDocsMonthFrom" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel48" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel51" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="DRangeDocsYearFrom" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="DRangeDocsDayFrom" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jLabel27" min="-2" pref="80" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Component id="jLabel8" min="-2" pref="39" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="jLabel27" min="-2" pref="42" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace min="-2" pref="71" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="100" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="backshowDoc" alignment="3" min="-2" pref="52" max="-2" attributes="0"/>
                       <Component id="ShowDocsbtn" alignment="3" min="-2" pref="52" max="-2" attributes="0"/>
@@ -1396,7 +1393,7 @@
               <ComponentRef name="timeFilter"/>
             </Property>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="B Roya" size="14" style="1"/>
+              <Font name="B Roya" size="18" style="1"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -1413,7 +1410,7 @@
               <ComponentRef name="timeFilter"/>
             </Property>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="B Roya" size="14" style="1"/>
+              <Font name="B Roya" size="18" style="1"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -1427,7 +1424,7 @@
               <ComponentRef name="timeFilter"/>
             </Property>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="B Roya" size="14" style="1"/>
+              <Font name="B Roya" size="18" style="1"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -1441,7 +1438,7 @@
         <Component class="javax.swing.JComboBox" name="monthsDocCombo">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="B Roya" size="14" style="1"/>
+              <Font name="B Roya" size="18" style="1"/>
             </Property>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
               <StringArray count="12">
@@ -1470,7 +1467,7 @@
         <Component class="javax.swing.JComboBox" name="peopleDocList">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="B Roya" size="14" style="1"/>
+              <Font name="B Roya" size="18" style="1"/>
             </Property>
           </Properties>
           <Events>
@@ -2846,7 +2843,7 @@
                           </Group>
                       </Group>
                   </Group>
-                  <EmptySpace pref="193" max="32767" attributes="0"/>
+                  <EmptySpace pref="200" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -3087,7 +3084,7 @@
                   <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
               </Group>
               <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="1" attributes="0">
@@ -3101,40 +3098,37 @@
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="costLabelCheck" min="-2" pref="47" max="-2" attributes="0"/>
-                          <EmptySpace max="32767" attributes="0"/>
+                          <EmptySpace pref="72" max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="jLabel5" alignment="1" min="-2" pref="100" max="-2" attributes="0"/>
                               <Component id="payeeLabelCheck" alignment="1" min="-2" pref="76" max="-2" attributes="0"/>
-                              <Component id="peopleCheckList" alignment="1" min="-2" pref="229" max="-2" attributes="0"/>
+                              <Component id="peopleCheckList" alignment="1" min="-2" pref="241" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
                       </Group>
-                      <Group type="102" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          <Component id="monthscheckCombo" min="-2" pref="166" max="-2" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Component id="MonthlyCheckRBtn" min="-2" pref="98" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
+                          <Component id="weeklyCheckRBtn" min="-2" pref="98" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="dailyCheckRBtn" min="-2" pref="98" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="monthscheckCombo" min="-2" pref="159" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="355" max="-2" attributes="0"/>
+                              <Component id="payeeCheckRBtn" alignment="0" min="-2" pref="111" max="-2" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="TimeCheckRBtn" min="-2" pref="98" max="-2" attributes="0"/>
                                       <Component id="costCheckRBtn" min="-2" pref="98" max="-2" attributes="0"/>
                                   </Group>
-                                  <Group type="102" alignment="1" attributes="0">
-                                      <Component id="MonthlyCheckRBtn" min="-2" pref="98" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
-                                      <Component id="weeklyCheckRBtn" min="-2" pref="98" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
-                                      <Component id="dailyCheckRBtn" min="-2" pref="98" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="TimeCheckRBtn" min="-2" pref="98" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace min="-2" pref="513" max="-2" attributes="0"/>
-                                  <Component id="payeeCheckRBtn" min="-2" pref="111" max="-2" attributes="0"/>
                               </Group>
                           </Group>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Component id="jLabel37" min="-2" pref="66" max="-2" attributes="0"/>
-                          <EmptySpace pref="19" max="32767" attributes="0"/>
+                          <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -3152,44 +3146,13 @@
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                  <Component id="jLabel5" min="-2" pref="46" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
-                          <Component id="jLabel5" min="-2" pref="46" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" attributes="0">
-                                  <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
-                                  <Component id="payeeCheckRBtn" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="TimeCheckRBtn" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="dailyCheckRBtn" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="weeklyCheckRBtn" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="MonthlyCheckRBtn" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
-                                  <Component id="jLabel37" min="-2" pref="32" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="costCheckRBtn" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="188" max="-2" attributes="0"/>
-                          <Component id="monthscheckCombo" min="-2" pref="22" max="-2" attributes="0"/>
-                      </Group>
-                  </Group>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="100" max="-2" attributes="0"/>
-                          <Component id="payeeLabelCheck" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="peopleCheckList" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="109" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
+                          <Component id="jLabel37" min="-2" pref="32" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="159" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
@@ -3211,8 +3174,28 @@
                               </Group>
                           </Group>
                       </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
+                          <Component id="payeeCheckRBtn" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="TimeCheckRBtn" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Group type="103" alignment="3" groupAlignment="3" attributes="0">
+                                  <Component id="dailyCheckRBtn" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="weeklyCheckRBtn" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="MonthlyCheckRBtn" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="monthscheckCombo" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="costCheckRBtn" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="114" max="-2" attributes="0"/>
+                          <Component id="payeeLabelCheck" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="peopleCheckList" min="-2" pref="44" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
-                  <EmptySpace pref="50" max="32767" attributes="0"/>
+                  <EmptySpace pref="49" max="32767" attributes="0"/>
                   <Component id="sliderCheckLabel" min="-2" pref="16" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
@@ -3248,7 +3231,7 @@
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="ShowChecksbtn" alignment="3" min="-2" pref="52" max="-2" attributes="0"/>
                       <Component id="backshowDoc1" alignment="3" min="-2" pref="52" max="-2" attributes="0"/>
-                      <Component id="filteringChecks" alignment="3" min="-2" pref="47" max="-2" attributes="0"/>
+                      <Component id="filteringChecks" alignment="3" min="-2" pref="52" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
               </Group>
@@ -3295,7 +3278,7 @@
               <ComponentRef name="timeFilter"/>
             </Property>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="B Roya" size="14" style="1"/>
+              <Font name="B Roya" size="18" style="1"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -3312,7 +3295,7 @@
               <ComponentRef name="timeFilter"/>
             </Property>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="B Roya" size="14" style="1"/>
+              <Font name="B Roya" size="18" style="1"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -3329,7 +3312,7 @@
               <ComponentRef name="timeFilter"/>
             </Property>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="B Roya" size="14" style="1"/>
+              <Font name="B Roya" size="18" style="1"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -3343,7 +3326,7 @@
         <Component class="javax.swing.JComboBox" name="monthscheckCombo">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="B Roya" size="14" style="1"/>
+              <Font name="B Roya" size="18" style="1"/>
             </Property>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
               <StringArray count="12">
@@ -4275,7 +4258,7 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Component id="jScrollPane5" alignment="0" pref="566" max="32767" attributes="0"/>
+              <Component id="jScrollPane5" alignment="0" pref="646" max="32767" attributes="0"/>
               <Group type="102" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="backshowCheck5" min="-2" max="-2" attributes="0"/>
@@ -4293,11 +4276,11 @@
               <Group type="102" alignment="1" attributes="0">
                   <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
                   <Component id="jLabel59" min="-2" pref="30" max="-2" attributes="0"/>
-                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Component id="jScrollPane5" min="-2" pref="437" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="jScrollPane5" pref="468" max="32767" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="backshowCheck5" min="-2" pref="37" max="-2" attributes="0"/>
-                  <EmptySpace pref="15" max="32767" attributes="0"/>
+                  <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -4397,7 +4380,7 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Component id="jScrollPane6" alignment="0" pref="600" max="32767" attributes="0"/>
+              <Component id="jScrollPane6" alignment="0" pref="641" max="32767" attributes="0"/>
               <Group type="102" alignment="1" attributes="0">
                   <EmptySpace max="32767" attributes="0"/>
                   <Component id="jLabel58" min="-2" max="-2" attributes="0"/>
@@ -4416,10 +4399,10 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jLabel58" min="-2" pref="28" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jScrollPane6" min="-2" pref="450" max="-2" attributes="0"/>
-                  <EmptySpace pref="15" max="32767" attributes="0"/>
+                  <Component id="jScrollPane6" pref="485" max="32767" attributes="0"/>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="backshowCheck6" min="-2" pref="37" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
