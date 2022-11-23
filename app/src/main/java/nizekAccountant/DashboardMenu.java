@@ -60,6 +60,7 @@ public class DashboardMenu extends javax.swing.JFrame {
 //filteringChecks.setEnabled(false);
 //filteringDocs.setEnabled(false);
         UserRepository userRepository = new UserRepository();
+
         userRepository.readAndAddCostumer(new File("C:\\csvProject\\costumerFile.csv"));
         userRepository.readAndAddCheckDoc(new File("C:\\csvProject\\checkFile.csv"));
         userRepository.readAndAddNormalDoc(new File("C:\\csvProject\\normalFile.csv"));
@@ -67,6 +68,7 @@ public class DashboardMenu extends javax.swing.JFrame {
         checkSlider2.setMaximum((int)userRepository.getMaxCheckDoc());
         docSlider1.setMaximum((int)userRepository.getMaxCheckDoc());//add check add doc
         docSlider2.setMaximum((int)userRepository.getMaxCheckDoc());
+
         DefaultComboBoxModel<String> defaultComboBoxModel1 = new DefaultComboBoxModel<>();
         DefaultComboBoxModel<String> defaultComboBoxModel2 = new DefaultComboBoxModel<>();
         DefaultComboBoxModel<String> defaultComboBoxModel3 = new DefaultComboBoxModel<>();
@@ -3098,8 +3100,12 @@ public class DashboardMenu extends javax.swing.JFrame {
 
     private void ShowChecksbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ShowChecksbtnActionPerformed
         landPage(checksReport);
-        Double weight = Accounting.calculateWeight();
-        checkWeightLabel.setText(String.valueOf(weight));
+
+        if (!(Manager.checkDocList.isEmpty())) {
+            Double weight = Accounting.calculateWeight();
+            checkWeightLabel.setText(String.valueOf(weight));
+        }
+
 
         int selectedMonth = monthscheckCombo.getSelectedIndex();//the month
         if (costCheckRBtn.isSelected()) {

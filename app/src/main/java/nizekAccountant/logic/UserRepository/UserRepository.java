@@ -8,10 +8,10 @@ import nizekAccountant.logic.DocModels.NormalDoc;
 import nizekAccountant.logic.Login.Costumer;
 
 import java.io.*;
-import java.text.ParseException;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.time.LocalDateTime;
 import java.util.*;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import nizekAccountant.logic.Date.TimeNizek;
 import nizekAccountant.logic.Date.DateNizek;
 import nizekAccountant.logic.Login.GroupType;
@@ -93,7 +93,7 @@ public class UserRepository implements Storeable {
         }
         return filteredList;
     }
-    
+
     public List<NormalDoc> findNormalDocBasedOnName(String name) {
         List<NormalDoc> filteredList = new ArrayList<>();
         for (NormalDoc NormalDoc : Manager.normalDocList) {
@@ -103,7 +103,7 @@ public class UserRepository implements Storeable {
         }
         return filteredList;
     }
-    
+
     public Costumer findCostumerBasedOnIndex(int index) {
         return Manager.costumerList.get(index);
     }
@@ -123,30 +123,50 @@ public class UserRepository implements Storeable {
         return "Not Found";
     }
 
-    public List<NormalDoc> readBasedOnDay(int day, int month, int year) {
+    public List<NormalDoc> readBasedOnDay() {
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd");
+        LocalDateTime now = LocalDateTime.now();
+        String formatted = dtf.format(now);
+        String[] formattedArray = formatted.split("/");
+        StringBuilder sb = new StringBuilder();
+        sb.append(formattedArray[0]);
+        sb.append("-");
+        sb.append(formattedArray[1]);
+        sb.append("-");
+        sb.append(formattedArray[2]);
+        String convertedTime = ConverterTime.convertToPersian(sb.toString());
+        String[] array = convertedTime.split("-");
+        int convertedDay = Integer.parseInt(array[2]);
+        int convertedMonth = Integer.parseInt(array[1]);
+        int convertedYear = Integer.parseInt(array[0]);
+//
         List<NormalDoc> filteredList = new ArrayList<>();
         for (NormalDoc object : Manager.normalDocList) {
-            if (day == object.getDate().getDay() && month == object.getDate().getMonth() && year == object.getDate().getYear()) {
+            if (convertedDay == object.getDate().getDay() && convertedMonth == object.getDate().getMonth() && convertedYear == object.getDate().getYear()) {
                 filteredList.add(object);
             }
         }
         return filteredList;
     }
 
-    public List<NormalDoc> readBasedOnMonth(int month, int year) {
+    public List<NormalDoc> readBasedOnMonth() {
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd");
+        LocalDateTime now = LocalDateTime.now();
+        String formatted = dtf.format(now);
+        String[] formattedArray = formatted.split("/");
+        StringBuilder sb = new StringBuilder();
+        sb.append(formattedArray[0]);
+        sb.append("-");
+        sb.append(formattedArray[1]);
+        sb.append("-");
+        sb.append(formattedArray[2]);
+        String convertedTime = ConverterTime.convertToPersian(sb.toString());
+        String[] array = convertedTime.split("-");
+        int convertedMonth = Integer.parseInt(array[1]);
+        int convertedYear = Integer.parseInt(array[0]);
         List<NormalDoc> filteredList = new ArrayList<>();
         for (NormalDoc object : Manager.normalDocList) {
-            if (month == object.getDate().getMonth() && year == object.getDate().getYear()) {
-                filteredList.add(object);
-            }
-        }
-        return filteredList;
-    }
-
-    public List<NormalDoc> readBasedOnYear(int year) {
-        List<NormalDoc> filteredList = new ArrayList<>();
-        for (NormalDoc object : Manager.normalDocList) {
-            if (year == object.getDate().getYear()) {
+            if (convertedMonth == object.getDate().getMonth() && convertedYear == object.getDate().getYear()) {
                 filteredList.add(object);
             }
         }
@@ -163,35 +183,55 @@ public class UserRepository implements Storeable {
         return filteredList;
     }
 
-    public List<CheckDoc> readBasedOnDayCheck(int day, int month, int year) {
+   public List<CheckDoc> readBasedOnDayCheck() {
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd");
+        LocalDateTime now = LocalDateTime.now();
+        String formatted = dtf.format(now);
+        String[] formattedArray = formatted.split("/");
+        StringBuilder sb = new StringBuilder();
+        sb.append(formattedArray[0]);
+        sb.append("-");
+        sb.append(formattedArray[1]);
+        sb.append("-");
+        sb.append(formattedArray[2]);
+        String convertedTime = ConverterTime.convertToPersian(sb.toString());
+        String[] array = convertedTime.split("-");
+        int convertedDay = Integer.parseInt(array[2]);
+        int convertedMonth = Integer.parseInt(array[1]);
+        int convertedYear = Integer.parseInt(array[0]);
         List<CheckDoc> filteredList = new ArrayList<>();
         for (CheckDoc object : Manager.checkDocList) {
-            if (day == object.getDate().getDay() && month == object.getDate().getMonth() && year == object.getDate().getYear()) {
+            if (convertedDay == object.getDate().getDay() && convertedMonth == object.getDate().getMonth() && convertedYear == object.getDate().getYear()) {
                 filteredList.add(object);
             }
         }
         return filteredList;
     }
 
-    public List<CheckDoc> readBasedOnMonthCheck(int month, int year) {
+    public List<CheckDoc> readBasedOnMonthCheck() {
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd");
+        LocalDateTime now = LocalDateTime.now();
+        String formatted = dtf.format(now);
+        String[] formattedArray = formatted.split("/");
+        StringBuilder sb = new StringBuilder();
+        sb.append(formattedArray[0]);
+        sb.append("-");
+        sb.append(formattedArray[1]);
+        sb.append("-");
+        sb.append(formattedArray[2]);
+        String convertedTime = ConverterTime.convertToPersian(sb.toString());
+        String[] array = convertedTime.split("-");
+        int convertedMonth = Integer.parseInt(array[1]);
+        int convertedYear = Integer.parseInt(array[0]);
         List<CheckDoc> filteredList = new ArrayList<>();
         for (CheckDoc object : Manager.checkDocList) {
-            if (month == object.getDate().getMonth() && year == object.getDate().getYear()) {
+            if (convertedMonth == object.getDate().getMonth() && convertedYear == object.getDate().getYear()) {
                 filteredList.add(object);
             }
         }
         return filteredList;
     }
 
-    public List<CheckDoc> readBasedOnYearCheck(int year) {
-        List<CheckDoc> filteredList = new ArrayList<>();
-        for (CheckDoc object : Manager.checkDocList) {
-            if (year == object.getDate().getYear()) {
-                filteredList.add(object);
-            }
-        }
-        return filteredList;
-    }
 
     public List<CheckDoc> readFilterBasedOnCostCheck(int beforeCost, int afterCost) {
         List<CheckDoc> filteredList = new ArrayList<>();
@@ -202,9 +242,10 @@ public class UserRepository implements Storeable {
         }
         return filteredList;
     }
- public List<CheckDoc> filteredChecksBasedOnDateRange(DateNizek beforeDate, DateNizek afterDate) {
+
+    public List<CheckDoc> filteredChecksBasedOnDateRange(DateNizek beforeDate, DateNizek afterDate) {
         List<CheckDoc> filteredList = new ArrayList<>();
-        for (CheckDoc checkDoc: Manager.checkDocList) {
+        for (CheckDoc checkDoc : Manager.checkDocList) {
             if ((Integer.parseInt(checkDoc.getDate().forDateFormat()) >= Integer.parseInt(beforeDate.forDateFormat()))
                     && (Integer.parseInt(checkDoc.getDate().forDateFormat()) <= Integer.parseInt(afterDate.forDateFormat()))) {
                 filteredList.add(checkDoc);
@@ -214,55 +255,59 @@ public class UserRepository implements Storeable {
         return filteredList;
     }
 
- // Filters Documents Based On the Provided ID!
-  public List<CheckDoc> filterCheckDocumentsByIdUser(int id) {
+    // Filters Documents Based On the Provided ID!
+    public List<CheckDoc> filterCheckDocumentsByIdUser(int id) {
         List<CheckDoc> filteredList = new ArrayList<>();
-        for (CheckDoc checkDoc: Manager.checkDocList) {
+        for (CheckDoc checkDoc : Manager.checkDocList) {
             if (id == checkDoc.getUserID()) {
                 filteredList.add(checkDoc);
             }
         }
         return filteredList;
     }
+
     public List<NormalDoc> filterNormalDocumentsByIdUser(int id) {
         List<NormalDoc> filteredList = new ArrayList<>();
-        for (NormalDoc normalDoc: Manager.normalDocList) {
+        for (NormalDoc normalDoc : Manager.normalDocList) {
             if (id == normalDoc.getUserID()) {
                 filteredList.add(normalDoc);
             }
         }
         return filteredList;
     }
+
     // Get the Max cost Value of Documents!
-     public double getMaxCheckDoc() {
+    public double getMaxCheckDoc() {
         List<Double> costList = new ArrayList<>();
         double max = 0;
-        for (CheckDoc checkDoc: Manager.checkDocList) {
+        for (CheckDoc checkDoc : Manager.checkDocList) {
             costList.add(Double.valueOf(checkDoc.getCost()));
         }
         for (int i = 0; i < costList.size() - 1; i++) {
-             if (costList.get(i) < costList.get(i + 1)) {
-                 max = costList.get(i + 1);
-             }
+            if (costList.get(i) < costList.get(i + 1)) {
+                max = costList.get(i + 1);
+            }
         }
-         return max;
+        return max;
     }
+
     public double getMaxNormalDoc() {
         List<Double> costList = new ArrayList<>();
         double max = 0;
-        for (NormalDoc normalDoc: Manager.normalDocList) {
+        for (NormalDoc normalDoc : Manager.normalDocList) {
             costList.add(Double.valueOf(normalDoc.getCost()));
         }
         for (int i = 0; i < costList.size() - 1; i++) {
-             if (costList.get(i) < costList.get(i + 1)) {
-                 max = costList.get(i + 1);
-             }
+            if (costList.get(i) < costList.get(i + 1)) {
+                max = costList.get(i + 1);
+            }
         }
-         return max;
+        return max;
     }
- public List<NormalDoc> filteredNormalDocsBasedOnDateRange(DateNizek beforeDate, DateNizek afterDate){
-     List<NormalDoc> filteredList = new ArrayList<>();
-        for (NormalDoc normalDoc: Manager.normalDocList) {
+
+    public List<NormalDoc> filteredNormalDocsBasedOnDateRange(DateNizek beforeDate, DateNizek afterDate) {
+        List<NormalDoc> filteredList = new ArrayList<>();
+        for (NormalDoc normalDoc : Manager.normalDocList) {
             if ((Integer.parseInt(normalDoc.getDate().forDateFormat()) >= Integer.parseInt(beforeDate.forDateFormat()))
                     && (Integer.parseInt(normalDoc.getDate().forDateFormat()) <= Integer.parseInt(afterDate.forDateFormat()))) {
                 filteredList.add(normalDoc);
@@ -272,7 +317,7 @@ public class UserRepository implements Storeable {
         return filteredList;
     }
 
- @Override
+    @Override
     public String readFile(Costumer costumer, String inputNationalID) {
         return "Unused!";
     }
@@ -301,7 +346,7 @@ public class UserRepository implements Storeable {
     @Override
     public void writeToFileCostumer() {
         try {
-            FileWriter fileWriter = new FileWriter("C:\\csvProject\\costumerFile.csv");
+            FileWriter fileWriter = new FileWriter("/Users/persuara/Desktop/repository/costumerFile.csv");
             BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
             PrintWriter printWriter = new PrintWriter(bufferedWriter);
             for (Costumer object : Manager.costumerList) {
@@ -323,7 +368,7 @@ public class UserRepository implements Storeable {
     @Override
     public void writeToFileCheckDoc() {
         try {
-            FileWriter fileWriter = new FileWriter("C:\\csvProject\\checkFile.csv");
+            FileWriter fileWriter = new FileWriter("/Users/persuara/Desktop/repository/checkFile.csv");
             BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
             PrintWriter printWriter = new PrintWriter(bufferedWriter);
             for (CheckDoc object : Manager.checkDocList) {
@@ -349,12 +394,8 @@ public class UserRepository implements Storeable {
     public void writeToFileNormalDoc() {
         try {
 
-            File file= new File("C:\\csvProject\\normalFile.csv");
-            
-            if(file.createNewFile()){
-            
-            FileWriter fileWriter = new FileWriter("C:\\csvProject\\normalFile.csv");
-            
+            FileWriter fileWriter = new FileWriter("/Users/persuara/Desktop/repository/normalFile.csv");
+
             BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
             PrintWriter printWriter = new PrintWriter(bufferedWriter);
             for (NormalDoc object : Manager.normalDocList) {
@@ -370,7 +411,6 @@ public class UserRepository implements Storeable {
             }
             printWriter.flush();
             printWriter.close();
-            }
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -380,7 +420,7 @@ public class UserRepository implements Storeable {
     @Override
     public void writeToFileAdmin() {
         try {
-            FileWriter fileWriter = new FileWriter("C:\\csvProject\\adminFile.csv");
+            FileWriter fileWriter = new FileWriter("/Users/persuara/Desktop/repository/adminFile.csv");
             BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
             PrintWriter printWriter = new PrintWriter(bufferedWriter);
             for (Admin object : Manager.adminList) {
@@ -417,6 +457,7 @@ public class UserRepository implements Storeable {
 
         return arraylist;
     }
+
     // Read And PARSE TO MODELS! 
     @Override
     public void readAndAddCostumer(File file) {
@@ -437,14 +478,15 @@ public class UserRepository implements Storeable {
     }
 
     @Override
-  public void readAndAddCheckDoc(File file) {   // requires Edit in Date!
-        List<String> gottenFile = readWholeFile(file);
-        for (String model : gottenFile) {
-            String[] temp = model.split(", ");
-            System.out.println(Arrays.toString(temp));
+    public void readAndAddCheckDoc(File file) {   // requires Edit in Date!
+        if (file.exists()) {
+            List<String> gottenFile = readWholeFile(file);
+            for (String model : gottenFile) {
+                String[] temp = model.split(", ");
+                System.out.println(Arrays.toString(temp));
 //            String[] date = temp[4].trim().split("-");
-            String[] time = temp[5].trim().split(":");
-    
+                String[] time = temp[5].trim().split(":");
+
                 Manager.addCheckDocument(new CheckDoc(
                         temp[1].trim(),
                         temp[2],
@@ -452,10 +494,13 @@ public class UserRepository implements Storeable {
                         new TimeNizek(Integer.parseInt(time[0]), Integer.parseInt(time[1])),
                         Converter.setBooleanCashed(temp[3].trim()),
                         Manager.costumerList.get(Integer.parseInt(temp[6].trim().substring(0, 1)))));
+            }
+        }
     }
-  }
+
     @Override
     public void readAndAddNormalDoc(File file) {
+        if (file.exists()) {
         List<String> gottenFile = readWholeFile(file);
         for (String model : gottenFile) {
             String[] temp = model.split(", ");
@@ -469,6 +514,7 @@ public class UserRepository implements Storeable {
                     ConverterTime.convertDate(ConverterTime.convertToPersian(temp[4].trim())),
                     new TimeNizek(Integer.parseInt(time[0]), Integer.parseInt(time[1])),
                     Manager.costumerList.get(Integer.parseInt(temp[6].trim().substring(0, 1)))));
+        }
         }
     }
 
@@ -496,27 +542,28 @@ public class UserRepository implements Storeable {
         }
         return false;
     }
-    
 
     // Remove Methods!
     public void removeFromNormalDocList(int deleteLine) {
-        for (NormalDoc normalDoc: Manager.normalDocList) {
+        for (NormalDoc normalDoc : Manager.normalDocList) {
             if (deleteLine == normalDoc.getIdentifier()) {
                 Manager.removeFromList(normalDoc);
                 Manager.saveNormal();
             }
         }
     }
+
     public void removeFromCheckDocList(int deleteLine) {
-        for (CheckDoc checkDoc: Manager.checkDocList) {
+        for (CheckDoc checkDoc : Manager.checkDocList) {
             if (deleteLine == checkDoc.getIdentifier()) {
                 Manager.removeFromList(checkDoc);
                 Manager.saveCheck();
             }
         }
     }
+
     public void removeFromCostumerList(int deleteLine) {
-        for (Costumer costumer: Manager.costumerList) {
+        for (Costumer costumer : Manager.costumerList) {
             if (deleteLine == costumer.getID()) {
                 Manager.removeFromList(costumer);
                 Manager.saveCostumer();
@@ -562,23 +609,24 @@ public class UserRepository implements Storeable {
         }
         return arrayCost;
     }
+
     public CheckDoc filterCheckDocumentsById(int id) {
         List<CheckDoc> filteredList = new ArrayList<>();
-        for (CheckDoc checkDoc: Manager.checkDocList) {
+        for (CheckDoc checkDoc : Manager.checkDocList) {
             if (id == checkDoc.getIdentifier()) {
                 filteredList.add(checkDoc);
             }
         }
         return filteredList.get(0);
     }
+
     public NormalDoc filterNormalDocumentsById(int id) {
         List<NormalDoc> filteredList = new ArrayList<>();
-        for (NormalDoc normalDoc: Manager.normalDocList) {
+        for (NormalDoc normalDoc : Manager.normalDocList) {
             if (id == normalDoc.getIdentifier()) {
                 filteredList.add(normalDoc);
             }
         }
         return filteredList.get(0);
     }
-
 }
