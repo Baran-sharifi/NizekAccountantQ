@@ -345,7 +345,7 @@ public class UserRepository implements Storeable {
     @Override
     public void writeToFileCostumer() {
         try {
-            FileWriter fileWriter = new FileWriter("/Users/persuara/Desktop/repository/costumerFile.csv");
+            FileWriter fileWriter = new FileWriter("C:\\csvProject\\costumerFile.csv");
             BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
             PrintWriter printWriter = new PrintWriter(bufferedWriter);
             for (Costumer object : Manager.costumerList) {
@@ -367,7 +367,7 @@ public class UserRepository implements Storeable {
     @Override
     public void writeToFileCheckDoc() {
         try {
-            FileWriter fileWriter = new FileWriter("/Users/persuara/Desktop/repository/checkFile.csv");
+            FileWriter fileWriter = new FileWriter("C:\\csvProject\\checkFile.csv");
             BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
             PrintWriter printWriter = new PrintWriter(bufferedWriter);
             for (CheckDoc object : Manager.checkDocList) {
@@ -393,7 +393,7 @@ public class UserRepository implements Storeable {
     public void writeToFileNormalDoc() {
         try {
 
-            FileWriter fileWriter = new FileWriter("/Users/persuara/Desktop/repository/normalFile.csv");
+            FileWriter fileWriter = new FileWriter("C:\\csvProject\\normalFile.csv");
 
             BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
             PrintWriter printWriter = new PrintWriter(bufferedWriter);
@@ -419,7 +419,7 @@ public class UserRepository implements Storeable {
     @Override
     public void writeToFileAdmin() {
         try {
-            FileWriter fileWriter = new FileWriter("/Users/persuara/Desktop/repository/adminFile.csv");
+            FileWriter fileWriter = new FileWriter("C:\\csvProject\\adminFile.csv");
             BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
             PrintWriter printWriter = new PrintWriter(bufferedWriter);
             for (Admin object : Manager.adminList) {

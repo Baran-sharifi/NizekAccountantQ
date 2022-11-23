@@ -62,9 +62,9 @@ public class DashboardMenu extends javax.swing.JFrame {
 //filteringDocs.setEnabled(false);
         UserRepository userRepository = new UserRepository();
 
-        userRepository.readAndAddCostumer(new File("/Users/persuara/Desktop/repository/costumerFile.csv"));
-        userRepository.readAndAddCheckDoc(new File("/Users/persuara/Desktop/repository/checkFile.csv"));
-        userRepository.readAndAddNormalDoc(new File("/Users/persuara/Desktop/repository/normalFile.csv"));
+        userRepository.readAndAddCostumer(new File("C:\\csvProject\\costumerFile.csv"));
+        userRepository.readAndAddCheckDoc(new File("C:\\csvProject\\checkFile.csv"));
+        userRepository.readAndAddNormalDoc(new File("C:\\csvProject\\normalFile.csv"));
         checkSlider1.setMaximum((int)userRepository.getMaxCheckDoc());//add check add doc
         checkSlider2.setMaximum((int)userRepository.getMaxCheckDoc());
         docSlider1.setMaximum((int)userRepository.getMaxCheckDoc());//add check add doc
@@ -3654,6 +3654,7 @@ filteringChecks.setEnabled(payeeCheckRBtn.isSelected()||TimeCheckRBtn.isSelected
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new DashboardMenu().setVisible(true);
+                final CreditorChart chart = new CreditorChart();
 
             }
         });
