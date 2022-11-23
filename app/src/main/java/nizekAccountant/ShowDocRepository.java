@@ -5,6 +5,7 @@
 package nizekAccountant;
 
 import java.io.File;
+import java.text.ParseException;
 import nizekAccountant.logic.Date.DateNizek;
 import nizekAccountant.logic.Date.TimeNizek;
 import nizekAccountant.logic.ModelManager.Manager;
@@ -13,6 +14,8 @@ import javax.swing.event.TableModelListener;
 import javax.swing.table.TableModel;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import nizekAccountant.logic.ConverterHelper.ConverterTime;
 import nizekAccountant.logic.DocModels.NormalDoc;
 import nizekAccountant.logic.UserRepository.UserRepository;
@@ -22,6 +25,14 @@ import nizekAccountant.logic.UserRepository.UserRepository;
  */
 public class ShowDocRepository implements TableModel {
     UserRepository userRepository = new UserRepository();
+    private boolean status;
+    
+    public ShowDocRepository(boolean status) {
+       this.status = status;
+    }
+    public void setStatus(boolean status) {
+       this.status = status;
+    }
 
     @Override
     public int getRowCount() {
@@ -95,9 +106,25 @@ public class ShowDocRepository implements TableModel {
                 return Manager.normalDocList.get(rowIndex).convertCreditor(Manager.normalDocList.get(rowIndex).isCreditor());
             }
             case 3 -> {
+                if (status == true) {
                   return Manager.normalDocList.get(rowIndex).getDate();
+                } else {
+                   List<String> gregorianList = userRepository.getDatesFormNormalDoc();
+                   return gregorianList.get(rowIndex);
+                }
             }
             case 4 -> {
+                 if (status == true) {
+                   
+                     try {
+                         return ConverterTime.convertToIran(Manager.normalDocList.get(rowIndex).getTime().toString());
+                     } catch (ParseException ex) {
+                         Logger.getLogger(ShowDocRepository.class.getName()).log(Level.SEVERE, null, ex);
+                     }
+                    
+                } else {
+                    return Manager.checkDocList.get(rowIndex).getTime();
+                }
                 
               return Manager.normalDocList.get(rowIndex).getTime();
             }

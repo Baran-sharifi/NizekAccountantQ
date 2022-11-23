@@ -160,14 +160,14 @@ public class Accounting {
         double result = 0;
         int sum = 0;
 
-        stringList = userRepository.readDateFromCheck(Manager.checkDocList);
+        stringList = userRepository.readDateFromCheck();
         List<Integer> integerList = new ArrayList<>();
         for (String stringDate : stringList) {
             integerList.add((int) ConverterTime.findDifferencesInDays(stringDate));
         }
 
         List<Double> doubleList;
-        doubleList = userRepository.readCostFromCheck(Manager.checkDocList);
+        doubleList = userRepository.readCostFromCheck();
         for (int i = 0; i < doubleList.size(); i++) {
             result += (doubleList.get(i) * integerList.get(i));
             sum += doubleList.get(i);

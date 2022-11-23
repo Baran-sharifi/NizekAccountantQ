@@ -481,7 +481,7 @@ public class UserRepository implements Storeable {
         if (file.exists()) {
             List<String> gottenFile = readWholeFile(file);
             for (String model : gottenFile) {
-                String[] temp = model.split(", ");
+                String[] temp = model.split(",  ");
                 System.out.println(Arrays.toString(temp));
             String[] date = temp[4].trim().split("-");
                 String[] time = temp[5].trim().split(":");
@@ -503,7 +503,7 @@ public class UserRepository implements Storeable {
          if (file.exists()) {
         List<String> gottenFile = readWholeFile(file);
         for (String model : gottenFile) {
-            String[] temp = model.split(", ");
+            String[] temp = model.split(",  ");
             System.out.println(Arrays.toString(temp));
            
             
@@ -593,9 +593,9 @@ public class UserRepository implements Storeable {
     }
 
     // Method to Read Date from CHECKDOC
-    public List<String> readDateFromCheck(List<CheckDoc> checkDocList) {
+    public List<String> readDateFromCheck() {
         List<String> arrayDate = new ArrayList<>();
-        for (CheckDoc checkDoc : checkDocList) {
+        for (CheckDoc checkDoc : Manager.checkDocList) {
             if (!(checkDoc.isCashedd())) {
                 arrayDate.add(ConverterTime.convertToGregorian(checkDoc.getDate()));
             }
@@ -603,10 +603,10 @@ public class UserRepository implements Storeable {
         return arrayDate;
     }
 
-    public List<Double> readCostFromCheck(List<CheckDoc> checkDocList) {
+    public List<Double> readCostFromCheck() {
 
         List<Double> arrayCost = new ArrayList<>();
-        for (CheckDoc checkDoc : checkDocList) {
+        for (CheckDoc checkDoc : Manager.checkDocList) {
             if (!(checkDoc.isCashedd())) {
                 arrayCost.add(Converter.convertToDouble(checkDoc.getCost()));
             }
@@ -632,5 +632,19 @@ public class UserRepository implements Storeable {
             }
         }
         return filteredList.get(0);
+    }
+      public List<String> getDatesFormCheckDoc() {
+        List<String> dateList = new ArrayList<>();
+        for (CheckDoc checkDoc: Manager.checkDocList) {
+            dateList.add(ConverterTime.convertToGregorian(checkDoc.getDate()));
+        }
+        return dateList;
+    }
+    public List<String> getDatesFormNormalDoc() {
+        List<String> dateList = new ArrayList<>();
+        for (NormalDoc normalDoc: Manager.normalDocList) {
+            dateList.add(ConverterTime.convertToGregorian(normalDoc.getDate()));
+        }
+        return dateList;
     }
 }

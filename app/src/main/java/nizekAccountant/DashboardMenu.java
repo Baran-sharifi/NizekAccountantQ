@@ -46,7 +46,8 @@ public class DashboardMenu extends javax.swing.JFrame {
     GroupType b = new GroupType("مشتری");
     String checkFilter;
     String docFilter;
-    private static boolean statusTimeZone;
+    private static boolean statusTimeZoneCHECK;
+    private static boolean statusTimeZoneNORMAL;
 
     public DashboardMenu() {
         initComponents();
@@ -114,9 +115,9 @@ public class DashboardMenu extends javax.swing.JFrame {
 
         changeStateCheckLogic = new ChangeStateCheckLogic();
 
-        checkRepo = new ShowCheckRepository(statusTimeZone);
+        checkRepo = new ShowCheckRepository(statusTimeZoneCHECK);
         peopleRepo = new ShowPeopleRepository();
-        docRepo = new ShowDocRepository();
+        docRepo = new ShowDocRepository(statusTimeZoneNORMAL);
 
         checksTable.setModel(checkRepo);
         docsTable.setModel(docRepo);
@@ -374,6 +375,8 @@ public class DashboardMenu extends javax.swing.JFrame {
         docsTable = new javax.swing.JTable();
         jLabel4 = new javax.swing.JLabel();
         backshowCheck1 = new javax.swing.JButton();
+        jalaliNormalBtn = new javax.swing.JButton();
+        gregorianNormalBtn = new javax.swing.JButton();
         peopleReports = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         peopleTable = new javax.swing.JTable();
@@ -442,7 +445,8 @@ public class DashboardMenu extends javax.swing.JFrame {
             }
         });
 
-        LoginPanel.setBackground(new java.awt.Color(153, 153, 153));
+        LoginPanel.setBackground(new java.awt.Color(172, 155, 231));
+        LoginPanel.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 4, true));
 
         emailfieldLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -552,7 +556,9 @@ public class DashboardMenu extends javax.swing.JFrame {
                 .addContainerGap(258, Short.MAX_VALUE))
         );
 
-        addcheckPanel.setBackground(new java.awt.Color(153, 153, 153));
+        addcheckPanel.setBackground(new java.awt.Color(172, 155, 231));
+        addcheckPanel.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 4, true));
+        addcheckPanel.setPreferredSize(new java.awt.Dimension(787, 746));
 
         registerCheck.setFont(new java.awt.Font("B Roya", 1, 18)); // NOI18N
         registerCheck.setText("ثبت");
@@ -576,10 +582,11 @@ public class DashboardMenu extends javax.swing.JFrame {
         jLabel29.setForeground(new java.awt.Color(255, 255, 255));
         jLabel29.setText("افزودن چک");
 
-        addingCheckPanel.setBackground(new java.awt.Color(102, 102, 102));
+        addingCheckPanel.setBackground(new java.awt.Color(172, 155, 231));
 
         discriptionTextAdd.setColumns(20);
         discriptionTextAdd.setRows(5);
+        discriptionTextAdd.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 102, 255), 4, true));
         discriptionCheck.setViewportView(discriptionTextAdd);
 
         jLabel17.setFont(new java.awt.Font("B Roya", 1, 18)); // NOI18N
@@ -594,42 +601,47 @@ public class DashboardMenu extends javax.swing.JFrame {
         jLabel19.setForeground(new java.awt.Color(255, 255, 255));
         jLabel19.setText("توضیحات");
 
+        payeeCostAdd.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 102, 255), 4, true));
         payeeCostAdd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 payeeCostAddActionPerformed(evt);
             }
         });
 
-        TimeCheckAddDay.setBackground(new java.awt.Color(102, 102, 102));
-        TimeCheckAddDay.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "روز", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Helvetica Neue", 0, 13), new java.awt.Color(255, 255, 255))); // NOI18N
+        TimeCheckAddDay.setBackground(new java.awt.Color(172, 155, 231));
+        TimeCheckAddDay.setBorder(javax.swing.BorderFactory.createTitledBorder("روز"));
         TimeCheckAddDay.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 TimeCheckAddDayActionPerformed(evt);
             }
         });
 
+        isCashedBtn.setBackground(new java.awt.Color(172, 155, 231));
         isCashedBtn.setFont(new java.awt.Font("B Roya", 1, 18)); // NOI18N
-        isCashedBtn.setForeground(new java.awt.Color(255, 255, 255));
+        isCashedBtn.setForeground(new java.awt.Color(102, 102, 255));
         isCashedBtn.setText("وصول شده است");
+        isCashedBtn.setBorder(null);
+        isCashedBtn.setBorderPainted(true);
 
         payeesComboBox.setFont(new java.awt.Font("B Roya", 1, 14)); // NOI18N
         payeesComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " ", " ", " ", " ", " " }));
+        payeesComboBox.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 102, 255), 4, true));
         payeesComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 payeesComboBoxActionPerformed(evt);
             }
         });
 
-        TimeCheckAddYear.setBackground(new java.awt.Color(102, 102, 102));
-        TimeCheckAddYear.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "سال", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Helvetica Neue", 0, 13), new java.awt.Color(255, 255, 255))); // NOI18N
+        TimeCheckAddYear.setBackground(new java.awt.Color(172, 155, 231));
+        TimeCheckAddYear.setBorder(javax.swing.BorderFactory.createTitledBorder("سال"));
         TimeCheckAddYear.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 TimeCheckAddYearActionPerformed(evt);
             }
         });
 
-        TimeCheckAddMonth.setBackground(new java.awt.Color(102, 102, 102));
-        TimeCheckAddMonth.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "ماه", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Helvetica Neue", 0, 13), new java.awt.Color(255, 255, 255))); // NOI18N
+        TimeCheckAddMonth.setBackground(new java.awt.Color(172, 155, 231));
+        TimeCheckAddMonth.setBorder(javax.swing.BorderFactory.createTitledBorder("ماه"));
         TimeCheckAddMonth.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 TimeCheckAddMonthActionPerformed(evt);
@@ -651,41 +663,35 @@ public class DashboardMenu extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, addingCheckPanelLayout.createSequentialGroup()
                 .addGroup(addingCheckPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(addingCheckPanelLayout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(addingCheckPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, addingCheckPanelLayout.createSequentialGroup()
-                                .addComponent(isCashedBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(366, 366, 366))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, addingCheckPanelLayout.createSequentialGroup()
-                                .addComponent(discriptionCheck, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(94, 94, 94))))
-                    .addGroup(addingCheckPanelLayout.createSequentialGroup()
-                        .addGroup(addingCheckPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(addingCheckPanelLayout.createSequentialGroup()
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(payeeCostAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(addingCheckPanelLayout.createSequentialGroup()
-                                .addGap(18, 18, 18)
-                                .addComponent(TimeCheckAddYear, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel53, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(TimeCheckAddMonth, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel54, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(TimeCheckAddDay, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(24, 24, 24)
-                                .addComponent(payeesComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGroup(addingCheckPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(addingCheckPanelLayout.createSequentialGroup()
-                                .addGap(18, 18, 18)
-                                .addComponent(jLabel17))
-                            .addGroup(addingCheckPanelLayout.createSequentialGroup()
-                                .addGap(56, 56, 56)
-                                .addComponent(jLabel18))))
-                    .addGroup(addingCheckPanelLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGap(99, 99, 99)
+                        .addComponent(isCashedBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(addingCheckPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(payeeCostAdd, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(discriptionCheck, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, addingCheckPanelLayout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(TimeCheckAddYear, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel53, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(TimeCheckAddMonth, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel54, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(TimeCheckAddDay, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(24, 24, 24)
+                        .addComponent(payeesComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(addingCheckPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, addingCheckPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(addingCheckPanelLayout.createSequentialGroup()
+                            .addGap(18, 18, 18)
+                            .addComponent(jLabel17))
+                        .addGroup(addingCheckPanelLayout.createSequentialGroup()
+                            .addGap(56, 56, 56)
+                            .addComponent(jLabel18)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, addingCheckPanelLayout.createSequentialGroup()
+                        .addGap(33, 33, 33)
                         .addComponent(jLabel19)))
                 .addGap(107, 107, 107))
         );
@@ -707,15 +713,21 @@ public class DashboardMenu extends javax.swing.JFrame {
                         .addComponent(jLabel17)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addGroup(addingCheckPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(payeeCostAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel18))
-                .addGap(18, 18, 18)
-                .addGroup(addingCheckPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(discriptionCheck, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel19))
-                .addGap(11, 11, 11)
-                .addComponent(isCashedBtn)
-                .addGap(61, 61, 61))
+                    .addGroup(addingCheckPanelLayout.createSequentialGroup()
+                        .addGroup(addingCheckPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(addingCheckPanelLayout.createSequentialGroup()
+                                .addComponent(jLabel18)
+                                .addGap(35, 35, 35))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, addingCheckPanelLayout.createSequentialGroup()
+                                .addComponent(payeeCostAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
+                        .addGroup(addingCheckPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(discriptionCheck, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel19))
+                        .addGap(98, 98, 98))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, addingCheckPanelLayout.createSequentialGroup()
+                        .addComponent(isCashedBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(61, 61, 61))))
         );
 
         addCheckScroll.setViewportView(addingCheckPanel);
@@ -731,14 +743,15 @@ public class DashboardMenu extends javax.swing.JFrame {
         countCheck.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         countCheck.setText(" ");
 
-        jLabel56.setFont(new java.awt.Font("B Roya", 1, 12)); // NOI18N
+        jLabel56.setFont(new java.awt.Font("B Roya", 1, 14)); // NOI18N
         jLabel56.setForeground(new java.awt.Color(255, 255, 255));
         jLabel56.setText("ثبت چک ققط برای طرف حساب های ثبت شده قابل انجام است");
 
         jButton2.setBackground(new java.awt.Color(102, 102, 255));
-        jButton2.setFont(new java.awt.Font("B Roya", 1, 14)); // NOI18N
+        jButton2.setFont(new java.awt.Font("B Roya", 1, 18)); // NOI18N
         jButton2.setForeground(new java.awt.Color(255, 255, 255));
         jButton2.setText("افزودن شخص جدید");
+        jButton2.setBorder(null);
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
@@ -773,9 +786,9 @@ public class DashboardMenu extends javax.swing.JFrame {
                     .addGroup(addcheckPanelLayout.createSequentialGroup()
                         .addGap(40, 40, 40)
                         .addGroup(addcheckPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton2)
-                            .addComponent(jLabel56, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(0, 87, Short.MAX_VALUE))
+                            .addComponent(jLabel56, javax.swing.GroupLayout.PREFERRED_SIZE, 376, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(0, 411, Short.MAX_VALUE))
         );
         addcheckPanelLayout.setVerticalGroup(
             addcheckPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -786,11 +799,11 @@ public class DashboardMenu extends javax.swing.JFrame {
                 .addComponent(addCheckScroll, javax.swing.GroupLayout.PREFERRED_SIZE, 371, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(countCheck)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 85, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 387, Short.MAX_VALUE)
                 .addComponent(jLabel56, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton2)
-                .addGap(84, 84, 84)
+                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(58, 58, 58)
                 .addGroup(addcheckPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(addCheckBack1, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(registerCheck, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -798,7 +811,9 @@ public class DashboardMenu extends javax.swing.JFrame {
                 .addGap(30, 30, 30))
         );
 
-        stateChangePanel.setBackground(new java.awt.Color(102, 102, 102));
+        stateChangePanel.setBackground(new java.awt.Color(172, 155, 231));
+        stateChangePanel.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 4, true));
+        stateChangePanel.setPreferredSize(new java.awt.Dimension(787, 746));
 
         jLabel25.setFont(new java.awt.Font("B Roya", 1, 18)); // NOI18N
         jLabel25.setForeground(new java.awt.Color(255, 255, 255));
@@ -809,13 +824,16 @@ public class DashboardMenu extends javax.swing.JFrame {
         jLabel26.setForeground(new java.awt.Color(255, 255, 255));
         jLabel26.setText("شناسه چک");
 
+        checkIdentifier.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 102, 255), 4, true));
         checkIdentifier.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 checkIdentifierActionPerformed(evt);
             }
         });
 
+        registerChangeCheck.setBackground(new java.awt.Color(102, 102, 255));
         registerChangeCheck.setFont(new java.awt.Font("B Roya", 1, 18)); // NOI18N
+        registerChangeCheck.setForeground(new java.awt.Color(255, 255, 255));
         registerChangeCheck.setText("ثبت");
         registerChangeCheck.setPreferredSize(dimension);
         registerChangeCheck.addActionListener(new java.awt.event.ActionListener() {
@@ -824,15 +842,20 @@ public class DashboardMenu extends javax.swing.JFrame {
             }
         });
 
+        isCreditorToggle.setBackground(new java.awt.Color(102, 102, 255));
         isCreditorToggle.setFont(new java.awt.Font("B Roya", 1, 18)); // NOI18N
-        isCreditorToggle.setText("وصول شده است");
+        isCreditorToggle.setForeground(new java.awt.Color(255, 255, 255));
+        isCreditorToggle.setText("تغییر وضعیت");
+        isCreditorToggle.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 102, 255), 4, true));
         isCreditorToggle.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 isCreditorToggleActionPerformed(evt);
             }
         });
 
+        backCheckState.setBackground(new java.awt.Color(102, 102, 255));
         backCheckState.setFont(new java.awt.Font("B Roya", 1, 18)); // NOI18N
+        backCheckState.setForeground(new java.awt.Color(255, 255, 255));
         backCheckState.setText("بازگشت به داشبورد اصلی");
         backCheckState.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -841,12 +864,16 @@ public class DashboardMenu extends javax.swing.JFrame {
         });
 
         jLabel30.setBackground(new java.awt.Color(102, 102, 255));
-        jLabel30.setFont(new java.awt.Font("B Roya", 1, 18)); // NOI18N
+        jLabel30.setFont(new java.awt.Font("B Roya", 1, 24)); // NOI18N
         jLabel30.setForeground(new java.awt.Color(255, 255, 255));
         jLabel30.setText("تغییر وضعیت چک");
 
-        convertToDoc.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        changeStateComboBox.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 102, 255), 4, true));
+
+        convertToDoc.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        convertToDoc.setForeground(new java.awt.Color(102, 102, 255));
         convertToDoc.setText("تبدیل چک به سند");
+        convertToDoc.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 102, 255), 4, true));
         convertToDoc.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 convertToDocActionPerformed(evt);
@@ -857,69 +884,73 @@ public class DashboardMenu extends javax.swing.JFrame {
         stateChangePanel.setLayout(stateChangePanelLayout);
         stateChangePanelLayout.setHorizontalGroup(
             stateChangePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, stateChangePanelLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel30)
-                .addContainerGap())
             .addGroup(stateChangePanelLayout.createSequentialGroup()
                 .addGroup(stateChangePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(stateChangePanelLayout.createSequentialGroup()
                         .addGap(235, 235, 235)
                         .addGroup(stateChangePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(changeStateComboBox, 0, 238, Short.MAX_VALUE)
-                            .addComponent(checkIdentifier))
+                            .addComponent(changeStateComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(checkIdentifier, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(47, 47, 47)
                         .addGroup(stateChangePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel25)
                             .addComponent(jLabel26)))
                     .addGroup(stateChangePanelLayout.createSequentialGroup()
-                        .addContainerGap(166, Short.MAX_VALUE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(backCheckState)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(registerChangeCheck, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(126, 126, 126)))
-                .addGap(0, 159, Short.MAX_VALUE))
+                .addGap(0, 166, Short.MAX_VALUE))
             .addGroup(stateChangePanelLayout.createSequentialGroup()
                 .addGap(273, 273, 273)
                 .addGroup(stateChangePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(isCreditorToggle, javax.swing.GroupLayout.DEFAULT_SIZE, 172, Short.MAX_VALUE)
                     .addComponent(convertToDoc, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, stateChangePanelLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel30, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(56, 56, 56))
         );
         stateChangePanelLayout.setVerticalGroup(
             stateChangePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(stateChangePanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel30)
                 .addGroup(stateChangePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(stateChangePanelLayout.createSequentialGroup()
-                        .addGap(107, 107, 107)
+                        .addGap(27, 27, 27)
+                        .addComponent(jLabel30, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(44, 44, 44)
                         .addGroup(stateChangePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel25)
                             .addComponent(changeStateComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addComponent(jLabel26))
                     .addGroup(stateChangePanelLayout.createSequentialGroup()
-                        .addGap(167, 167, 167)
-                        .addComponent(checkIdentifier, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(195, 195, 195)
+                        .addComponent(checkIdentifier, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(39, 39, 39)
                 .addComponent(isCreditorToggle, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(convertToDoc, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 149, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 249, Short.MAX_VALUE)
                 .addGroup(stateChangePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(registerChangeCheck, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(backCheckState, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(79, 79, 79))
         );
 
-        showDocPanel.setBackground(new java.awt.Color(153, 153, 153));
+        showDocPanel.setBackground(new java.awt.Color(172, 155, 231));
+        showDocPanel.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 4, true));
+        showDocPanel.setPreferredSize(new java.awt.Dimension(787, 746));
 
         payeeLabel.setFont(new java.awt.Font("B Roya", 1, 18)); // NOI18N
         payeeLabel.setForeground(new java.awt.Color(255, 255, 255));
         payeeLabel.setText("طرف حساب");
 
+        ShowDocsbtn.setBackground(new java.awt.Color(102, 102, 255));
         ShowDocsbtn.setFont(new java.awt.Font("B Roya", 1, 18)); // NOI18N
+        ShowDocsbtn.setForeground(new java.awt.Color(255, 255, 255));
         ShowDocsbtn.setText("نمایش سندها");
         ShowDocsbtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -927,7 +958,9 @@ public class DashboardMenu extends javax.swing.JFrame {
             }
         });
 
+        backshowDoc.setBackground(new java.awt.Color(102, 102, 255));
         backshowDoc.setFont(new java.awt.Font("B Roya", 1, 18)); // NOI18N
+        backshowDoc.setForeground(new java.awt.Color(255, 255, 255));
         backshowDoc.setText("بازگشت به داشبورد اصلی");
         backshowDoc.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -936,7 +969,7 @@ public class DashboardMenu extends javax.swing.JFrame {
         });
 
         jLabel31.setBackground(new java.awt.Color(102, 102, 255));
-        jLabel31.setFont(new java.awt.Font("B Roya", 1, 18)); // NOI18N
+        jLabel31.setFont(new java.awt.Font("B Roya", 1, 24)); // NOI18N
         jLabel31.setForeground(new java.awt.Color(255, 255, 255));
         jLabel31.setText("نمایش سند");
 
@@ -967,6 +1000,7 @@ public class DashboardMenu extends javax.swing.JFrame {
 
         monthsDocCombo.setFont(new java.awt.Font("B Roya", 1, 18)); // NOI18N
         monthsDocCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "فروردین", "اردیبهشت", "خرداد", "تیر", "مرداد ", "شهریور", "مهر", "آبان", "آذر", "دی", "بهمن ", "اسفند" }));
+        monthsDocCombo.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 102, 255), 4, true));
         monthsDocCombo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 monthsDocComboActionPerformed(evt);
@@ -974,6 +1008,7 @@ public class DashboardMenu extends javax.swing.JFrame {
         });
 
         peopleDocList.setFont(new java.awt.Font("B Roya", 1, 18)); // NOI18N
+        peopleDocList.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 102, 255), 4, true));
         peopleDocList.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 peopleDocListActionPerformed(evt);
@@ -981,12 +1016,11 @@ public class DashboardMenu extends javax.swing.JFrame {
         });
 
         costLabel.setFont(new java.awt.Font("B Roya", 1, 18)); // NOI18N
-        costLabel.setForeground(new java.awt.Color(255, 255, 255));
         costLabel.setText("مبلغ");
 
         filters.add(TimeDocRBtn);
         TimeDocRBtn.setFont(new java.awt.Font("B Roya", 1, 18)); // NOI18N
-        TimeDocRBtn.setForeground(new java.awt.Color(255, 255, 255));
+        TimeDocRBtn.setForeground(new java.awt.Color(102, 102, 255));
         TimeDocRBtn.setText("فیلتر زمان");
         TimeDocRBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -996,7 +1030,7 @@ public class DashboardMenu extends javax.swing.JFrame {
 
         filters.add(payeeDocRBtn);
         payeeDocRBtn.setFont(new java.awt.Font("B Roya", 1, 18)); // NOI18N
-        payeeDocRBtn.setForeground(new java.awt.Color(255, 255, 255));
+        payeeDocRBtn.setForeground(new java.awt.Color(102, 102, 255));
         payeeDocRBtn.setText("طرف حساب");
         payeeDocRBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1004,9 +1038,10 @@ public class DashboardMenu extends javax.swing.JFrame {
             }
         });
 
+        costDocRBtn.setBackground(new java.awt.Color(172, 155, 231));
         filters.add(costDocRBtn);
         costDocRBtn.setFont(new java.awt.Font("B Roya", 1, 18)); // NOI18N
-        costDocRBtn.setForeground(new java.awt.Color(255, 255, 255));
+        costDocRBtn.setForeground(new java.awt.Color(102, 102, 255));
         costDocRBtn.setText("فیلتر قیمت");
         costDocRBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1018,24 +1053,25 @@ public class DashboardMenu extends javax.swing.JFrame {
         jLabel36.setForeground(new java.awt.Color(255, 255, 255));
         jLabel36.setText("فیلترها");
 
+        jLabel23.setBackground(new java.awt.Color(102, 102, 255));
         jLabel23.setFont(new java.awt.Font("B Roya", 1, 18)); // NOI18N
         jLabel23.setForeground(new java.awt.Color(255, 255, 255));
         jLabel23.setText("بازه ی زمانی مورد نظر را وارد کنید");
 
-        DRangeDocsMonthFrom.setBackground(new java.awt.Color(102, 102, 102));
+        DRangeDocsMonthFrom.setBackground(new java.awt.Color(172, 155, 231));
         DRangeDocsMonthFrom.setForeground(new java.awt.Color(255, 255, 255));
-        DRangeDocsMonthFrom.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "ماه", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Helvetica Neue", 0, 13), new java.awt.Color(255, 255, 255))); // NOI18N
+        DRangeDocsMonthFrom.setBorder(javax.swing.BorderFactory.createTitledBorder("ماه"));
 
-        DRangeDocsDayFrom.setBackground(new java.awt.Color(102, 102, 102));
+        DRangeDocsDayFrom.setBackground(new java.awt.Color(172, 155, 231));
         DRangeDocsDayFrom.setForeground(new java.awt.Color(255, 255, 255));
-        DRangeDocsDayFrom.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "روز", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Helvetica Neue", 0, 13), new java.awt.Color(255, 255, 255))); // NOI18N
+        DRangeDocsDayFrom.setBorder(javax.swing.BorderFactory.createTitledBorder("روز"));
         DRangeDocsDayFrom.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 DRangeDocsDayFromActionPerformed(evt);
             }
         });
 
-        DRangeDocsmonthTo.setBackground(new java.awt.Color(102, 102, 102));
+        DRangeDocsmonthTo.setBackground(new java.awt.Color(172, 155, 231));
         DRangeDocsmonthTo.setForeground(new java.awt.Color(255, 255, 255));
         DRangeDocsmonthTo.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "ماه", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Helvetica Neue", 0, 13), new java.awt.Color(255, 255, 255))); // NOI18N
         DRangeDocsmonthTo.addActionListener(new java.awt.event.ActionListener() {
@@ -1044,7 +1080,7 @@ public class DashboardMenu extends javax.swing.JFrame {
             }
         });
 
-        DRangeDocsDayTo.setBackground(new java.awt.Color(102, 102, 102));
+        DRangeDocsDayTo.setBackground(new java.awt.Color(172, 155, 231));
         DRangeDocsDayTo.setForeground(new java.awt.Color(255, 255, 255));
         DRangeDocsDayTo.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "روز", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Helvetica Neue", 0, 13), new java.awt.Color(255, 255, 255))); // NOI18N
 
@@ -1072,11 +1108,11 @@ public class DashboardMenu extends javax.swing.JFrame {
         jLabel51.setForeground(new java.awt.Color(255, 255, 255));
         jLabel51.setText("/");
 
-        DRangeDocsYearFrom.setBackground(new java.awt.Color(102, 102, 102));
+        DRangeDocsYearFrom.setBackground(new java.awt.Color(172, 155, 231));
         DRangeDocsYearFrom.setForeground(new java.awt.Color(255, 255, 255));
-        DRangeDocsYearFrom.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "سال", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Helvetica Neue", 0, 13), new java.awt.Color(255, 255, 255))); // NOI18N
+        DRangeDocsYearFrom.setBorder(javax.swing.BorderFactory.createTitledBorder("سال"));
 
-        DRangeDocsYearTo.setBackground(new java.awt.Color(102, 102, 102));
+        DRangeDocsYearTo.setBackground(new java.awt.Color(172, 155, 231));
         DRangeDocsYearTo.setForeground(new java.awt.Color(255, 255, 255));
         DRangeDocsYearTo.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "سال", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Helvetica Neue", 0, 13), new java.awt.Color(255, 255, 255))); // NOI18N
 
@@ -1084,17 +1120,19 @@ public class DashboardMenu extends javax.swing.JFrame {
         docSlider1.setForeground(new java.awt.Color(51, 51, 255));
 
         docSlider2.setBackground(new java.awt.Color(255, 255, 255));
-        docSlider2.setForeground(new java.awt.Color(51, 102, 255));
+        docSlider2.setForeground(new java.awt.Color(51, 51, 255));
 
         DocCostFrom.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         DocCostFrom.setForeground(new java.awt.Color(255, 255, 255));
-        DocCostFrom.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "از", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 12), new java.awt.Color(255, 255, 255))); // NOI18N
+        DocCostFrom.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "از", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 12))); // NOI18N
 
         DocCostTo.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         DocCostTo.setForeground(new java.awt.Color(255, 255, 255));
-        DocCostTo.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "تا", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 12), new java.awt.Color(255, 255, 255))); // NOI18N
+        DocCostTo.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "تا", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 12))); // NOI18N
 
+        filteringDocs.setBackground(new java.awt.Color(102, 102, 255));
         filteringDocs.setFont(new java.awt.Font("B Roya", 1, 18)); // NOI18N
+        filteringDocs.setForeground(new java.awt.Color(255, 255, 255));
         filteringDocs.setText("اعمال فیلتر");
         filteringDocs.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1133,67 +1171,73 @@ public class DashboardMenu extends javax.swing.JFrame {
                 .addGroup(showDocPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel27)
                     .addComponent(jLabel8))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 138, Short.MAX_VALUE)
-                .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, showDocPanelLayout.createSequentialGroup()
-                .addContainerGap(48, Short.MAX_VALUE)
-                .addGroup(showDocPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(showDocPanelLayout.createSequentialGroup()
-                        .addComponent(backshowDoc)
-                        .addGroup(showDocPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(showDocPanelLayout.createSequentialGroup()
-                                .addGap(268, 268, 268)
-                                .addComponent(jLabel31))
-                            .addGroup(showDocPanelLayout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(ShowDocsbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(filteringDocs))))
-                    .addGroup(showDocPanelLayout.createSequentialGroup()
-                        .addGroup(showDocPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, showDocPanelLayout.createSequentialGroup()
-                                .addComponent(monthsDocCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(MonthlyDoc, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(weeklyDoc, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(daily, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, showDocPanelLayout.createSequentialGroup()
-                                .addGap(192, 192, 192)
-                                .addComponent(DocCostFrom, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGap(49, 49, 49)
-                                .addGroup(showDocPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(costLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel57, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(87, 87, 87)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(showDocPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(showDocPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(TimeDocRBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(costDocRBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(payeeDocRBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(80, 80, 80)))
-                .addGap(49, 49, 49))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, showDocPanelLayout.createSequentialGroup()
+            .addGroup(showDocPanelLayout.createSequentialGroup()
                 .addGap(22, 22, 22)
+                .addGroup(showDocPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(docSlider2, javax.swing.GroupLayout.DEFAULT_SIZE, 333, Short.MAX_VALUE)
+                    .addComponent(docSlider1, javax.swing.GroupLayout.DEFAULT_SIZE, 333, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(showDocPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(docSlider1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(showDocPanelLayout.createSequentialGroup()
-                        .addComponent(docSlider2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(DocCostTo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addGap(175, 175, 175)
-                .addGroup(showDocPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(showDocPanelLayout.createSequentialGroup()
-                        .addComponent(jLabel36, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(33, 33, 33))
-                    .addGroup(showDocPanelLayout.createSequentialGroup()
-                        .addComponent(payeeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(49, 49, 49))
-                    .addGroup(showDocPanelLayout.createSequentialGroup()
-                        .addComponent(peopleDocList, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, showDocPanelLayout.createSequentialGroup()
+                        .addGroup(showDocPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(DocCostTo, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(DocCostFrom, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(showDocPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(showDocPanelLayout.createSequentialGroup()
+                                .addGap(175, 175, 175)
+                                .addGroup(showDocPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(showDocPanelLayout.createSequentialGroup()
+                                        .addComponent(jLabel36, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(46, 46, 46))
+                                    .addGroup(showDocPanelLayout.createSequentialGroup()
+                                        .addGroup(showDocPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(payeeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(peopleDocList, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(49, 49, 49))))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, showDocPanelLayout.createSequentialGroup()
+                                .addGap(33, 33, 33)
+                                .addComponent(costLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(49, 49, 49))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, showDocPanelLayout.createSequentialGroup()
+                        .addGroup(showDocPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(showDocPanelLayout.createSequentialGroup()
+                                .addComponent(backshowDoc)
+                                .addGroup(showDocPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(showDocPanelLayout.createSequentialGroup()
+                                        .addGap(309, 309, 309)
+                                        .addComponent(jLabel31))
+                                    .addGroup(showDocPanelLayout.createSequentialGroup()
+                                        .addGap(29, 29, 29)
+                                        .addComponent(ShowDocsbtn)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(filteringDocs))))
+                            .addGroup(showDocPanelLayout.createSequentialGroup()
+                                .addGroup(showDocPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(costDocRBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(showDocPanelLayout.createSequentialGroup()
+                                        .addGroup(showDocPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, showDocPanelLayout.createSequentialGroup()
+                                                .addComponent(monthsDocCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addComponent(MonthlyDoc, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(weeklyDoc, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(daily, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, showDocPanelLayout.createSequentialGroup()
+                                                .addComponent(jLabel57, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(87, 87, 87)))
+                                        .addGroup(showDocPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(showDocPanelLayout.createSequentialGroup()
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(payeeDocRBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, showDocPanelLayout.createSequentialGroup()
+                                                .addGap(6, 6, 6)
+                                                .addComponent(TimeDocRBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addGap(80, 80, 80)))
                         .addGap(49, 49, 49))))
         );
         showDocPanelLayout.setVerticalGroup(
@@ -1216,29 +1260,30 @@ public class DashboardMenu extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(showDocPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(TimeDocRBtn)
-                            .addComponent(jLabel36, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(costDocRBtn)))
+                            .addComponent(jLabel36, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(costDocRBtn)
                 .addGap(32, 32, 32)
                 .addGroup(showDocPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(showDocPanelLayout.createSequentialGroup()
-                        .addGroup(showDocPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(showDocPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(DocCostFrom, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(docSlider1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(showDocPanelLayout.createSequentialGroup()
-                                .addGap(21, 21, 21)
-                                .addComponent(costLabel)))
-                        .addGap(12, 12, 12)
+                        .addGroup(showDocPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(DocCostFrom, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(docSlider1, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(showDocPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(DocCostTo, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(docSlider2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(DocCostTo, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(docSlider2, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(showDocPanelLayout.createSequentialGroup()
-                        .addGap(15, 15, 15)
-                        .addComponent(payeeLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(showDocPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(showDocPanelLayout.createSequentialGroup()
+                                .addGap(2, 2, 2)
+                                .addComponent(costLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(4, 4, 4))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, showDocPanelLayout.createSequentialGroup()
+                                .addComponent(payeeLabel)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
                         .addComponent(peopleDocList, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 129, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 143, Short.MAX_VALUE)
                 .addGroup(showDocPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(showDocPanelLayout.createSequentialGroup()
                         .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1266,15 +1311,17 @@ public class DashboardMenu extends javax.swing.JFrame {
                     .addComponent(backshowDoc, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(ShowDocsbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(filteringDocs, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(90, 90, 90))
+                .addGap(25, 25, 25))
         );
 
-        addDocPanel.setBackground(new java.awt.Color(153, 153, 153));
+        addDocPanel.setBackground(new java.awt.Color(172, 155, 231));
+        addDocPanel.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 4, true));
         addDocPanel.setForeground(new java.awt.Color(204, 204, 204));
 
         scrollDoc.setBackground(new java.awt.Color(204, 255, 153));
+        scrollDoc.setPreferredSize(new java.awt.Dimension(787, 746));
 
-        addingDocPanel.setBackground(new java.awt.Color(102, 102, 102));
+        addingDocPanel.setBackground(new java.awt.Color(172, 155, 231));
         addingDocPanel.setForeground(new java.awt.Color(255, 255, 255));
 
         jLabel15.setBackground(new java.awt.Color(153, 153, 153));
@@ -1287,6 +1334,9 @@ public class DashboardMenu extends javax.swing.JFrame {
         jLabel16.setForeground(new java.awt.Color(255, 255, 255));
         jLabel16.setText("توضیحات");
 
+        discriptionDocAdd.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 102, 255), 4, true));
+
+        costDocAdd.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 102, 255), 4, true));
         costDocAdd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 costDocAddActionPerformed(evt);
@@ -1298,13 +1348,13 @@ public class DashboardMenu extends javax.swing.JFrame {
         jLabel13.setForeground(new java.awt.Color(255, 255, 255));
         jLabel13.setText("مشخصات سند");
 
-        creditorBtn.setBackground(new java.awt.Color(153, 153, 153));
+        creditorBtn.setBackground(new java.awt.Color(172, 155, 231));
         buttonGroup2.add(creditorBtn);
         creditorBtn.setFont(new java.awt.Font("B Roya", 1, 18)); // NOI18N
         creditorBtn.setForeground(new java.awt.Color(255, 255, 255));
         creditorBtn.setText("بستانکار");
 
-        debtorBtn.setBackground(new java.awt.Color(153, 153, 153));
+        debtorBtn.setBackground(new java.awt.Color(172, 155, 231));
         buttonGroup2.add(debtorBtn);
         debtorBtn.setFont(new java.awt.Font("B Roya", 1, 18)); // NOI18N
         debtorBtn.setForeground(new java.awt.Color(255, 255, 255));
@@ -1315,32 +1365,34 @@ public class DashboardMenu extends javax.swing.JFrame {
         jLabel14.setForeground(new java.awt.Color(255, 255, 255));
         jLabel14.setText("طرف حساب");
 
+        addDocCombo.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 102, 255), 4, true));
+
         jLabel39.setForeground(new java.awt.Color(255, 255, 255));
         jLabel39.setText("______________________________________________________________________________________________________________________________");
 
-        docMonth.setBackground(new java.awt.Color(102, 102, 102));
+        docMonth.setBackground(new java.awt.Color(172, 155, 231));
         docMonth.setForeground(new java.awt.Color(255, 255, 255));
-        docMonth.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "ماه", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Helvetica Neue", 0, 13), new java.awt.Color(255, 255, 255))); // NOI18N
+        docMonth.setBorder(javax.swing.BorderFactory.createTitledBorder("ماه"));
         docMonth.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 docMonthActionPerformed(evt);
             }
         });
 
-        docDay.setBackground(new java.awt.Color(102, 102, 102));
+        docDay.setBackground(new java.awt.Color(172, 155, 231));
         docDay.setForeground(new java.awt.Color(255, 255, 255));
-        docDay.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "روز", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Helvetica Neue", 0, 13), new java.awt.Color(255, 255, 255))); // NOI18N
+        docDay.setBorder(javax.swing.BorderFactory.createTitledBorder("روز"));
 
-        docYear.setBackground(new java.awt.Color(102, 102, 102));
+        docYear.setBackground(new java.awt.Color(172, 155, 231));
         docYear.setForeground(new java.awt.Color(255, 255, 255));
-        docYear.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "سال", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Helvetica Neue", 0, 13), new java.awt.Color(255, 255, 255))); // NOI18N
+        docYear.setBorder(javax.swing.BorderFactory.createTitledBorder("سال"));
 
         javax.swing.GroupLayout addingDocPanelLayout = new javax.swing.GroupLayout(addingDocPanel);
         addingDocPanel.setLayout(addingDocPanelLayout);
         addingDocPanelLayout.setHorizontalGroup(
             addingDocPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(addingDocPanelLayout.createSequentialGroup()
-                .addGap(0, 48, Short.MAX_VALUE)
+                .addGap(0, 50, Short.MAX_VALUE)
                 .addGroup(addingDocPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(addingDocPanelLayout.createSequentialGroup()
                         .addGroup(addingDocPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -1354,41 +1406,41 @@ public class DashboardMenu extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(docMonth, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(docDay, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(38, 38, 38)))
-                        .addGroup(addingDocPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(costDocAdd, javax.swing.GroupLayout.DEFAULT_SIZE, 257, Short.MAX_VALUE)
-                            .addComponent(discriptionDocAdd)
-                            .addComponent(addDocCombo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(18, 18, 18)
+                                .addComponent(docDay, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(30, 30, 30)))
                         .addGroup(addingDocPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(addingDocPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(jLabel14)
-                                .addComponent(jLabel15)
-                                .addComponent(jLabel16))
-                            .addComponent(jLabel13)))
-                    .addGroup(addingDocPanelLayout.createSequentialGroup()
-                        .addComponent(jLabel39, javax.swing.GroupLayout.PREFERRED_SIZE, 621, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(14, 14, 14)))
-                .addGap(21, 21, 21))
+                            .addGroup(addingDocPanelLayout.createSequentialGroup()
+                                .addGroup(addingDocPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(costDocAdd, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE)
+                                    .addComponent(discriptionDocAdd, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE)
+                                    .addComponent(addDocCombo, 0, 250, Short.MAX_VALUE))
+                                .addGap(18, 18, 18)
+                                .addGroup(addingDocPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel14)
+                                    .addComponent(jLabel15)
+                                    .addComponent(jLabel16)))
+                            .addGroup(addingDocPanelLayout.createSequentialGroup()
+                                .addGap(261, 261, 261)
+                                .addComponent(jLabel13))))
+                    .addComponent(jLabel39, javax.swing.GroupLayout.PREFERRED_SIZE, 621, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(35, 35, 35))
         );
         addingDocPanelLayout.setVerticalGroup(
             addingDocPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(addingDocPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(addingDocPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(addingDocPanelLayout.createSequentialGroup()
-                        .addComponent(jLabel13)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(addingDocPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel14)
-                            .addComponent(creditorBtn)
-                            .addComponent(addDocCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(addingDocPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel15)
-                            .addComponent(costDocAdd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(addingDocPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel13)
                     .addComponent(debtorBtn))
+                .addGap(18, 18, 18)
+                .addGroup(addingDocPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel14)
+                    .addComponent(creditorBtn)
+                    .addComponent(addDocCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(addingDocPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel15)
+                    .addComponent(costDocAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(addingDocPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(addingDocPanelLayout.createSequentialGroup()
                         .addGap(29, 29, 29)
@@ -1396,14 +1448,14 @@ public class DashboardMenu extends javax.swing.JFrame {
                     .addGroup(addingDocPanelLayout.createSequentialGroup()
                         .addGap(18, 18, 18)
                         .addGroup(addingDocPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(discriptionDocAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(discriptionDocAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(addingDocPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(docMonth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(docDay, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(docYear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addGap(38, 38, 38)
                 .addComponent(jLabel39)
-                .addContainerGap(169, Short.MAX_VALUE))
+                .addContainerGap(220, Short.MAX_VALUE))
         );
 
         scrollDoc.setViewportView(addingDocPanel);
@@ -1460,61 +1512,80 @@ public class DashboardMenu extends javax.swing.JFrame {
         addDocPanel.setLayout(addDocPanelLayout);
         addDocPanelLayout.setHorizontalGroup(
             addDocPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(addDocPanelLayout.createSequentialGroup()
-                .addContainerGap(43, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, addDocPanelLayout.createSequentialGroup()
+                .addContainerGap(22, Short.MAX_VALUE)
                 .addGroup(addDocPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, addDocPanelLayout.createSequentialGroup()
-                        .addComponent(jLabel32)
-                        .addGap(32, 32, 32))
-                    .addGroup(addDocPanelLayout.createSequentialGroup()
-                        .addGroup(addDocPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(scrollDoc, javax.swing.GroupLayout.PREFERRED_SIZE, 706, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(addDocPanelLayout.createSequentialGroup()
-                                .addGroup(addDocPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jButton1)
-                                    .addComponent(jLabel55, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(232, 232, 232)
-                                .addComponent(countDoc, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(addDocPanelLayout.createSequentialGroup()
-                                .addGap(169, 169, 169)
-                                .addComponent(addDocback)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(submitDoc, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(groupDocSubmit, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addContainerGap())))
+                    .addComponent(scrollDoc, javax.swing.GroupLayout.PREFERRED_SIZE, 733, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(addDocPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, addDocPanelLayout.createSequentialGroup()
+                            .addComponent(jLabel32)
+                            .addGap(32, 32, 32))
+                        .addGroup(addDocPanelLayout.createSequentialGroup()
+                            .addGroup(addDocPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(addDocPanelLayout.createSequentialGroup()
+                                    .addGroup(addDocPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jButton1)
+                                        .addComponent(jLabel55, javax.swing.GroupLayout.PREFERRED_SIZE, 353, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGap(139, 139, 139)
+                                    .addComponent(countDoc, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(addDocPanelLayout.createSequentialGroup()
+                                    .addGap(169, 169, 169)
+                                    .addComponent(addDocback)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(submitDoc, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(groupDocSubmit, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGap(155, 155, 155)))))
         );
         addDocPanelLayout.setVerticalGroup(
             addDocPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, addDocPanelLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(addDocPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(addDocback, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(submitDoc, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(groupDocSubmit, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(44, 44, 44))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, addDocPanelLayout.createSequentialGroup()
+            .addGroup(addDocPanelLayout.createSequentialGroup()
                 .addGap(12, 12, 12)
                 .addComponent(jLabel32)
                 .addGap(18, 18, 18)
+                .addComponent(scrollDoc, javax.swing.GroupLayout.PREFERRED_SIZE, 379, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel55, javax.swing.GroupLayout.DEFAULT_SIZE, 42, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(addDocPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(addDocPanelLayout.createSequentialGroup()
-                        .addComponent(scrollDoc, javax.swing.GroupLayout.PREFERRED_SIZE, 342, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 138, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, addDocPanelLayout.createSequentialGroup()
+                        .addGroup(addDocPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(addDocback, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(submitDoc, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(groupDocSubmit, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(44, 44, 44))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, addDocPanelLayout.createSequentialGroup()
                         .addComponent(countDoc)
-                        .addGap(35, 35, 35))
-                    .addGroup(addDocPanelLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jLabel55, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(128, 128, 128))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, addDocPanelLayout.createSequentialGroup()
                         .addComponent(jButton1)
-                        .addGap(76, 76, 76)))
-                .addGap(93, 93, 93))
+                        .addGap(169, 169, 169))))
         );
 
-        addPeoplePanel.setBackground(new java.awt.Color(153, 153, 153));
+        addPeoplePanel.setBackground(new java.awt.Color(172, 155, 231));
+        addPeoplePanel.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 4, true));
         addPeoplePanel.setForeground(new java.awt.Color(255, 255, 255));
+        addPeoplePanel.setPreferredSize(new java.awt.Dimension(787, 746));
 
+        addName.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(125, 125, 255), 4, true));
+        addName.setPreferredSize(new java.awt.Dimension(70, 30));
+        addName.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addNameActionPerformed(evt);
+            }
+        });
+
+        addId.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(125, 125, 255), 4, true));
+        addId.setPreferredSize(new java.awt.Dimension(70, 30));
+
+        AddressField.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(125, 125, 255), 4, true));
+        AddressField.setPreferredSize(new java.awt.Dimension(70, 50));
+
+        phoneField.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(125, 125, 255), 4, true));
+        phoneField.setPreferredSize(new java.awt.Dimension(70, 30));
+
+        emailField.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(125, 125, 255), 4, true));
+        emailField.setPreferredSize(new java.awt.Dimension(70, 30));
         emailField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 emailFieldActionPerformed(evt);
@@ -1560,8 +1631,11 @@ public class DashboardMenu extends javax.swing.JFrame {
             }
         });
 
+        addcategory.setBackground(new java.awt.Color(125, 125, 255));
         addcategory.setFont(new java.awt.Font("B Roya", 1, 14)); // NOI18N
+        addcategory.setForeground(new java.awt.Color(255, 255, 255));
         addcategory.setText("افزودن دسته بندی جدید");
+        addcategory.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(125, 125, 255), 4, true));
         addcategory.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 addcategoryActionPerformed(evt);
@@ -1606,15 +1680,17 @@ public class DashboardMenu extends javax.swing.JFrame {
         addPeoplePanelLayout.setHorizontalGroup(
             addPeoplePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(addPeoplePanelLayout.createSequentialGroup()
-                .addContainerGap(146, Short.MAX_VALUE)
+                .addContainerGap(289, Short.MAX_VALUE)
                 .addGroup(addPeoplePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(addPeoplePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, addPeoplePanelLayout.createSequentialGroup()
                             .addGroup(addPeoplePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(addId)
-                                .addComponent(addName, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGap(42, 42, 42)
-                            .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(addId, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(addName, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGap(36, 36, 36)
+                            .addGroup(addPeoplePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel9)))
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, addPeoplePanelLayout.createSequentialGroup()
                             .addComponent(addPeopleback)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -1622,26 +1698,23 @@ public class DashboardMenu extends javax.swing.JFrame {
                             .addGap(75, 75, 75))
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, addPeoplePanelLayout.createSequentialGroup()
                             .addGroup(addPeoplePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(jLabel9)
+                                .addGroup(addPeoplePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(emailField, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(AddressField, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(phoneField, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGroup(addPeoplePanelLayout.createSequentialGroup()
-                                    .addGroup(addPeoplePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(addcategory, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGroup(addPeoplePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                            .addComponent(emailField)
-                                            .addComponent(AddressField)
-                                            .addComponent(phoneField, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGroup(addPeoplePanelLayout.createSequentialGroup()
-                                            .addComponent(partnerBtn)
-                                            .addGap(18, 18, 18)
-                                            .addComponent(clientBtn)
-                                            .addGap(27, 27, 27)
-                                            .addComponent(employeeBtn)))
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addGroup(addPeoplePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabel10)
-                                        .addGroup(addPeoplePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(jLabel11)
-                                            .addComponent(jLabel12)))))
+                                    .addComponent(partnerBtn)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(clientBtn)
+                                    .addGap(27, 27, 27)
+                                    .addComponent(employeeBtn))
+                                .addComponent(addcategory, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addGroup(addPeoplePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel10)
+                                .addGroup(addPeoplePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel11)
+                                    .addComponent(jLabel12)))
                             .addGap(13, 13, 13)))
                     .addGroup(addPeoplePanelLayout.createSequentialGroup()
                         .addGap(320, 320, 320)
@@ -1655,11 +1728,11 @@ public class DashboardMenu extends javax.swing.JFrame {
                 .addComponent(jLabel33)
                 .addGap(52, 52, 52)
                 .addGroup(addPeoplePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(addName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(addName, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel7))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(addPeoplePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(addId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(addId, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel9))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(addPeoplePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -1668,16 +1741,17 @@ public class DashboardMenu extends javax.swing.JFrame {
                     .addComponent(employeeBtn))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(addcategory, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(addPeoplePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(14, 14, 14)
+                .addGroup(addPeoplePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel10)
                     .addComponent(phoneField, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(2, 2, 2)
                 .addGroup(addPeoplePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(addPeoplePanelLayout.createSequentialGroup()
-                        .addGap(72, 72, 72)
-                        .addComponent(AddressField, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(62, 62, 62)
+                        .addComponent(AddressField, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(addPeoplePanelLayout.createSequentialGroup()
-                        .addGap(24, 24, 24)
+                        .addGap(14, 14, 14)
                         .addGroup(addPeoplePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel11)
                             .addComponent(emailField, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -1687,11 +1761,13 @@ public class DashboardMenu extends javax.swing.JFrame {
                 .addGroup(addPeoplePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(addPeopleback, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnconfirm, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(120, Short.MAX_VALUE))
+                .addContainerGap(242, Short.MAX_VALUE))
         );
 
         addCategoryPanel.setBackground(new java.awt.Color(153, 153, 153));
+        addCategoryPanel.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 4, true));
         addCategoryPanel.setForeground(new java.awt.Color(255, 255, 255));
+        addCategoryPanel.setPreferredSize(new java.awt.Dimension(787, 746));
 
         jLabel6.setFont(new java.awt.Font("B Roya", 1, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
@@ -1777,7 +1853,7 @@ public class DashboardMenu extends javax.swing.JFrame {
                         .addComponent(addback)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(confirmCategory, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(0, 114, Short.MAX_VALUE))
+                .addGap(0, 296, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, addCategoryPanelLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel34)
@@ -1812,17 +1888,21 @@ public class DashboardMenu extends javax.swing.JFrame {
                 .addGroup(addCategoryPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel43, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(categoryFieldَAddress, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 110, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 285, Short.MAX_VALUE)
                 .addGroup(addCategoryPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(addback, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(confirmCategory, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(53, 53, 53))
         );
 
-        dashboard.setBackground(new java.awt.Color(102, 102, 102));
+        dashboard.setBackground(new java.awt.Color(172, 155, 231));
+        dashboard.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 4, true));
 
+        dashboardBtnshowCheck.setBackground(new java.awt.Color(179, 145, 138));
         dashboardBtnshowCheck.setFont(new java.awt.Font("B Roya", 1, 18)); // NOI18N
+        dashboardBtnshowCheck.setForeground(new java.awt.Color(228, 226, 217));
         dashboardBtnshowCheck.setText("نمایش چک");
+        dashboardBtnshowCheck.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(228, 226, 217), 3, true));
         dashboardBtnshowCheck.setPreferredSize(new java.awt.Dimension(103, 26));
         dashboardBtnshowCheck.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1830,8 +1910,11 @@ public class DashboardMenu extends javax.swing.JFrame {
             }
         });
 
+        addUserBtn.setBackground(new java.awt.Color(179, 145, 138));
         addUserBtn.setFont(new java.awt.Font("B Roya", 1, 18)); // NOI18N
+        addUserBtn.setForeground(new java.awt.Color(228, 226, 217));
         addUserBtn.setText("افزودن اشخاص");
+        addUserBtn.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(228, 226, 217), 3, true));
         addUserBtn.setPreferredSize(new java.awt.Dimension(103, 26));
         addUserBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1839,8 +1922,11 @@ public class DashboardMenu extends javax.swing.JFrame {
             }
         });
 
+        dashboardBtnshowDoc.setBackground(new java.awt.Color(179, 145, 138));
         dashboardBtnshowDoc.setFont(new java.awt.Font("B Roya", 1, 18)); // NOI18N
+        dashboardBtnshowDoc.setForeground(new java.awt.Color(228, 226, 217));
         dashboardBtnshowDoc.setText("نمایش سند");
+        dashboardBtnshowDoc.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(228, 226, 217), 3, true));
         dashboardBtnshowDoc.setPreferredSize(new java.awt.Dimension(103, 26));
         dashboardBtnshowDoc.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1848,16 +1934,22 @@ public class DashboardMenu extends javax.swing.JFrame {
             }
         });
 
+        dashboardBtnadd.setBackground(new java.awt.Color(179, 145, 138));
         dashboardBtnadd.setFont(new java.awt.Font("B Roya", 1, 18)); // NOI18N
+        dashboardBtnadd.setForeground(new java.awt.Color(228, 226, 217));
         dashboardBtnadd.setText("افزودن چک");
+        dashboardBtnadd.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(228, 226, 217), 3, true));
         dashboardBtnadd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 dashboardBtnaddActionPerformed(evt);
             }
         });
 
+        dashboardBtnaddDoc.setBackground(new java.awt.Color(179, 145, 138));
         dashboardBtnaddDoc.setFont(new java.awt.Font("B Roya", 1, 18)); // NOI18N
+        dashboardBtnaddDoc.setForeground(new java.awt.Color(228, 226, 217));
         dashboardBtnaddDoc.setText("افزودن سند");
+        dashboardBtnaddDoc.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(228, 226, 217), 3, true));
         dashboardBtnaddDoc.setPreferredSize(new java.awt.Dimension(103, 26));
         dashboardBtnaddDoc.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1866,12 +1958,16 @@ public class DashboardMenu extends javax.swing.JFrame {
         });
 
         dashboardlabel.setBackground(new java.awt.Color(102, 102, 255));
-        dashboardlabel.setFont(new java.awt.Font("B Roya", 1, 18)); // NOI18N
+        dashboardlabel.setFont(new java.awt.Font("B Roya", 1, 48)); // NOI18N
         dashboardlabel.setForeground(new java.awt.Color(255, 255, 255));
-        dashboardlabel.setText("داشبورد");
+        dashboardlabel.setText("خوش آمدید");
+        dashboardlabel.setToolTipText("");
 
+        tarazBtn.setBackground(new java.awt.Color(179, 145, 138));
         tarazBtn.setFont(new java.awt.Font("B Roya", 1, 18)); // NOI18N
+        tarazBtn.setForeground(new java.awt.Color(228, 226, 217));
         tarazBtn.setText("نمودار تراز");
+        tarazBtn.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(228, 226, 217), 3, true));
         tarazBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tarazBtnActionPerformed(evt);
@@ -1886,8 +1982,11 @@ public class DashboardMenu extends javax.swing.JFrame {
             }
         });
 
+        dashboardBtnshowCheck1.setBackground(new java.awt.Color(179, 145, 138));
         dashboardBtnshowCheck1.setFont(new java.awt.Font("B Roya", 1, 18)); // NOI18N
+        dashboardBtnshowCheck1.setForeground(new java.awt.Color(228, 226, 217));
         dashboardBtnshowCheck1.setText("تغییر وضعیت چک");
+        dashboardBtnshowCheck1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(228, 226, 217), 3, true));
         dashboardBtnshowCheck1.setMaximumSize(new java.awt.Dimension(140, 109));
         dashboardBtnshowCheck1.setPreferredSize(new java.awt.Dimension(103, 26));
         dashboardBtnshowCheck1.addActionListener(new java.awt.event.ActionListener() {
@@ -1896,16 +1995,22 @@ public class DashboardMenu extends javax.swing.JFrame {
             }
         });
 
+        showPeople.setBackground(new java.awt.Color(179, 145, 138));
         showPeople.setFont(new java.awt.Font("B Roya", 1, 18)); // NOI18N
+        showPeople.setForeground(new java.awt.Color(228, 226, 217));
         showPeople.setText("نمایش اشخاص");
+        showPeople.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(228, 226, 217), 3, true));
         showPeople.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 showPeopleActionPerformed(evt);
             }
         });
 
+        chartBtn.setBackground(new java.awt.Color(179, 145, 138));
         chartBtn.setFont(new java.awt.Font("B Roya", 1, 18)); // NOI18N
+        chartBtn.setForeground(new java.awt.Color(228, 226, 217));
         chartBtn.setText("نمودار بدهکاری");
+        chartBtn.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(228, 226, 217), 3, true));
         chartBtn.setPreferredSize(new java.awt.Dimension(103, 26));
         chartBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1917,43 +2022,44 @@ public class DashboardMenu extends javax.swing.JFrame {
         dashboard.setLayout(dashboardLayout);
         dashboardLayout.setHorizontalGroup(
             dashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, dashboardLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(dashboardlabel)
-                .addGap(41, 41, 41))
             .addGroup(dashboardLayout.createSequentialGroup()
                 .addGroup(dashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(dashboardLayout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(backToLogin))
                     .addGroup(dashboardLayout.createSequentialGroup()
-                        .addGap(137, 137, 137)
+                        .addGap(238, 238, 238)
                         .addGroup(dashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(dashboardBtnadd, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(addUserBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(dashboardBtnaddDoc, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(dashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(dashboardBtnadd, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(dashboardBtnaddDoc, javax.swing.GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE))
+                            .addComponent(addUserBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(dashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(dashboardBtnshowCheck, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(showPeople, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(dashboardBtnshowDoc, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(dashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(showPeople, javax.swing.GroupLayout.DEFAULT_SIZE, 179, Short.MAX_VALUE)
+                            .addComponent(dashboardBtnshowCheck, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(dashboardBtnshowDoc, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGroup(dashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(dashboardLayout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(dashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(dashboardBtnshowCheck1, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(chartBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(dashboardLayout.createSequentialGroup()
+                                .addGroup(dashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(dashboardBtnshowCheck1, javax.swing.GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE)
+                                    .addComponent(chartBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, dashboardLayout.createSequentialGroup()
                                 .addGap(6, 6, 6)
-                                .addComponent(tarazBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(200, Short.MAX_VALUE))
+                                .addComponent(tarazBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(322, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, dashboardLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(dashboardlabel, javax.swing.GroupLayout.PREFERRED_SIZE, 314, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(100, 100, 100))
         );
         dashboardLayout.setVerticalGroup(
             dashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(dashboardLayout.createSequentialGroup()
-                .addGap(21, 21, 21)
-                .addComponent(dashboardlabel)
-                .addGap(67, 67, 67)
+                .addGap(43, 43, 43)
+                .addComponent(dashboardlabel, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(53, 53, 53)
                 .addGroup(dashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(addUserBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(tarazBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1968,19 +2074,23 @@ public class DashboardMenu extends javax.swing.JFrame {
                     .addComponent(chartBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(dashboardBtnshowDoc, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(dashboardBtnaddDoc, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 216, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 451, Short.MAX_VALUE)
                 .addComponent(backToLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(22, 22, 22))
         );
 
-        showCheckpanel.setBackground(new java.awt.Color(153, 153, 153));
+        showCheckpanel.setBackground(new java.awt.Color(172, 155, 231));
+        showCheckpanel.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 4, true));
         showCheckpanel.setForeground(new java.awt.Color(255, 255, 255));
+        showCheckpanel.setPreferredSize(new java.awt.Dimension(787, 746));
 
         payeeLabelCheck.setFont(new java.awt.Font("B Roya", 1, 18)); // NOI18N
         payeeLabelCheck.setForeground(new java.awt.Color(255, 255, 255));
         payeeLabelCheck.setText("طرف حساب");
 
+        ShowChecksbtn.setBackground(new java.awt.Color(102, 102, 255));
         ShowChecksbtn.setFont(new java.awt.Font("B Roya", 1, 18)); // NOI18N
+        ShowChecksbtn.setForeground(new java.awt.Color(255, 255, 255));
         ShowChecksbtn.setText("نمایش چک ها");
         ShowChecksbtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1988,7 +2098,9 @@ public class DashboardMenu extends javax.swing.JFrame {
             }
         });
 
+        backshowDoc1.setBackground(new java.awt.Color(102, 102, 255));
         backshowDoc1.setFont(new java.awt.Font("B Roya", 1, 18)); // NOI18N
+        backshowDoc1.setForeground(new java.awt.Color(255, 255, 255));
         backshowDoc1.setText("بازگشت به داشبورد اصلی");
         backshowDoc1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -2028,6 +2140,7 @@ public class DashboardMenu extends javax.swing.JFrame {
 
         monthscheckCombo.setFont(new java.awt.Font("B Roya", 1, 18)); // NOI18N
         monthscheckCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "فروردین", "اردیبهشت", "خرداد", "تیر", "مرداد ", "شهریور", "مهر", "آبان", "آذر", "دی", "بهمن ", "اسفند" }));
+        monthscheckCombo.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 102, 255), 4, true));
         monthscheckCombo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 monthscheckComboActionPerformed(evt);
@@ -2035,6 +2148,7 @@ public class DashboardMenu extends javax.swing.JFrame {
         });
 
         peopleCheckList.setFont(new java.awt.Font("B Roya", 1, 14)); // NOI18N
+        peopleCheckList.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 102, 255), 4, true));
         peopleCheckList.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 peopleCheckListActionPerformed(evt);
@@ -2045,9 +2159,10 @@ public class DashboardMenu extends javax.swing.JFrame {
         costLabelCheck.setForeground(new java.awt.Color(255, 255, 255));
         costLabelCheck.setText("مبلغ");
 
+        TimeCheckRBtn.setBackground(new java.awt.Color(172, 155, 231));
         filters.add(TimeCheckRBtn);
         TimeCheckRBtn.setFont(new java.awt.Font("B Roya", 1, 18)); // NOI18N
-        TimeCheckRBtn.setForeground(new java.awt.Color(255, 255, 255));
+        TimeCheckRBtn.setForeground(new java.awt.Color(102, 102, 255));
         TimeCheckRBtn.setText("فیلتر زمان");
         TimeCheckRBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -2057,7 +2172,7 @@ public class DashboardMenu extends javax.swing.JFrame {
 
         filters.add(payeeCheckRBtn);
         payeeCheckRBtn.setFont(new java.awt.Font("B Roya", 1, 18)); // NOI18N
-        payeeCheckRBtn.setForeground(new java.awt.Color(255, 255, 255));
+        payeeCheckRBtn.setForeground(new java.awt.Color(102, 102, 255));
         payeeCheckRBtn.setText("طرف حساب");
         payeeCheckRBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -2067,7 +2182,7 @@ public class DashboardMenu extends javax.swing.JFrame {
 
         filters.add(costCheckRBtn);
         costCheckRBtn.setFont(new java.awt.Font("B Roya", 1, 18)); // NOI18N
-        costCheckRBtn.setForeground(new java.awt.Color(255, 255, 255));
+        costCheckRBtn.setForeground(new java.awt.Color(102, 102, 255));
         costCheckRBtn.setText("فیلتر قیمت");
         costCheckRBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -2083,25 +2198,25 @@ public class DashboardMenu extends javax.swing.JFrame {
         jLabel24.setForeground(new java.awt.Color(255, 255, 255));
         jLabel24.setText("بازه ی زمانی مورد نظر را وارد کنید");
 
-        DRangeChecksYear.setBackground(new java.awt.Color(102, 102, 102));
+        DRangeChecksYear.setBackground(new java.awt.Color(172, 155, 231));
         DRangeChecksYear.setForeground(new java.awt.Color(255, 255, 255));
         DRangeChecksYear.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "سال", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Helvetica Neue", 0, 13), new java.awt.Color(255, 255, 255))); // NOI18N
 
-        DRangeChecksMonth.setBackground(new java.awt.Color(102, 102, 102));
+        DRangeChecksMonth.setBackground(new java.awt.Color(172, 155, 231));
         DRangeChecksMonth.setForeground(new java.awt.Color(255, 255, 255));
         DRangeChecksMonth.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "ماه", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Helvetica Neue", 0, 13), new java.awt.Color(255, 255, 255))); // NOI18N
 
-        jLabel5.setFont(new java.awt.Font("B Roya", 1, 18)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("B Roya", 1, 24)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("نمایش چک ها");
 
-        DRangeDocsYear2.setBackground(new java.awt.Color(102, 102, 102));
+        DRangeDocsYear2.setBackground(new java.awt.Color(172, 155, 231));
         DRangeDocsYear2.setForeground(new java.awt.Color(255, 255, 255));
-        DRangeDocsYear2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "سال", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Helvetica Neue", 0, 13), new java.awt.Color(255, 255, 255))); // NOI18N
+        DRangeDocsYear2.setBorder(javax.swing.BorderFactory.createTitledBorder("سال"));
 
-        DRangeDocsMonth2.setBackground(new java.awt.Color(102, 102, 102));
+        DRangeDocsMonth2.setBackground(new java.awt.Color(172, 155, 231));
         DRangeDocsMonth2.setForeground(new java.awt.Color(255, 255, 255));
-        DRangeDocsMonth2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "ماه", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Helvetica Neue", 0, 13), new java.awt.Color(255, 255, 255))); // NOI18N
+        DRangeDocsMonth2.setBorder(javax.swing.BorderFactory.createTitledBorder("ماه"));
 
         jLabel28.setFont(new java.awt.Font("B Roya", 1, 14)); // NOI18N
         jLabel28.setForeground(new java.awt.Color(255, 255, 255));
@@ -2111,14 +2226,14 @@ public class DashboardMenu extends javax.swing.JFrame {
         jLabel35.setForeground(new java.awt.Color(255, 255, 255));
         jLabel35.setText("تا تاریخ");
 
-        DRangeChecksYear1.setBackground(new java.awt.Color(102, 102, 102));
+        DRangeChecksYear1.setBackground(new java.awt.Color(172, 155, 231));
         DRangeChecksYear1.setForeground(new java.awt.Color(255, 255, 255));
         DRangeChecksYear1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "روز", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Helvetica Neue", 0, 13), new java.awt.Color(255, 255, 255))); // NOI18N
         DRangeChecksYear1.setCaretColor(new java.awt.Color(255, 255, 255));
 
-        DRangeDocsDay3.setBackground(new java.awt.Color(102, 102, 102));
+        DRangeDocsDay3.setBackground(new java.awt.Color(172, 155, 231));
         DRangeDocsDay3.setForeground(new java.awt.Color(255, 255, 255));
-        DRangeDocsDay3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "روز", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Helvetica Neue", 0, 13), new java.awt.Color(255, 255, 255))); // NOI18N
+        DRangeDocsDay3.setBorder(javax.swing.BorderFactory.createTitledBorder("روز"));
 
         jLabel38.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel38.setForeground(new java.awt.Color(255, 255, 255));
@@ -2144,12 +2259,14 @@ public class DashboardMenu extends javax.swing.JFrame {
 
         checkCostFrom.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         checkCostFrom.setForeground(new java.awt.Color(255, 255, 255));
-        checkCostFrom.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "از", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 12), new java.awt.Color(255, 255, 255))); // NOI18N
+        checkCostFrom.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "از", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 12))); // NOI18N
 
         checkCostTo.setForeground(new java.awt.Color(255, 255, 255));
-        checkCostTo.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "تا", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 12), new java.awt.Color(255, 255, 255))); // NOI18N
+        checkCostTo.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "تا", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 12))); // NOI18N
 
+        filteringChecks.setBackground(new java.awt.Color(102, 102, 255));
         filteringChecks.setFont(new java.awt.Font("B Roya", 1, 18)); // NOI18N
+        filteringChecks.setForeground(new java.awt.Color(255, 255, 255));
         filteringChecks.setText("اعمال فیلتر");
         filteringChecks.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -2161,12 +2278,6 @@ public class DashboardMenu extends javax.swing.JFrame {
         showCheckpanel.setLayout(showCheckpanelLayout);
         showCheckpanelLayout.setHorizontalGroup(
             showCheckpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(showCheckpanelLayout.createSequentialGroup()
-                .addGap(322, 322, 322)
-                .addGroup(showCheckpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel35)
-                    .addComponent(jLabel28))
-                .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(showCheckpanelLayout.createSequentialGroup()
                 .addGap(26, 26, 26)
                 .addGroup(showCheckpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2193,7 +2304,7 @@ public class DashboardMenu extends javax.swing.JFrame {
                                 .addComponent(jLabel38)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(DRangeChecksYear1, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 174, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 180, Short.MAX_VALUE)
                 .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(57, 57, 57))
             .addGroup(showCheckpanelLayout.createSequentialGroup()
@@ -2201,45 +2312,57 @@ public class DashboardMenu extends javax.swing.JFrame {
                 .addGroup(showCheckpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(showCheckpanelLayout.createSequentialGroup()
                         .addGroup(showCheckpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(checkSlider1, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(checkSlider2, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(showCheckpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(checkCostTo, javax.swing.GroupLayout.DEFAULT_SIZE, 90, Short.MAX_VALUE)
-                            .addComponent(checkCostFrom, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(18, 18, 18)
-                        .addComponent(costLabelCheck, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 99, Short.MAX_VALUE)
+                            .addComponent(checkSlider1, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(checkSlider2, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(showCheckpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(checkCostFrom, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(checkCostTo, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(60, 60, 60)
+                        .addGroup(showCheckpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(payeeLabelCheck, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(peopleCheckList, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(peopleCheckList, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(48, 48, 48))
-                    .addGroup(showCheckpanelLayout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, showCheckpanelLayout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(monthscheckCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(MonthlyCheckRBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(34, 34, 34)
-                        .addComponent(weeklyCheckRBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(dailyCheckRBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(showCheckpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(payeeCheckRBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(showCheckpanelLayout.createSequentialGroup()
-                                .addGap(1, 1, 1)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, showCheckpanelLayout.createSequentialGroup()
+                                .addComponent(monthscheckCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(MonthlyCheckRBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(34, 34, 34)
+                                .addComponent(weeklyCheckRBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(dailyCheckRBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGroup(showCheckpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(TimeCheckRBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(costCheckRBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addGroup(showCheckpanelLayout.createSequentialGroup()
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(TimeCheckRBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(showCheckpanelLayout.createSequentialGroup()
+                                        .addGap(3, 3, 3)
+                                        .addComponent(payeeCheckRBtn))))
+                            .addComponent(costCheckRBtn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jLabel37, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(15, 15, 15))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, showCheckpanelLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(costLabelCheck, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(349, 349, 349))
             .addGroup(showCheckpanelLayout.createSequentialGroup()
-                .addGap(169, 169, 169)
-                .addComponent(backshowDoc1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(ShowChecksbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(showCheckpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(showCheckpanelLayout.createSequentialGroup()
+                        .addGap(322, 322, 322)
+                        .addGroup(showCheckpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel35)
+                            .addComponent(jLabel28))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, showCheckpanelLayout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(backshowDoc1)
+                        .addGap(37, 37, 37)))
+                .addComponent(ShowChecksbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(filteringChecks)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -2253,39 +2376,36 @@ public class DashboardMenu extends javax.swing.JFrame {
                     .addGroup(showCheckpanelLayout.createSequentialGroup()
                         .addGap(56, 56, 56)
                         .addComponent(jLabel37, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(159, 159, 159)
                         .addGroup(showCheckpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(showCheckpanelLayout.createSequentialGroup()
-                                .addGroup(showCheckpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, showCheckpanelLayout.createSequentialGroup()
-                                        .addComponent(checkSlider1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(12, 12, 12))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, showCheckpanelLayout.createSequentialGroup()
-                                        .addComponent(costLabelCheck)
-                                        .addGap(29, 29, 29)))
-                                .addComponent(checkSlider2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(178, 178, 178)
+                                .addComponent(checkSlider1, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(12, 12, 12)
+                                .addComponent(checkSlider2, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(showCheckpanelLayout.createSequentialGroup()
+                                .addGap(171, 171, 171)
                                 .addComponent(checkCostFrom, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(checkCostTo, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(checkCostTo, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(showCheckpanelLayout.createSequentialGroup()
                         .addGap(39, 39, 39)
                         .addComponent(payeeCheckRBtn)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(showCheckpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(showCheckpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(dailyCheckRBtn)
-                                .addComponent(weeklyCheckRBtn)
-                                .addComponent(MonthlyCheckRBtn)
-                                .addComponent(monthscheckCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(showCheckpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(dailyCheckRBtn)
+                            .addComponent(weeklyCheckRBtn)
+                            .addComponent(MonthlyCheckRBtn)
+                            .addComponent(monthscheckCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(TimeCheckRBtn))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(costCheckRBtn)
-                        .addGap(114, 114, 114)
+                        .addGap(88, 88, 88)
+                        .addComponent(costLabelCheck)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(payeeLabelCheck)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(peopleCheckList, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
                 .addComponent(sliderCheckLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(showCheckpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, showCheckpanelLayout.createSequentialGroup()
@@ -2319,9 +2439,10 @@ public class DashboardMenu extends javax.swing.JFrame {
                 .addGap(44, 44, 44))
         );
 
-        checksReport.setBackground(new java.awt.Color(153, 153, 153));
+        checksReport.setBackground(new java.awt.Color(172, 155, 231));
+        checksReport.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 4, true));
         checksReport.setFont(new java.awt.Font("B Roya", 0, 14)); // NOI18N
-        checksReport.setPreferredSize(new java.awt.Dimension(455, 444));
+        checksReport.setPreferredSize(new java.awt.Dimension(787, 746));
 
         checksTable.setFont(new java.awt.Font("B Nazanin", 1, 14)); // NOI18N
         checksTable.setModel(new javax.swing.table.DefaultTableModel(
@@ -2369,49 +2490,47 @@ public class DashboardMenu extends javax.swing.JFrame {
         checksReport.setLayout(checksReportLayout);
         checksReportLayout.setHorizontalGroup(
             checksReportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 779, Short.MAX_VALUE)
             .addGroup(checksReportLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(checksReportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, checksReportLayout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(jLabel2))
-                    .addGroup(checksReportLayout.createSequentialGroup()
-                        .addComponent(backshowCheck)
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                    .addComponent(backshowCheck))
                 .addContainerGap())
             .addGroup(checksReportLayout.createSequentialGroup()
-                .addGap(166, 166, 166)
+                .addGap(164, 164, 164)
                 .addComponent(checkWeightLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(46, 46, 46)
-                .addGroup(checksReportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jalaliBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(gregorianBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(42, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(checksReportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jalaliBtn, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(gregorianBtn, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addGap(14, 14, 14))
         );
         checksReportLayout.setVerticalGroup(
             checksReportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, checksReportLayout.createSequentialGroup()
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 298, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addGroup(checksReportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(checksReportLayout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 298, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
                         .addComponent(checkWeightLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, checksReportLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGap(2, 315, Short.MAX_VALUE)
+                        .addComponent(backshowCheck))
+                    .addGroup(checksReportLayout.createSequentialGroup()
                         .addComponent(jalaliBtn)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(gregorianBtn)
-                        .addGap(2, 2, 2)))
-                .addComponent(backshowCheck)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
 
-        docsReport.setBackground(new java.awt.Color(102, 102, 102));
-        docsReport.setPreferredSize(new java.awt.Dimension(455, 444));
+        docsReport.setBackground(new java.awt.Color(172, 155, 231));
+        docsReport.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 4, true));
+        docsReport.setPreferredSize(new java.awt.Dimension(787, 746));
 
         docsTable.setFont(new java.awt.Font("B Nazanin", 1, 12)); // NOI18N
         docsTable.setModel(new javax.swing.table.DefaultTableModel(
@@ -2440,6 +2559,20 @@ public class DashboardMenu extends javax.swing.JFrame {
             }
         });
 
+        jalaliNormalBtn.setText("شمسی");
+        jalaliNormalBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jalaliNormalBtnActionPerformed(evt);
+            }
+        });
+
+        gregorianNormalBtn.setText("میلادی");
+        gregorianNormalBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                gregorianNormalBtnActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout docsReportLayout = new javax.swing.GroupLayout(docsReport);
         docsReport.setLayout(docsReportLayout);
         docsReportLayout.setHorizontalGroup(
@@ -2447,27 +2580,33 @@ public class DashboardMenu extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, docsReportLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(jLabel4))
-            .addGroup(docsReportLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(docsReportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 443, Short.MAX_VALUE)
-                    .addGroup(docsReportLayout.createSequentialGroup()
-                        .addComponent(backshowCheck1)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, docsReportLayout.createSequentialGroup()
+                .addGap(68, 68, 68)
+                .addComponent(backshowCheck1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(gregorianNormalBtn)
+                .addGap(18, 18, 18)
+                .addComponent(jalaliNormalBtn)
+                .addGap(34, 34, 34))
+            .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 779, Short.MAX_VALUE)
         );
         docsReportLayout.setVerticalGroup(
             docsReportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, docsReportLayout.createSequentialGroup()
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 381, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(backshowCheck1)
-                .addContainerGap())
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 371, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(docsReportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jalaliNormalBtn)
+                    .addComponent(backshowCheck1)
+                    .addComponent(gregorianNormalBtn))
+                .addContainerGap(298, Short.MAX_VALUE))
         );
 
-        peopleReports.setBackground(new java.awt.Color(102, 102, 102));
+        peopleReports.setBackground(new java.awt.Color(172, 155, 231));
+        peopleReports.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 4, true));
+        peopleReports.setPreferredSize(new java.awt.Dimension(787, 746));
 
         peopleTable.setFont(new java.awt.Font("B Nazanin", 1, 14)); // NOI18N
         peopleTable.setModel(new javax.swing.table.DefaultTableModel(
@@ -2514,7 +2653,7 @@ public class DashboardMenu extends javax.swing.JFrame {
                     .addComponent(jScrollPane1)
                     .addGroup(peopleReportsLayout.createSequentialGroup()
                         .addComponent(backshowCheck2)
-                        .addGap(0, 434, Short.MAX_VALUE))
+                        .addGap(0, 586, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, peopleReportsLayout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(jLabel52)
@@ -2527,10 +2666,12 @@ public class DashboardMenu extends javax.swing.JFrame {
                 .addGap(12, 12, 12)
                 .addComponent(jLabel52, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 495, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 646, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addComponent(backshowCheck2, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
+
+        tarazName.setPreferredSize(new java.awt.Dimension(787, 746));
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -2560,7 +2701,7 @@ public class DashboardMenu extends javax.swing.JFrame {
             .addGroup(tarazNameLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(tarazNameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 654, Short.MAX_VALUE)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 775, Short.MAX_VALUE)
                     .addGroup(tarazNameLayout.createSequentialGroup()
                         .addComponent(backshowCheck3)
                         .addGap(0, 0, Short.MAX_VALUE)))
@@ -2570,11 +2711,13 @@ public class DashboardMenu extends javax.swing.JFrame {
             tarazNameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(tarazNameLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 559, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 688, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addComponent(backshowCheck3)
                 .addContainerGap())
         );
+
+        chart.setPreferredSize(new java.awt.Dimension(787, 746));
 
         backshowCheck4.setFont(new java.awt.Font("B Roya", 1, 18)); // NOI18N
         backshowCheck4.setText("بازگشت به داشبورد ");
@@ -2591,17 +2734,18 @@ public class DashboardMenu extends javax.swing.JFrame {
             .addGroup(chartLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(backshowCheck4)
-                .addContainerGap(483, Short.MAX_VALUE))
+                .addContainerGap(600, Short.MAX_VALUE))
         );
         chartLayout.setVerticalGroup(
             chartLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, chartLayout.createSequentialGroup()
-                .addContainerGap(551, Short.MAX_VALUE)
+                .addContainerGap(712, Short.MAX_VALUE)
                 .addComponent(backshowCheck4)
                 .addContainerGap())
         );
 
         filteredDocs.setBackground(new java.awt.Color(102, 102, 102));
+        filteredDocs.setPreferredSize(new java.awt.Dimension(787, 746));
 
         filteredDocTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -2632,7 +2776,7 @@ public class DashboardMenu extends javax.swing.JFrame {
         filteredDocs.setLayout(filteredDocsLayout);
         filteredDocsLayout.setHorizontalGroup(
             filteredDocsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 646, Short.MAX_VALUE)
+            .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 787, Short.MAX_VALUE)
             .addGroup(filteredDocsLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(backshowCheck5)
@@ -2648,13 +2792,14 @@ public class DashboardMenu extends javax.swing.JFrame {
                 .addGap(8, 8, 8)
                 .addComponent(jLabel59, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 468, Short.MAX_VALUE)
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 637, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(backshowCheck5, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(16, 16, 16))
         );
 
         filteredChecks.setBackground(new java.awt.Color(102, 102, 102));
+        filteredChecks.setPreferredSize(new java.awt.Dimension(787, 746));
 
         filteredCheckTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -2685,7 +2830,7 @@ public class DashboardMenu extends javax.swing.JFrame {
         filteredChecks.setLayout(filteredChecksLayout);
         filteredChecksLayout.setHorizontalGroup(
             filteredChecksLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 641, Short.MAX_VALUE)
+            .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 787, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, filteredChecksLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel58)
@@ -2701,7 +2846,7 @@ public class DashboardMenu extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel58, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 485, Short.MAX_VALUE)
+                .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 647, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(backshowCheck6, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(10, 10, 10))
@@ -2714,41 +2859,41 @@ public class DashboardMenu extends javax.swing.JFrame {
             .addComponent(dashboard, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 42, Short.MAX_VALUE)
+                    .addGap(0, 199, Short.MAX_VALUE)
                     .addComponent(LoginPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 43, Short.MAX_VALUE)))
+                    .addGap(0, 200, Short.MAX_VALUE)))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
-                    .addComponent(addcheckPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(addcheckPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 1113, Short.MAX_VALUE)
                     .addContainerGap()))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 16, Short.MAX_VALUE)
+                    .addGap(0, 166, Short.MAX_VALUE)
                     .addComponent(stateChangePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 16, Short.MAX_VALUE)))
+                    .addGap(0, 166, Short.MAX_VALUE)))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addContainerGap()
-                    .addComponent(showDocPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(showDocPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 1107, Short.MAX_VALUE)
                     .addContainerGap()))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                    .addGap(0, 32, Short.MAX_VALUE)
+                    .addGap(0, 356, Short.MAX_VALUE)
                     .addComponent(addDocPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 88, Short.MAX_VALUE)
+                    .addGap(0, 166, Short.MAX_VALUE)
                     .addComponent(addPeoplePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 89, Short.MAX_VALUE)))
+                    .addGap(0, 166, Short.MAX_VALUE)))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 95, Short.MAX_VALUE)
+                    .addGap(0, 166, Short.MAX_VALUE)
                     .addComponent(addCategoryPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 95, Short.MAX_VALUE)))
+                    .addGap(0, 166, Short.MAX_VALUE)))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(12, 12, 12)
-                    .addComponent(showCheckpanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(showCheckpanel, javax.swing.GroupLayout.DEFAULT_SIZE, 1101, Short.MAX_VALUE)
                     .addContainerGap()))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
@@ -2757,24 +2902,24 @@ public class DashboardMenu extends javax.swing.JFrame {
                     .addGap(0, 166, Short.MAX_VALUE)))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 166, Short.MAX_VALUE)
+                    .addGap(0, 0, Short.MAX_VALUE)
                     .addComponent(docsReport, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(0, 166, Short.MAX_VALUE)
+                    .addComponent(peopleReports, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(0, 166, Short.MAX_VALUE)))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 93, Short.MAX_VALUE)
-                    .addComponent(peopleReports, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 94, Short.MAX_VALUE)))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                    .addContainerGap(72, Short.MAX_VALUE)
+                    .addContainerGap(177, Short.MAX_VALUE)
                     .addComponent(tarazName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(49, Short.MAX_VALUE)))
+                    .addContainerGap(155, Short.MAX_VALUE)))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 72, Short.MAX_VALUE)
+                    .addGap(0, 166, Short.MAX_VALUE)
                     .addComponent(chart, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 72, Short.MAX_VALUE)))
+                    .addGap(0, 166, Short.MAX_VALUE)))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
@@ -2794,43 +2939,43 @@ public class DashboardMenu extends javax.swing.JFrame {
                 .addContainerGap())
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 94, Short.MAX_VALUE)
+                    .addGap(0, 238, Short.MAX_VALUE)
                     .addComponent(LoginPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 93, Short.MAX_VALUE)))
+                    .addGap(0, 238, Short.MAX_VALUE)))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                     .addContainerGap()
-                    .addComponent(addcheckPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(addcheckPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 1045, Short.MAX_VALUE)
                     .addContainerGap()))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 64, Short.MAX_VALUE)
+                    .addGap(0, 155, Short.MAX_VALUE)
                     .addComponent(stateChangePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 64, Short.MAX_VALUE)))
+                    .addGap(0, 156, Short.MAX_VALUE)))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addContainerGap()
-                    .addComponent(showDocPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(showDocPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 1045, Short.MAX_VALUE)
                     .addContainerGap()))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                    .addContainerGap(33, Short.MAX_VALUE)
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(addDocPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(49, 49, 49)))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 82, Short.MAX_VALUE)
+                    .addGap(0, 156, Short.MAX_VALUE)
                     .addComponent(addPeoplePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 81, Short.MAX_VALUE)))
+                    .addGap(0, 155, Short.MAX_VALUE)))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 98, Short.MAX_VALUE)
+                    .addGap(0, 155, Short.MAX_VALUE)
                     .addComponent(addCategoryPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 98, Short.MAX_VALUE)))
+                    .addGap(0, 156, Short.MAX_VALUE)))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addContainerGap()
-                    .addComponent(showCheckpanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(showCheckpanel, javax.swing.GroupLayout.DEFAULT_SIZE, 1045, Short.MAX_VALUE)
                     .addContainerGap()))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
@@ -2839,24 +2984,24 @@ public class DashboardMenu extends javax.swing.JFrame {
                     .addGap(0, 155, Short.MAX_VALUE)))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 156, Short.MAX_VALUE)
+                    .addGap(0, 0, Short.MAX_VALUE)
                     .addComponent(docsReport, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 155, Short.MAX_VALUE)))
+                    .addGap(0, 0, Short.MAX_VALUE)))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 84, Short.MAX_VALUE)
+                    .addGap(0, 155, Short.MAX_VALUE)
                     .addComponent(peopleReports, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 84, Short.MAX_VALUE)))
+                    .addGap(0, 156, Short.MAX_VALUE)))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                    .addContainerGap(39, Short.MAX_VALUE)
+                    .addContainerGap(125, Short.MAX_VALUE)
                     .addComponent(tarazName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(101, Short.MAX_VALUE)))
+                    .addContainerGap(186, Short.MAX_VALUE)))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 86, Short.MAX_VALUE)
+                    .addGap(0, 155, Short.MAX_VALUE)
                     .addComponent(chart, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 86, Short.MAX_VALUE)))
+                    .addGap(0, 156, Short.MAX_VALUE)))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
@@ -3520,17 +3665,33 @@ landPage(showDocPanel);
     }//GEN-LAST:event_signInbtnActionPerformed
 
     private void jalaliBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jalaliBtnActionPerformed
-       statusTimeZone = true;
-        checkRepo.setTimeZone(statusTimeZone);
+       statusTimeZoneCHECK = true;
+        checkRepo.setTimeZone(statusTimeZoneCHECK);
         checksTable.updateUI();
     }//GEN-LAST:event_jalaliBtnActionPerformed
 
     private void gregorianBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gregorianBtnActionPerformed
-       statusTimeZone = false;
-        checkRepo.setTimeZone(statusTimeZone);
+       statusTimeZoneCHECK = false;
+        checkRepo.setTimeZone(statusTimeZoneCHECK);
          checksTable.updateUI();
         
     }//GEN-LAST:event_gregorianBtnActionPerformed
+
+    private void jalaliNormalBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jalaliNormalBtnActionPerformed
+        statusTimeZoneNORMAL = true;
+        docRepo.setStatus(statusTimeZoneNORMAL);
+        docsTable.updateUI();
+    }//GEN-LAST:event_jalaliNormalBtnActionPerformed
+
+    private void gregorianNormalBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gregorianNormalBtnActionPerformed
+        statusTimeZoneCHECK = false;
+        docRepo.setStatus(statusTimeZoneCHECK);
+        docsTable.updateUI();
+    }//GEN-LAST:event_gregorianNormalBtnActionPerformed
+
+    private void addNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addNameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_addNameActionPerformed
 
     public void filterVisibelity(JRadioButton Rbtn) {
 filteringDocs.setEnabled(payeeDocRBtn.isSelected()||TimeDocRBtn.isSelected()||costDocRBtn.isSelected());
@@ -3819,6 +3980,7 @@ filteringChecks.setEnabled(payeeCheckRBtn.isSelected()||TimeCheckRBtn.isSelected
     private javax.swing.JButton filteringDocs;
     private javax.swing.ButtonGroup filters;
     private javax.swing.JButton gregorianBtn;
+    private javax.swing.JButton gregorianNormalBtn;
     private javax.swing.JButton groupDocSubmit;
     private javax.swing.JRadioButton isCashedBtn;
     private javax.swing.JToggleButton isCreditorToggle;
@@ -3893,6 +4055,7 @@ filteringChecks.setEnabled(payeeCheckRBtn.isSelected()||TimeCheckRBtn.isSelected
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JTable jTable1;
     private javax.swing.JButton jalaliBtn;
+    private javax.swing.JButton jalaliNormalBtn;
     private javax.swing.JPanel loginPanel;
     private javax.swing.JComboBox<String> monthsDocCombo;
     private javax.swing.JComboBox<String> monthscheckCombo;

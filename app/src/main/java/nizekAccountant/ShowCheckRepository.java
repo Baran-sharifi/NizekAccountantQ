@@ -5,7 +5,10 @@
 package nizekAccountant;
 
 import java.io.File;
+import java.text.ParseException;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import nizekAccountant.logic.ModelManager.Manager;
 import nizekAccountant.logic.ConverterHelper.ConverterTime;
 
@@ -20,16 +23,16 @@ import nizekAccountant.logic.UserRepository.UserRepository;
  * @author Lenovo
  */
 public class ShowCheckRepository implements TableModel {
-    boolean timeZone;
+    private boolean status;
 
     UserRepository userRepository = new UserRepository();
-    List<String> gregorianList = userRepository.getDatesFormCheckDoc();
+    
 
-    public ShowCheckRepository(boolean timeZone) {
-        this.timeZone = timeZone;
+    public ShowCheckRepository(boolean status) {
+        this.status = status;
     }
-    public void setTimeZone(boolean timezone) {
-       this.timeZone = timezone;
+    public void setTimeZone(boolean status) {
+       this.status = status;
     }
 
     @Override
@@ -105,23 +108,25 @@ public class ShowCheckRepository implements TableModel {
                 return Manager.checkDocList.get(rowIndex).convertCashed(Manager.checkDocList.get(rowIndex).isCashedd());
             }
             case 3 -> {
-                if (timeZone == true) {
-                     System.out.println("worked timeZone ");
-                     
+                if (status == true) {
                 return Manager.checkDocList.get(rowIndex).getDate();
                
                 } else {
-               
-                         System.out.println("worked timeZone  false" );
-                           System.out.println(gregorianList);
+                    List<String> gregorianList = userRepository.getDatesFormCheckDoc();
                        return gregorianList.get(rowIndex);
           
                 }
             }
             case 4 -> {
-                if (timeZone == true) {
-                return Manager.checkDocList.get(rowIndex).getTime();
-                } 
+                if (status == true) {
+                    try {
+                        return ConverterTime.convertToIran(Manager.checkDocList.get(rowIndex).getTime().toString());
+                    } catch (ParseException ex) {
+                        Logger.getLogger(ShowCheckRepository.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                } else {
+                    return Manager.checkDocList.get(rowIndex).getTime();
+                }
             }
             case 5 -> {
                 return Manager.checkDocList.get(rowIndex).getDescription();

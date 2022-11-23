@@ -15,6 +15,7 @@ public class Manager {
     public static List<CheckDoc> checkDocList = new ArrayList<>();
     public static List<Costumer> costumerList = new ArrayList<>();
     public static List<Admin> adminList = new ArrayList<>();
+    public static List<String> dateListCheck = new ArrayList<>();
     public static UserRepository userRepository = new UserRepository();
 
     public static void addNormalDocument(NormalDoc normalDoc) {
