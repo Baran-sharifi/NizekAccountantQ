@@ -483,13 +483,14 @@ public class UserRepository implements Storeable {
             for (String model : gottenFile) {
                 String[] temp = model.split(", ");
                 System.out.println(Arrays.toString(temp));
-//            String[] date = temp[4].trim().split("-");
+            String[] date = temp[4].trim().split("-");
                 String[] time = temp[5].trim().split(":");
 
                 Manager.addCheckDocument(new CheckDoc(
                         temp[1].trim(),
                         temp[2],
                         ConverterTime.convertDate(ConverterTime.convertToPersian(temp[4].trim())),
+//                         new DateNizek(Integer.parseInt(date[2]),Integer.parseInt(date[1]),Integer.parseInt(date[0])),
                         new TimeNizek(Integer.parseInt(time[0]), Integer.parseInt(time[1])),
                         Converter.setBooleanCashed(temp[3].trim()),
                         Manager.costumerList.get(Integer.parseInt(temp[6].trim().substring(0, 1)))));
