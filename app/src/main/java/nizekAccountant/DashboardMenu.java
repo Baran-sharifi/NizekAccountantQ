@@ -3522,11 +3522,14 @@ landPage(showDocPanel);
     private void jalaliBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jalaliBtnActionPerformed
        statusTimeZone = true;
         checkRepo.setTimeZone(statusTimeZone);
+        checksTable.updateUI();
     }//GEN-LAST:event_jalaliBtnActionPerformed
 
     private void gregorianBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gregorianBtnActionPerformed
        statusTimeZone = false;
         checkRepo.setTimeZone(statusTimeZone);
+         checksTable.updateUI();
+        
     }//GEN-LAST:event_gregorianBtnActionPerformed
 
     public void filterVisibelity(JRadioButton Rbtn) {
