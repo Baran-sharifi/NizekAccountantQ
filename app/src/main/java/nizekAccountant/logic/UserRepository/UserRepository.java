@@ -183,7 +183,7 @@ public class UserRepository implements Storeable {
         return filteredList;
     }
 
-   public List<CheckDoc> readBasedOnDayCheck() {
+    public List<CheckDoc> readBasedOnDayCheck() {
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd");
         LocalDateTime now = LocalDateTime.now();
         String formatted = dtf.format(now);
@@ -231,7 +231,6 @@ public class UserRepository implements Storeable {
         }
         return filteredList;
     }
-
 
     public List<CheckDoc> readFilterBasedOnCostCheck(int beforeCost, int afterCost) {
         List<CheckDoc> filteredList = new ArrayList<>();
@@ -499,23 +498,27 @@ public class UserRepository implements Storeable {
     }
 
     @Override
-    public void readAndAddNormalDoc(File file) {
-        if (file.exists()) {
+     public void readAndAddNormalDoc(File file) {
+         if (file.exists()) {
         List<String> gottenFile = readWholeFile(file);
         for (String model : gottenFile) {
             String[] temp = model.split(", ");
             System.out.println(Arrays.toString(temp));
+           
+            
+            
+            String[] date = temp[4].trim().split("-");
             String[] time = temp[5].trim().split(":");
-            // Test
             Manager.addNormalDocument(new NormalDoc(
                     temp[1].trim(),
                     temp[2].trim(),
                     Converter.setBooleanCreditor(temp[3].trim()),
                     ConverterTime.convertDate(ConverterTime.convertToPersian(temp[4].trim())),
+//                    new DateNizek(Integer.parseInt(date[2]),Integer.parseInt(date[1]),Integer.parseInt(date[0])),
                     new TimeNizek(Integer.parseInt(time[0]), Integer.parseInt(time[1])),
                     Manager.costumerList.get(Integer.parseInt(temp[6].trim().substring(0, 1)))));
         }
-        }
+       }
     }
 
     @Override
