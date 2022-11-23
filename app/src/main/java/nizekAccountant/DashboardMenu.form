@@ -2836,7 +2836,7 @@
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="dashboardBtnshowCheck1" alignment="0" min="-2" pref="145" max="-2" attributes="0"/>
-                                      <Component id="dashboardBtnshowDoc1" alignment="0" min="-2" pref="145" max="-2" attributes="0"/>
+                                      <Component id="chartBtn" alignment="0" min="-2" pref="145" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
@@ -2869,7 +2869,7 @@
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="dashboardBtnshowDoc1" alignment="3" min="-2" pref="112" max="-2" attributes="0"/>
+                      <Component id="chartBtn" alignment="3" min="-2" pref="112" max="-2" attributes="0"/>
                       <Component id="dashboardBtnshowDoc" alignment="3" min="-2" pref="112" max="-2" attributes="0"/>
                       <Component id="dashboardBtnaddDoc" alignment="3" min="-2" pref="112" max="-2" attributes="0"/>
                   </Group>
@@ -3012,7 +3012,7 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="showPeopleActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="dashboardBtnshowDoc1">
+        <Component class="javax.swing.JButton" name="chartBtn">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="B Roya" size="18" style="1"/>
@@ -3023,7 +3023,7 @@
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="dashboardBtnshowDoc1ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="chartBtnActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>
@@ -3054,12 +3054,6 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="sliderCheckLabel" alignment="0" min="-2" pref="64" max="-2" attributes="0"/>
                       <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
-                          <Component id="backshowDoc1" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="ShowChecksbtn" min="-2" pref="119" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
                           <Group type="103" groupAlignment="1" attributes="0">
                               <Component id="DRangeChecksYear" min="-2" pref="64" max="-2" attributes="0"/>
                               <Component id="DRangeDocsYear2" min="-2" pref="64" max="-2" attributes="0"/>
@@ -3088,18 +3082,9 @@
                           </Group>
                       </Group>
                   </Group>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
-                          <EmptySpace max="32767" attributes="0"/>
-                          <Component id="jLabel24" min="-2" pref="251" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="filteringChecks" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="32767" attributes="0"/>
-                      </Group>
-                  </Group>
+                  <EmptySpace pref="174" max="32767" attributes="0"/>
+                  <Component id="jLabel24" min="-2" pref="251" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
               </Group>
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
@@ -3152,6 +3137,15 @@
                           <EmptySpace pref="19" max="32767" attributes="0"/>
                       </Group>
                   </Group>
+              </Group>
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="169" max="-2" attributes="0"/>
+                  <Component id="backshowDoc1" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="ShowChecksbtn" min="-2" pref="119" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="filteringChecks" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
