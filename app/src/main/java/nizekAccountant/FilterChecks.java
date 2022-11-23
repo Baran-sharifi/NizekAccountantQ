@@ -25,15 +25,7 @@ public class FilterChecks implements TableModel {
     int afterCost;
     String selectedFilter;
     UserRepository userRepository1 = new UserRepository();
-
-//    public FilterChecks(String payeeName, DateNizek after, DateNizek before, int beforeCost, int afterCost, String selectedFilter) {
-//        this.payeeName = payeeName;
-//        this.after = after;
-//        this.before = before;
-//        this.beforeCost = beforeCost;
-//        this.afterCost = afterCost;
-//        this.selectedFilter = selectedFilter;
-//    }
+    boolean status;
     
     public FilterChecks(String selectedFilter,int beforeCost, int afterCost){
     
@@ -64,7 +56,9 @@ public class FilterChecks implements TableModel {
     
     
     
-
+public void setStatus(boolean status) {
+      this.status = status;
+    }
   
     public List<CheckDoc> getChecksFilter() {
         List<CheckDoc> filteredList;

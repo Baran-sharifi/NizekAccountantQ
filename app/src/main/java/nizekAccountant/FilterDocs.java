@@ -26,6 +26,7 @@ public class FilterDocs implements TableModel {
     DateNizek before;
     int beforeCost;
     int afterCost;
+    boolean status;
 
 public FilterDocs(String selectedFilter,int beforeCost, int afterCost){
     
@@ -53,6 +54,9 @@ public FilterDocs(String selectedFilter,int beforeCost, int afterCost){
 
   
 
+    public void setStatus(boolean status) {
+      this.status = status;
+    }
     
 
     public List<NormalDoc> getDocFilter() {
