@@ -20,11 +20,16 @@ import nizekAccountant.logic.UserRepository.UserRepository;
  * @author Lenovo
  */
 public class ShowCheckRepository implements TableModel {
+    boolean timeZone;
 
     UserRepository userRepository = new UserRepository();
+    List<String> gregorianList = userRepository.getDatesFormCheckDoc();
 
-    public ShowCheckRepository() {
-
+    public ShowCheckRepository(boolean timeZone) {
+        this.timeZone = timeZone;
+    }
+    public void setTimeZone(boolean timezone) {
+       this.timeZone = timezone;
     }
 
     @Override
@@ -100,10 +105,23 @@ public class ShowCheckRepository implements TableModel {
                 return Manager.checkDocList.get(rowIndex).convertCashed(Manager.checkDocList.get(rowIndex).isCashedd());
             }
             case 3 -> {
+                if (timeZone == true) {
+                     System.out.println("worked timeZone ");
+                     
                 return Manager.checkDocList.get(rowIndex).getDate();
+               
+                } else {
+               
+                         System.out.println("worked timeZone  false" );
+                           System.out.println(gregorianList);
+                       return gregorianList.get(rowIndex);
+          
+                }
             }
             case 4 -> {
+                if (timeZone == true) {
                 return Manager.checkDocList.get(rowIndex).getTime();
+                } 
             }
             case 5 -> {
                 return Manager.checkDocList.get(rowIndex).getDescription();
@@ -114,6 +132,7 @@ public class ShowCheckRepository implements TableModel {
             default ->
                 throw new IndexOutOfBoundsException(String.format("Column index not exist. (%d)", columnIndex));
         }
+        return null;
     }
 
     @Override
@@ -129,6 +148,7 @@ public class ShowCheckRepository implements TableModel {
                 Manager.checkDocList.get(rowIndex).setIsCashed((boolean) aValue);
             }
             case 3 -> {
+                
                 Manager.checkDocList.get(rowIndex).setDateNizek((DateNizek) aValue);
             }
             case 4 -> {
