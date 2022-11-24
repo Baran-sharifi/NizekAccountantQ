@@ -173,8 +173,10 @@ public class Accounting {
             sum += doubleList.get(i);
         }
 
-       
+       if (sum != 0) {
         return (int) result / sum;
+       }
+       return 0;
     }
     
 }

@@ -121,12 +121,9 @@ public class ShowDocRepository implements TableModel {
                      } catch (ParseException ex) {
                          Logger.getLogger(ShowDocRepository.class.getName()).log(Level.SEVERE, null, ex);
                      }
-                    
                 } else {
-                    return Manager.checkDocList.get(rowIndex).getTime();
+                    return Manager.normalDocList.get(rowIndex).getTime();
                 }
-                
-              return Manager.normalDocList.get(rowIndex).getTime();
             }
             case 5 ->{
              return Manager.normalDocList.get(rowIndex).getDescription();
@@ -136,6 +133,7 @@ public class ShowDocRepository implements TableModel {
             }
             default -> throw new IndexOutOfBoundsException(String.format("Column index not exist. (%d)", columnIndex));
         }
+        return null;
     }
 
     //edit table

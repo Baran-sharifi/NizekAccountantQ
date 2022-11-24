@@ -4,13 +4,18 @@
  */
 package nizekAccountant;
 
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.event.TableModelListener;
 import javax.swing.table.TableModel;
+import nizekAccountant.logic.ConverterHelper.ConverterTime;
 import nizekAccountant.logic.Date.DateNizek;
 import nizekAccountant.logic.Date.TimeNizek;
 import nizekAccountant.logic.DocModels.CheckDoc;
+import static nizekAccountant.logic.ModelManager.Manager.userRepository;
 import nizekAccountant.logic.UserRepository.UserRepository;
 
 /**
@@ -27,25 +32,28 @@ public class FilterChecks implements TableModel {
     UserRepository userRepository1 = new UserRepository();
     boolean status;
     
-    public FilterChecks(String selectedFilter,int beforeCost, int afterCost){
+    public FilterChecks(String selectedFilter,int beforeCost, int afterCost,boolean status ){
     
     this.selectedFilter=selectedFilter;
      this.beforeCost = beforeCost;
         this.afterCost = afterCost;
+        this.status = status;
     }
     
     
-    public FilterChecks(String selectedFilter,DateNizek after, DateNizek before){
+    public FilterChecks(String selectedFilter,DateNizek after, DateNizek before, boolean status){
      this.selectedFilter=selectedFilter;
     this.after = after;
         this.before = before;
+        this.status = status;
     }
     
     
     
-    public FilterChecks(String selectedFilter,String payeeName){
+    public FilterChecks(String selectedFilter,String payeeName, boolean status){
       this.payeeName = payeeName;
        this.selectedFilter = selectedFilter;
+       this.status = status;
     
     }
     
@@ -162,11 +170,25 @@ public void setStatus(boolean status) {
                 return getChecksFilter().get(rowIndex).convertCashed(getChecksFilter().get(rowIndex).isCashedd());
             }
             case 3 -> {
+                if (status == true) {
                 return getChecksFilter().get(rowIndex).getDate();
+                } else {
+                  List<DateNizek> list = userRepository.getDatesFormCheckDoc(getChecksFilter());
+                  return ConverterTime.convertToGregorian(list.get(rowIndex));
+                }
 
             }
             case 4 -> {
+                if (status == true) {
+                    List<String> list = userRepository.getTimeFromCheckDoc(getChecksFilter());
+                    try {
+                        return ConverterTime.convertToIran(list.get(rowIndex));
+                    } catch (ParseException ex) {
+                        Logger.getLogger(FilterChecks.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                } else {
                 return getChecksFilter().get(rowIndex).getTime();
+                }
             }
             case 5 -> {
                 return getChecksFilter().get(rowIndex).getDescription();
@@ -174,7 +196,7 @@ public void setStatus(boolean status) {
             default ->
                 throw new IndexOutOfBoundsException(String.format("Column index not exist. (%d)", columnIndex));
         }
-
+return null;
     }
 
     @Override

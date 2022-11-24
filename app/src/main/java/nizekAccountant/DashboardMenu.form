@@ -105,8 +105,8 @@
               </Group>
           </Group>
           <Group type="103" rootIndex="2" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="0" attributes="0">
-                  <Component id="addcheckPanel" pref="1113" max="32767" attributes="0"/>
+              <Group type="102" alignment="1" attributes="0">
+                  <Component id="addcheckPanel" pref="1121" max="32767" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
@@ -120,7 +120,7 @@
           <Group type="103" rootIndex="4" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="showDocPanel" pref="1107" max="32767" attributes="0"/>
+                  <Component id="showDocPanel" pref="1115" max="32767" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
@@ -147,7 +147,7 @@
           <Group type="103" rootIndex="8" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
                   <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
-                  <Component id="showCheckpanel" pref="1101" max="32767" attributes="0"/>
+                  <Component id="showCheckpanel" pref="1109" max="32767" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
@@ -200,6 +200,13 @@
                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
               </Group>
           </Group>
+          <Group type="103" rootIndex="16" groupAlignment="0" attributes="0">
+              <Group type="102" attributes="0">
+                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                  <Component id="registerPanel" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+              </Group>
+          </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
@@ -218,8 +225,7 @@
           </Group>
           <Group type="103" rootIndex="2" groupAlignment="0" attributes="0">
               <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Component id="addcheckPanel" pref="1045" max="32767" attributes="0"/>
+                  <Component id="addcheckPanel" pref="1052" max="32767" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
@@ -233,7 +239,7 @@
           <Group type="103" rootIndex="4" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="showDocPanel" pref="1045" max="32767" attributes="0"/>
+                  <Component id="showDocPanel" pref="1046" max="32767" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
@@ -261,7 +267,7 @@
           <Group type="103" rootIndex="8" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="showCheckpanel" pref="1045" max="32767" attributes="0"/>
+                  <Component id="showCheckpanel" pref="1046" max="32767" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
@@ -314,6 +320,13 @@
                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
               </Group>
           </Group>
+          <Group type="103" rootIndex="16" groupAlignment="0" attributes="0">
+              <Group type="102" attributes="0">
+                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                  <Component id="registerPanel" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+              </Group>
+          </Group>
       </Group>
     </DimensionLayout>
   </Layout>
@@ -321,7 +334,7 @@
     <Container class="javax.swing.JPanel" name="LoginPanel">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="e7" green="9b" red="ac" type="rgb"/>
+          <Color blue="32" green="1" red="0" type="rgb"/>
         </Property>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
@@ -524,7 +537,7 @@
     <Container class="javax.swing.JPanel" name="addcheckPanel">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="e7" green="9b" red="ac" type="rgb"/>
+          <Color blue="32" green="1" red="0" type="rgb"/>
         </Property>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
@@ -588,7 +601,7 @@
                           <Component id="addCheckScroll" min="-2" pref="450" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace pref="32" max="32767" attributes="0"/>
+                  <EmptySpace pref="338" max="32767" attributes="0"/>
                   <Component id="jLabel56" min="-2" pref="24" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jButton2" min="-2" pref="40" max="-2" attributes="0"/>
@@ -650,7 +663,7 @@
             <Container class="javax.swing.JPanel" name="addingCheckPanel">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="e7" green="9b" red="ac" type="rgb"/>
+                  <Color blue="32" green="1" red="0" type="rgb"/>
                 </Property>
                 <Property name="requestFocusEnabled" type="boolean" value="false"/>
                 <Property name="size" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
@@ -828,11 +841,13 @@
                 <Component class="javax.swing.JTextField" name="TimeCheckAddDay">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="e7" green="9b" red="ac" type="rgb"/>
+                      <Color blue="ff" green="66" red="66" type="rgb"/>
                     </Property>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                       <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-                        <TitledBorder title="&#x631;&#x648;&#x632;"/>
+                        <TitledBorder title="&#x631;&#x648;&#x632;">
+                          <Color PropertyName="color" blue="ff" green="ff" red="ff" type="rgb"/>
+                        </TitledBorder>
                       </Border>
                     </Property>
                   </Properties>
@@ -843,7 +858,7 @@
                 <Component class="javax.swing.JRadioButton" name="isCashedBtn">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="e7" green="9b" red="ac" type="rgb"/>
+                      <Color blue="32" green="1" red="0" type="rgb"/>
                     </Property>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="B Roya" size="18" style="1"/>
@@ -890,11 +905,16 @@
                 <Component class="javax.swing.JTextField" name="TimeCheckAddYear">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="e7" green="9b" red="ac" type="rgb"/>
+                      <Color blue="ff" green="66" red="66" type="rgb"/>
+                    </Property>
+                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
                     </Property>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                       <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-                        <TitledBorder title="&#x633;&#x627;&#x644;"/>
+                        <TitledBorder title="&#x633;&#x627;&#x644;">
+                          <Color PropertyName="color" blue="ff" green="ff" red="ff" type="rgb"/>
+                        </TitledBorder>
                       </Border>
                     </Property>
                   </Properties>
@@ -905,11 +925,16 @@
                 <Component class="javax.swing.JTextField" name="TimeCheckAddMonth">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="e7" green="9b" red="ac" type="rgb"/>
+                      <Color blue="ff" green="66" red="66" type="rgb"/>
+                    </Property>
+                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
                     </Property>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                       <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-                        <TitledBorder title="&#x645;&#x627;&#x647;"/>
+                        <TitledBorder title="&#x645;&#x627;&#x647;">
+                          <Color PropertyName="color" blue="ff" green="ff" red="ff" type="rgb"/>
+                        </TitledBorder>
                       </Border>
                     </Property>
                   </Properties>
@@ -998,7 +1023,7 @@
     <Container class="javax.swing.JPanel" name="stateChangePanel">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="e7" green="9b" red="ac" type="rgb"/>
+          <Color blue="32" green="1" red="0" type="rgb"/>
         </Property>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
@@ -1246,7 +1271,7 @@
     <Container class="javax.swing.JPanel" name="showDocPanel">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="e7" green="9b" red="ac" type="rgb"/>
+          <Color blue="32" green="1" red="0" type="rgb"/>
         </Property>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
@@ -1314,7 +1339,7 @@
                           </Group>
                           <Group type="103" groupAlignment="1" attributes="0">
                               <Group type="102" alignment="1" attributes="0">
-                                  <EmptySpace min="-2" pref="175" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="178" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="1" attributes="0">
                                       <Group type="102" attributes="0">
                                           <Component id="jLabel36" min="-2" pref="79" max="-2" attributes="0"/>
@@ -1579,6 +1604,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="&#x647;&#x641;&#x62a;&#x6af;&#x6cc;"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="weeklyDocActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JRadioButton" name="MonthlyDoc">
           <Properties>
@@ -1659,6 +1687,9 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="B Roya" size="18" style="1"/>
             </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="&#x645;&#x628;&#x644;&#x63a;"/>
           </Properties>
         </Component>
@@ -1699,7 +1730,7 @@
         <Component class="javax.swing.JRadioButton" name="costDocRBtn">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="e7" green="9b" red="ac" type="rgb"/>
+              <Color blue="32" green="1" red="0" type="rgb"/>
             </Property>
             <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
               <ComponentRef name="filters"/>
@@ -1744,14 +1775,16 @@
         <Component class="javax.swing.JTextField" name="DRangeDocsMonthFrom">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="e7" green="9b" red="ac" type="rgb"/>
+              <Color blue="ff" green="66" red="66" type="rgb"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-                <TitledBorder title="&#x645;&#x627;&#x647;"/>
+                <TitledBorder title="&#x645;&#x627;&#x647;">
+                  <Color PropertyName="color" blue="ff" green="ff" red="ff" type="rgb"/>
+                </TitledBorder>
               </Border>
             </Property>
           </Properties>
@@ -1759,14 +1792,16 @@
         <Component class="javax.swing.JTextField" name="DRangeDocsDayFrom">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="e7" green="9b" red="ac" type="rgb"/>
+              <Color blue="ff" green="66" red="66" type="rgb"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-                <TitledBorder title="&#x631;&#x648;&#x632;"/>
+                <TitledBorder title="&#x631;&#x648;&#x632;">
+                  <Color PropertyName="color" blue="ff" green="ff" red="ff" type="rgb"/>
+                </TitledBorder>
               </Border>
             </Property>
           </Properties>
@@ -1777,7 +1812,7 @@
         <Component class="javax.swing.JTextField" name="DRangeDocsmonthTo">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="e7" green="9b" red="ac" type="rgb"/>
+              <Color blue="ff" green="66" red="66" type="rgb"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -1797,7 +1832,7 @@
         <Component class="javax.swing.JTextField" name="DRangeDocsDayTo">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="e7" green="9b" red="ac" type="rgb"/>
+              <Color blue="ff" green="66" red="66" type="rgb"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -1880,14 +1915,16 @@
         <Component class="javax.swing.JTextField" name="DRangeDocsYearFrom">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="e7" green="9b" red="ac" type="rgb"/>
+              <Color blue="ff" green="66" red="66" type="rgb"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-                <TitledBorder title="&#x633;&#x627;&#x644;"/>
+                <TitledBorder title="&#x633;&#x627;&#x644;">
+                  <Color PropertyName="color" blue="ff" green="ff" red="ff" type="rgb"/>
+                </TitledBorder>
               </Border>
             </Property>
           </Properties>
@@ -1895,7 +1932,7 @@
         <Component class="javax.swing.JTextField" name="DRangeDocsYearTo">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="e7" green="9b" red="ac" type="rgb"/>
+              <Color blue="ff" green="66" red="66" type="rgb"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -1943,6 +1980,7 @@
               <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
                 <TitledBorder title="&#x627;&#x632;">
                   <Font PropertyName="font" name="Segoe UI" size="12" style="1"/>
+                  <Color PropertyName="color" blue="ff" green="ff" red="ff" type="rgb"/>
                 </TitledBorder>
               </Border>
             </Property>
@@ -1960,6 +1998,7 @@
               <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
                 <TitledBorder title="&#x62a;&#x627;">
                   <Font PropertyName="font" name="Segoe UI" size="12" style="1"/>
+                  <Color PropertyName="color" blue="ff" green="ff" red="ff" type="rgb"/>
                 </TitledBorder>
               </Border>
             </Property>
@@ -1987,7 +2026,7 @@
     <Container class="javax.swing.JPanel" name="addDocPanel">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="e7" green="9b" red="ac" type="rgb"/>
+          <Color blue="32" green="1" red="0" type="rgb"/>
         </Property>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
@@ -2082,7 +2121,7 @@
             <Container class="javax.swing.JPanel" name="addingDocPanel">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="e7" green="9b" red="ac" type="rgb"/>
+                  <Color blue="32" green="1" red="0" type="rgb"/>
                 </Property>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -2253,7 +2292,7 @@
                 <Component class="javax.swing.JRadioButton" name="creditorBtn">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="e7" green="9b" red="ac" type="rgb"/>
+                      <Color blue="32" green="1" red="0" type="rgb"/>
                     </Property>
                     <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
                       <ComponentRef name="buttonGroup2"/>
@@ -2270,7 +2309,7 @@
                 <Component class="javax.swing.JRadioButton" name="debtorBtn">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="e7" green="9b" red="ac" type="rgb"/>
+                      <Color blue="32" green="1" red="0" type="rgb"/>
                     </Property>
                     <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
                       <ComponentRef name="buttonGroup2"/>
@@ -2326,14 +2365,16 @@
                 <Component class="javax.swing.JTextField" name="docMonth">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="e7" green="9b" red="ac" type="rgb"/>
+                      <Color blue="ff" green="66" red="66" type="rgb"/>
                     </Property>
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
                     </Property>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                       <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-                        <TitledBorder title="&#x645;&#x627;&#x647;"/>
+                        <TitledBorder title="&#x645;&#x627;&#x647;">
+                          <Color PropertyName="color" blue="ff" green="ff" red="ff" type="rgb"/>
+                        </TitledBorder>
                       </Border>
                     </Property>
                   </Properties>
@@ -2344,14 +2385,16 @@
                 <Component class="javax.swing.JTextField" name="docDay">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="e7" green="9b" red="ac" type="rgb"/>
+                      <Color blue="ff" green="66" red="66" type="rgb"/>
                     </Property>
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
                     </Property>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                       <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-                        <TitledBorder title="&#x631;&#x648;&#x632;"/>
+                        <TitledBorder title="&#x631;&#x648;&#x632;">
+                          <Color PropertyName="color" blue="ff" green="ff" red="ff" type="rgb"/>
+                        </TitledBorder>
                       </Border>
                     </Property>
                   </Properties>
@@ -2359,14 +2402,16 @@
                 <Component class="javax.swing.JTextField" name="docYear">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="e7" green="9b" red="ac" type="rgb"/>
+                      <Color blue="ff" green="66" red="66" type="rgb"/>
                     </Property>
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
                     </Property>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                       <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-                        <TitledBorder title="&#x633;&#x627;&#x644;"/>
+                        <TitledBorder title="&#x633;&#x627;&#x644;">
+                          <Color PropertyName="color" blue="ff" green="ff" red="ff" type="rgb"/>
+                        </TitledBorder>
                       </Border>
                     </Property>
                   </Properties>
@@ -2469,7 +2514,7 @@
     <Container class="javax.swing.JPanel" name="addPeoplePanel">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="e7" green="9b" red="ac" type="rgb"/>
+          <Color blue="32" green="1" red="0" type="rgb"/>
         </Property>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
@@ -2512,11 +2557,9 @@
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
                               <Group type="103" groupAlignment="1" attributes="0">
-                                  <Group type="103" alignment="1" groupAlignment="1" max="-2" attributes="0">
-                                      <Component id="emailField" alignment="1" min="-2" pref="250" max="-2" attributes="0"/>
-                                      <Component id="AddressField" alignment="1" min="-2" pref="250" max="-2" attributes="0"/>
-                                      <Component id="phoneField" alignment="1" min="-2" pref="250" max="-2" attributes="0"/>
-                                  </Group>
+                                  <Component id="emailField" alignment="1" min="-2" pref="250" max="-2" attributes="0"/>
+                                  <Component id="AddressField" alignment="1" min="-2" pref="250" max="-2" attributes="0"/>
+                                  <Component id="phoneField" alignment="1" min="-2" pref="250" max="-2" attributes="0"/>
                                   <Group type="102" alignment="1" attributes="0">
                                       <Component id="partnerBtn" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -2851,7 +2894,7 @@
     <Container class="javax.swing.JPanel" name="addCategoryPanel">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="e7" green="9b" red="ac" type="rgb"/>
+          <Color blue="32" green="1" red="0" type="rgb"/>
         </Property>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
@@ -3154,7 +3197,7 @@
     <Container class="javax.swing.JPanel" name="dashboard">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="e7" green="9b" red="ac" type="rgb"/>
+          <Color blue="32" green="1" red="0" type="rgb"/>
         </Property>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
@@ -3204,11 +3247,11 @@
                           </Group>
                       </Group>
                   </Group>
-                  <EmptySpace pref="322" max="32767" attributes="0"/>
+                  <EmptySpace pref="330" max="32767" attributes="0"/>
               </Group>
               <Group type="102" alignment="1" attributes="0">
                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                  <Component id="dashboardlabel" min="-2" pref="314" max="-2" attributes="0"/>
+                  <Component id="dashboardlabel" min="-2" pref="583" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="100" max="-2" attributes="0"/>
               </Group>
           </Group>
@@ -3236,7 +3279,7 @@
                       <Component id="dashboardBtnshowDoc" alignment="3" min="-2" pref="112" max="-2" attributes="0"/>
                       <Component id="dashboardBtnaddDoc" alignment="3" min="-2" pref="112" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="451" max="32767" attributes="0"/>
+                  <EmptySpace pref="452" max="32767" attributes="0"/>
                   <Component id="backToLogin" min="-2" pref="35" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
               </Group>
@@ -3387,8 +3430,10 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
+            <Property name="horizontalAlignment" type="int" value="11"/>
             <Property name="text" type="java.lang.String" value="&#x62d;&#x633;&#x627;&#x628;&#x62f;&#x627;&#x631; &#x646;&#x627;&#x6cc;&#x632;&#x6a9;"/>
             <Property name="toolTipText" type="java.lang.String" value=""/>
+            <Property name="horizontalTextPosition" type="int" value="0"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="tarazBtn">
@@ -3512,7 +3557,7 @@
     <Container class="javax.swing.JPanel" name="showCheckpanel">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="e7" green="9b" red="ac" type="rgb"/>
+          <Color blue="32" green="1" red="0" type="rgb"/>
         </Property>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
@@ -3538,8 +3583,8 @@
                       <Component id="sliderCheckLabel" alignment="0" min="-2" pref="64" max="-2" attributes="0"/>
                       <Group type="102" alignment="0" attributes="0">
                           <Group type="103" groupAlignment="1" attributes="0">
-                              <Component id="DRangeChecksYear" min="-2" pref="64" max="-2" attributes="0"/>
-                              <Component id="DRangeDocsYear2" min="-2" pref="64" max="-2" attributes="0"/>
+                              <Component id="DRangeChecksYearFrom" min="-2" pref="64" max="-2" attributes="0"/>
+                              <Component id="DRangeCheckYearTo" min="-2" pref="64" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
@@ -3549,25 +3594,23 @@
                           <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="1" attributes="0">
                               <Group type="102" alignment="1" attributes="0">
-                                  <Component id="DRangeDocsMonth2" min="-2" pref="70" max="-2" attributes="0"/>
+                                  <Component id="DRangeCheckMonthTo" min="-2" pref="70" max="-2" attributes="0"/>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                   <Component id="jLabel46" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="DRangeDocsDay3" min="-2" pref="64" max="-2" attributes="0"/>
+                                  <Component id="DRangeChecksDayTo" min="-2" pref="64" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="1" attributes="0">
-                                  <Component id="DRangeChecksMonth" min="-2" pref="70" max="-2" attributes="0"/>
+                                  <Component id="DRangeChecksMonthFrom" min="-2" pref="70" max="-2" attributes="0"/>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                   <Component id="jLabel38" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="DRangeChecksYear1" min="-2" pref="64" max="-2" attributes="0"/>
+                                  <Component id="DRangeChecksDayFrom" min="-2" pref="64" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
                   </Group>
-                  <EmptySpace max="32767" attributes="0"/>
-                  <Component id="jLabel24" min="-2" pref="251" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
+                  <EmptySpace min="57" max="32767" attributes="0"/>
               </Group>
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" max="-2" attributes="0"/>
@@ -3630,8 +3673,12 @@
                       <Group type="102" attributes="0">
                           <EmptySpace min="-2" pref="322" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jLabel35" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabel28" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel35" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="jLabel28" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="138" max="-2" attributes="0"/>
+                                  <Component id="jLabel24" min="-2" pref="251" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
                           <EmptySpace max="32767" attributes="0"/>
                       </Group>
@@ -3697,29 +3744,27 @@
                   <Component id="sliderCheckLabel" min="-2" pref="16" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
+                          <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
+                          <Component id="jLabel24" min="-2" pref="55" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jLabel24" alignment="3" min="-2" pref="55" max="-2" attributes="0"/>
-                              <Component id="jLabel28" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Component id="jLabel35" min="-2" pref="15" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" attributes="0">
                           <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="DRangeChecksYear" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="DRangeChecksMonth" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="DRangeChecksYear1" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="DRangeChecksYearFrom" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="DRangeChecksMonthFrom" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="DRangeChecksDayFrom" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel38" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel45" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel28" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="DRangeDocsYear2" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="DRangeDocsMonth2" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="DRangeDocsDay3" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="DRangeCheckYearTo" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="DRangeCheckMonthTo" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="DRangeChecksDayTo" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel46" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel47" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
@@ -3904,7 +3949,7 @@
         <Component class="javax.swing.JRadioButton" name="TimeCheckRBtn">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="e7" green="9b" red="ac" type="rgb"/>
+              <Color blue="32" green="1" red="0" type="rgb"/>
             </Property>
             <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
               <ComponentRef name="filters"/>
@@ -3977,10 +4022,10 @@
             <Property name="text" type="java.lang.String" value="&#x628;&#x627;&#x632;&#x647; &#x6cc; &#x632;&#x645;&#x627;&#x646;&#x6cc; &#x645;&#x648;&#x631;&#x62f; &#x646;&#x638;&#x631; &#x631;&#x627; &#x648;&#x627;&#x631;&#x62f; &#x6a9;&#x646;&#x6cc;&#x62f;"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="DRangeChecksYear">
+        <Component class="javax.swing.JTextField" name="DRangeChecksYearFrom">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="e7" green="9b" red="ac" type="rgb"/>
+              <Color blue="ff" green="66" red="66" type="rgb"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -3994,10 +4039,10 @@
             </Property>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="DRangeChecksMonth">
+        <Component class="javax.swing.JTextField" name="DRangeChecksMonthFrom">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="e7" green="9b" red="ac" type="rgb"/>
+              <Color blue="ff" green="66" red="66" type="rgb"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -4010,6 +4055,9 @@
               </Border>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="DRangeChecksMonthFromActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel5">
           <Properties>
@@ -4022,35 +4070,42 @@
             <Property name="text" type="java.lang.String" value="&#x646;&#x645;&#x627;&#x6cc;&#x634; &#x686;&#x6a9; &#x647;&#x627;"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="DRangeDocsYear2">
+        <Component class="javax.swing.JTextField" name="DRangeCheckYearTo">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="e7" green="9b" red="ac" type="rgb"/>
+              <Color blue="ff" green="66" red="66" type="rgb"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-                <TitledBorder title="&#x633;&#x627;&#x644;"/>
+                <TitledBorder title="&#x633;&#x627;&#x644;">
+                  <Color PropertyName="color" blue="ff" green="ff" red="ff" type="rgb"/>
+                </TitledBorder>
               </Border>
             </Property>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="DRangeDocsMonth2">
+        <Component class="javax.swing.JTextField" name="DRangeCheckMonthTo">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="e7" green="9b" red="ac" type="rgb"/>
+              <Color blue="ff" green="66" red="66" type="rgb"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-                <TitledBorder title="&#x645;&#x627;&#x647;"/>
+                <TitledBorder title="&#x645;&#x627;&#x647;">
+                  <Color PropertyName="color" blue="ff" green="ff" red="ff" type="rgb"/>
+                </TitledBorder>
               </Border>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="DRangeCheckMonthToActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel28">
           <Properties>
@@ -4074,10 +4129,10 @@
             <Property name="text" type="java.lang.String" value="&#x62a;&#x627; &#x62a;&#x627;&#x631;&#x6cc;&#x62e;"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="DRangeChecksYear1">
+        <Component class="javax.swing.JTextField" name="DRangeChecksDayFrom">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="e7" green="9b" red="ac" type="rgb"/>
+              <Color blue="ff" green="66" red="66" type="rgb"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -4094,17 +4149,19 @@
             </Property>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="DRangeDocsDay3">
+        <Component class="javax.swing.JTextField" name="DRangeChecksDayTo">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="e7" green="9b" red="ac" type="rgb"/>
+              <Color blue="ff" green="66" red="66" type="rgb"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-                <TitledBorder title="&#x631;&#x648;&#x632;"/>
+                <TitledBorder title="&#x631;&#x648;&#x632;">
+                  <Color PropertyName="color" blue="ff" green="ff" red="ff" type="rgb"/>
+                </TitledBorder>
               </Border>
             </Property>
           </Properties>
@@ -4187,6 +4244,7 @@
               <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
                 <TitledBorder title="&#x627;&#x632;">
                   <Font PropertyName="font" name="Segoe UI" size="12" style="1"/>
+                  <Color PropertyName="color" blue="ff" green="ff" red="ff" type="rgb"/>
                 </TitledBorder>
               </Border>
             </Property>
@@ -4201,6 +4259,7 @@
               <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
                 <TitledBorder title="&#x62a;&#x627;">
                   <Font PropertyName="font" name="Segoe UI" size="12" style="1"/>
+                  <Color PropertyName="color" blue="ff" green="ff" red="ff" type="rgb"/>
                 </TitledBorder>
               </Border>
             </Property>
@@ -4228,7 +4287,7 @@
     <Container class="javax.swing.JPanel" name="checksReport">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="e7" green="9b" red="ac" type="rgb"/>
+          <Color blue="32" green="1" red="0" type="rgb"/>
         </Property>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
@@ -4389,9 +4448,14 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Helvetica Neue" size="24" style="0"/>
             </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-                <TitledBorder justification="2" title="&#x631;&#x627;&#x633; &#x686;&#x6a9;"/>
+                <TitledBorder justification="2" title="&#x631;&#x627;&#x633; &#x686;&#x6a9;">
+                  <Color PropertyName="color" blue="ff" green="ff" red="ff" type="rgb"/>
+                </TitledBorder>
               </Border>
             </Property>
           </Properties>
@@ -4399,9 +4463,9 @@
         <Component class="javax.swing.JButton" name="jalaliBtn">
           <Properties>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="ff" green="66" red="66" type="rgb"/>
+              <Color blue="32" green="1" red="0" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="&#x634;&#x645;&#x633;&#x6cc;"/>
+            <Property name="text" type="java.lang.String" value="&#x645;&#x646;&#x637;&#x642;&#x647; &#x632;&#x645;&#x627;&#x646;&#x6cc; &#x627;&#x6cc;&#x631;&#x627;&#x646;"/>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
                 <LineBorder roundedCorners="true" thickness="4">
@@ -4417,9 +4481,9 @@
         <Component class="javax.swing.JButton" name="gregorianBtn">
           <Properties>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="ff" green="66" red="66" type="rgb"/>
+              <Color blue="32" green="1" red="0" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="&#x645;&#x6cc;&#x644;&#x627;&#x62f;&#x6cc;"/>
+            <Property name="text" type="java.lang.String" value="&#x645;&#x646;&#x637;&#x642;&#x647; &#x632;&#x645;&#x627;&#x646;&#x6cc; &#x6af;&#x631;&#x6cc;&#x646;&#x648;&#x6cc;&#x62c;"/>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
                 <LineBorder roundedCorners="true" thickness="4">
@@ -4437,7 +4501,7 @@
     <Container class="javax.swing.JPanel" name="docsReport">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="e7" green="9b" red="ac" type="rgb"/>
+          <Color blue="32" green="1" red="0" type="rgb"/>
         </Property>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
@@ -4598,9 +4662,9 @@
         <Component class="javax.swing.JButton" name="jalaliNormalBtn">
           <Properties>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="ff" green="66" red="66" type="rgb"/>
+              <Color blue="32" green="1" red="0" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="&#x634;&#x645;&#x633;&#x6cc;"/>
+            <Property name="text" type="java.lang.String" value="&#x645;&#x646;&#x637;&#x642;&#x647; &#x632;&#x645;&#x627;&#x646;&#x6cc; &#x627;&#x6cc;&#x631;&#x627;&#x646;"/>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
                 <LineBorder roundedCorners="true" thickness="4">
@@ -4616,9 +4680,9 @@
         <Component class="javax.swing.JButton" name="gregorianNormalBtn">
           <Properties>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="ff" green="66" red="66" type="rgb"/>
+              <Color blue="32" green="1" red="0" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="&#x645;&#x6cc;&#x644;&#x627;&#x62f;&#x6cc;"/>
+            <Property name="text" type="java.lang.String" value="&#x645;&#x646;&#x637;&#x642;&#x647; &#x632;&#x645;&#x627;&#x646;&#x6cc; &#x6af;&#x631;&#x6cc;&#x646;&#x648;&#x6cc;&#x686;"/>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
                 <LineBorder roundedCorners="true" thickness="4">
@@ -4636,7 +4700,7 @@
     <Container class="javax.swing.JPanel" name="peopleReports">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="e7" green="9b" red="ac" type="rgb"/>
+          <Color blue="32" green="1" red="0" type="rgb"/>
         </Property>
         <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
           <Dimension value="[787, 746]"/>
@@ -4907,7 +4971,7 @@
     <Container class="javax.swing.JPanel" name="filteredDocs">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="e7" green="9b" red="ac" type="rgb"/>
+          <Color blue="32" green="1" red="0" type="rgb"/>
         </Property>
         <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
           <Dimension value="[787, 746]"/>
@@ -5051,7 +5115,7 @@
         <Component class="javax.swing.JButton" name="iranfilteredNormalBtn">
           <Properties>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="ff" green="66" red="66" type="rgb"/>
+              <Color blue="32" green="1" red="0" type="rgb"/>
             </Property>
             <Property name="text" type="java.lang.String" value="&#x645;&#x646;&#x637;&#x642;&#x647; &#x632;&#x645;&#x627;&#x646;&#x6cc; &#x627;&#x6cc;&#x631;&#x627;&#x646;"/>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
@@ -5069,7 +5133,7 @@
         <Component class="javax.swing.JButton" name="gmtFilteredNormalBtn">
           <Properties>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="ff" green="66" red="66" type="rgb"/>
+              <Color blue="32" green="1" red="0" type="rgb"/>
             </Property>
             <Property name="text" type="java.lang.String" value="&#x645;&#x646;&#x637;&#x642;&#x647; &#x632;&#x645;&#x627;&#x646;&#x6cc; &#x6af;&#x631;&#x6cc;&#x646;&#x648;&#x6cc;&#x686;"/>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
@@ -5089,7 +5153,7 @@
     <Container class="javax.swing.JPanel" name="filteredChecks">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="e7" green="9b" red="ac" type="rgb"/>
+          <Color blue="32" green="1" red="0" type="rgb"/>
         </Property>
         <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
           <Dimension value="[787, 746]"/>
@@ -5233,7 +5297,7 @@
         <Component class="javax.swing.JButton" name="iranFilteredCHECK">
           <Properties>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="ff" green="66" red="66" type="rgb"/>
+              <Color blue="32" green="1" red="0" type="rgb"/>
             </Property>
             <Property name="text" type="java.lang.String" value="&#x645;&#x646;&#x637;&#x642;&#x647; &#x632;&#x645;&#x627;&#x646;&#x6cc; &#x627;&#x6cc;&#x631;&#x627;&#x646;"/>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
@@ -5251,7 +5315,7 @@
         <Component class="javax.swing.JButton" name="gmtFilteredCHECK">
           <Properties>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="ff" green="66" red="66" type="rgb"/>
+              <Color blue="32" green="1" red="0" type="rgb"/>
             </Property>
             <Property name="text" type="java.lang.String" value="&#x645;&#x646;&#x637;&#x642;&#x647; &#x632;&#x645;&#x627;&#x646;&#x6cc; &#x6af;&#x631;&#x6cc;&#x646;&#x648;&#x6cc;&#x686;"/>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
@@ -5264,6 +5328,192 @@
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="gmtFilteredCHECKActionPerformed"/>
+          </Events>
+        </Component>
+      </SubComponents>
+    </Container>
+    <Container class="javax.swing.JPanel" name="registerPanel">
+      <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="32" green="1" red="0" type="rgb"/>
+        </Property>
+      </Properties>
+
+      <Layout>
+        <DimensionLayout dim="0">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" attributes="0">
+                  <EmptySpace min="-2" pref="288" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="emailRegister" alignment="0" min="-2" pref="160" max="-2" attributes="0"/>
+                      <Component id="userNameRegister" alignment="0" min="-2" pref="160" max="-2" attributes="0"/>
+                      <Component id="passwordRegister" alignment="0" min="-2" pref="160" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="jLabel61" min="-2" pref="78" max="-2" attributes="0"/>
+                      <Component id="jLabel60" min="-2" pref="78" max="-2" attributes="0"/>
+                      <Component id="jLabel20" min="-2" pref="78" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace pref="207" max="32767" attributes="0"/>
+              </Group>
+              <Group type="102" alignment="1" attributes="0">
+                  <EmptySpace max="32767" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="1" attributes="0">
+                          <Component id="backToLoginPanelBtn" min="-2" pref="144" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                          <Component id="registerBtn" min="-2" pref="110" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="260" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="1" attributes="0">
+                          <Component id="jLabel62" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="235" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+              </Group>
+          </Group>
+        </DimensionLayout>
+        <DimensionLayout dim="1">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
+                  <Component id="jLabel62" min="-2" pref="65" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="64" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" attributes="0">
+                          <Component id="userNameRegister" min="-2" pref="30" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="emailRegister" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                              <Component id="jLabel60" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <Component id="jLabel20" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="passwordRegister" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                      <Component id="jLabel61" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace pref="86" max="32767" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="registerBtn" alignment="3" min="-2" pref="45" max="-2" attributes="0"/>
+                      <Component id="backToLoginPanelBtn" alignment="3" min="-2" pref="45" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="78" max="-2" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+      </Layout>
+      <SubComponents>
+        <Component class="javax.swing.JTextField" name="userNameRegister">
+          <Properties>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
+                <LineBorder roundedCorners="true" thickness="4">
+                  <Color PropertyName="color" blue="ff" green="66" red="66" type="rgb"/>
+                </LineBorder>
+              </Border>
+            </Property>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="emailRegister">
+          <Properties>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
+                <LineBorder roundedCorners="true" thickness="4">
+                  <Color PropertyName="color" blue="ff" green="66" red="66" type="rgb"/>
+                </LineBorder>
+              </Border>
+            </Property>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="passwordRegister">
+          <Properties>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
+                <LineBorder roundedCorners="true" thickness="4">
+                  <Color PropertyName="color" blue="ff" green="66" red="66" type="rgb"/>
+                </LineBorder>
+              </Border>
+            </Property>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel20">
+          <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="32" green="1" red="0" type="rgb"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="&#x646;&#x627;&#x645; &#x6a9;&#x627;&#x631;&#x628;&#x631;&#x6cc;"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel60">
+          <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="32" green="1" red="0" type="rgb"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="&#x627;&#x6cc;&#x645;&#x6cc;&#x644;"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel61">
+          <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="32" green="1" red="0" type="rgb"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="&#x67e;&#x633;&#x648;&#x631;&#x62f;"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel62">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Helvetica Neue" size="36" style="0"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="&#x647;&#x645;&#x6cc;&#x646; &#x62d;&#x627;&#x644;&#x627; &#x62b;&#x628;&#x62a; &#x646;&#x627;&#x645; &#x6a9;&#x646;&#x6cc;&#x62f;"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JButton" name="registerBtn">
+          <Properties>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="66" red="66" type="rgb"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="&#x62b;&#x628;&#x62a; &#x646;&#x627;&#x645;"/>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
+                <LineBorder roundedCorners="true" thickness="4">
+                  <Color PropertyName="color" blue="ff" green="66" red="66" type="rgb"/>
+                </LineBorder>
+              </Border>
+            </Property>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="registerBtnActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="backToLoginPanelBtn">
+          <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="66" red="66" type="rgb"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="&#x648;&#x631;&#x648;&#x62f; &#x628;&#x647; &#x62d;&#x633;&#x627;&#x628; &#x6a9;&#x627;&#x631;&#x628;&#x631;&#x6cc;"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="backToLoginPanelBtnActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>

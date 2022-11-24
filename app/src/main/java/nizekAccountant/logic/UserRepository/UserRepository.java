@@ -8,6 +8,7 @@ import nizekAccountant.logic.DocModels.NormalDoc;
 import nizekAccountant.logic.Login.Costumer;
 
 import java.io.*;
+import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.LocalDateTime;
@@ -470,7 +471,7 @@ public class UserRepository implements Storeable {
                         new GroupType(temp[2].trim()),
                         temp[3].trim(),
                         temp[4].trim(),
-                        temp[5].trim()
+                        temp[5].trim().substring(0,temp[5].trim().indexOf("]"))
                 ));
             }
         }
@@ -531,9 +532,11 @@ public class UserRepository implements Storeable {
                 Manager.addAdmin(new Admin(
                         temp[0].trim().substring(1),
                         temp[1].trim(),
-                        temp[2].trim().substring(0, 5)
+                        temp[2].trim().substring(0, temp[2].trim().indexOf("]"))
                 ));
             }
+        } else  {
+         System.out.println("file not found! admin!");
         }
     }
 
@@ -646,5 +649,76 @@ public class UserRepository implements Storeable {
             dateList.add(ConverterTime.convertToGregorian(normalDoc.getDate()));
         }
         return dateList;
+    }
+     public String findName(String email, String password) {
+        String name = "";
+        for (Admin admin: Manager.adminList) {
+            if (validateAdmin(email, password)) {
+                name = admin.getName();
+            }
+        }
+        return name;
+    }
+     public List<DateNizek> getDatesFormNormalDoc(List<NormalDoc> normalDocList) {
+        List<DateNizek> dateList = new ArrayList<>();
+        for (NormalDoc normalDoc: normalDocList) {
+            dateList.add(normalDoc.getDate());
+        }
+        return dateList;
+    }
+      public List<String> getTimeFromNormalDoc(List<NormalDoc> normalDocList) {
+        List<String> dateList = new ArrayList<>();
+        for (NormalDoc normalDoc: normalDocList) {
+            dateList.add(normalDoc.getTime().toString());
+        }
+        return dateList;
+    }
+      public List<DateNizek> getDatesFormCheckDoc(List<CheckDoc> checkDoclist) {
+        List<DateNizek> dateList = new ArrayList<>();
+        for (CheckDoc checkDoc: checkDoclist) {
+            dateList.add(checkDoc.getDate());
+        }
+        return dateList;
+    }
+      public List<String> getTimeFromCheckDoc(List<CheckDoc> checkDoclist) {
+        List<String> dateList = new ArrayList<>();
+        for (CheckDoc checkDoc: checkDoclist) {
+            dateList.add(checkDoc.getTime().toString());
+        }
+        return dateList;
+    }
+      
+      public int getToday() {
+        SimpleDateFormat formatter= new SimpleDateFormat("yyyy/MM/dd");
+        Date date = new Date(System.currentTimeMillis());
+        String time = formatter.format(date);
+        String iranDate = ConverterTime.convertToPersian(time);
+        String[] array = iranDate.trim().split("-");
+        int day = Integer.parseInt(array[2]);
+ 
+        return day;
+    }
+      public int getMonth() {
+        SimpleDateFormat formatter= new SimpleDateFormat("yyyy/MM/dd");
+        Date date = new Date(System.currentTimeMillis());
+        String time = formatter.format(date);
+
+        String iranDate = ConverterTime.convertToPersian(time);
+      
+        String[] array = iranDate.trim().split("-");
+        int month = Integer.parseInt(array[1]);
+
+        return month;
+    }
+      public int getYear() {
+        SimpleDateFormat formatter= new SimpleDateFormat("yyyy/MM/dd");
+        Date date = new Date(System.currentTimeMillis());
+        String time = formatter.format(date);
+        String iranDate = ConverterTime.convertToPersian(time);
+      
+        String[] array = iranDate.trim().split("-");
+        int year = Integer.parseInt(array[0]);
+ 
+        return year;
     }
 }
