@@ -109,21 +109,6 @@ public class UserRepository implements Storeable {
         return Manager.costumerList.get(index);
     }
 
-    public String readCostumerBasedOnName(String name) {
-        for (Costumer costumer : Manager.costumerList) {
-            if (name.equals(costumer.getName())) {
-                return String.format("%s, %s, %s, %s, %s, %s",
-                        costumer.getName(),
-                        costumer.getNationalID(),
-                        costumer.getGroupType(),
-                        costumer.getEmail(),
-                        costumer.getAddress(),
-                        costumer.getPhone());
-            }
-        }
-        return "Not Found";
-    }
-
     public List<NormalDoc> readBasedOnDay() {
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd");
         LocalDateTime now = LocalDateTime.now();
@@ -150,83 +135,10 @@ public class UserRepository implements Storeable {
         return filteredList;
     }
 
-    public List<NormalDoc> readBasedOnMonth() {
-        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd");
-        LocalDateTime now = LocalDateTime.now();
-        String formatted = dtf.format(now);
-        String[] formattedArray = formatted.split("/");
-        StringBuilder sb = new StringBuilder();
-        sb.append(formattedArray[0]);
-        sb.append("-");
-        sb.append(formattedArray[1]);
-        sb.append("-");
-        sb.append(formattedArray[2]);
-        String convertedTime = ConverterTime.convertToPersian(sb.toString());
-        String[] array = convertedTime.split("-");
-        int convertedMonth = Integer.parseInt(array[1]);
-        int convertedYear = Integer.parseInt(array[0]);
-        List<NormalDoc> filteredList = new ArrayList<>();
-        for (NormalDoc object : Manager.normalDocList) {
-            if (convertedMonth == object.getDate().getMonth() && convertedYear == object.getDate().getYear()) {
-                filteredList.add(object);
-            }
-        }
-        return filteredList;
-    }
-
     public List<NormalDoc> readFilterBasedOnCostNormal(double beforeCost, double afterCost) {
         List<NormalDoc> filteredList = new ArrayList<>();
         for (NormalDoc object : Manager.normalDocList) {
             if (Integer.parseInt(object.getCost()) >= beforeCost && Integer.parseInt(object.getCost()) <= afterCost) {
-                filteredList.add(object);
-            }
-        }
-        return filteredList;
-    }
-
-    public List<CheckDoc> readBasedOnDayCheck() {
-        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd");
-        LocalDateTime now = LocalDateTime.now();
-        String formatted = dtf.format(now);
-        String[] formattedArray = formatted.split("/");
-        StringBuilder sb = new StringBuilder();
-        sb.append(formattedArray[0]);
-        sb.append("-");
-        sb.append(formattedArray[1]);
-        sb.append("-");
-        sb.append(formattedArray[2]);
-        String convertedTime = ConverterTime.convertToPersian(sb.toString());
-        String[] array = convertedTime.split("-");
-        int convertedDay = Integer.parseInt(array[2]);
-        int convertedMonth = Integer.parseInt(array[1]);
-        int convertedYear = Integer.parseInt(array[0]);
-        List<CheckDoc> filteredList = new ArrayList<>();
-        for (CheckDoc object : Manager.checkDocList) {
-            if (convertedDay == object.getDate().getDay() && convertedMonth == object.getDate().getMonth() && convertedYear == object.getDate().getYear()) {
-                filteredList.add(object);
-            }
-        }
-        return filteredList;
-    }
-
-    public List<CheckDoc> readBasedOnMonthCheck() {
-        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd");
-        LocalDateTime now = LocalDateTime.now();
-        String formatted = dtf.format(now);
-        String[] formattedArray = formatted.split("/");
-        StringBuilder sb = new StringBuilder();
-        sb.append(formattedArray[0]);
-        sb.append("-");
-        sb.append(formattedArray[1]);
-        sb.append("-");
-        sb.append(formattedArray[2]);
-        String convertedTime = ConverterTime.convertToPersian(sb.toString());
-        String[] array = convertedTime.split("-");
-        int convertedMonth = Integer.parseInt(array[1]);
-        int convertedYear = Integer.parseInt(array[0]);
-        List<CheckDoc> filteredList = new ArrayList<>();
-        for (CheckDoc object : Manager.checkDocList) {
-            if (convertedMonth == object.getDate().getMonth() && convertedYear == object.getDate().getYear()) {
                 filteredList.add(object);
             }
         }
