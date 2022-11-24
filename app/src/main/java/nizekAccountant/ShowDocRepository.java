@@ -167,7 +167,6 @@ public class ShowDocRepository implements TableModel {
             }
             default -> throw new IndexOutOfBoundsException(String.format("Column index not exist. (%d)", columnIndex));
         }
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     @Override
