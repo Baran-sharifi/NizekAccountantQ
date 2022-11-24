@@ -471,7 +471,7 @@ public class UserRepository implements Storeable {
                         new GroupType(temp[2].trim()),
                         temp[3].trim(),
                         temp[4].trim(),
-                        temp[5].trim().substring(0,temp[5].trim().indexOf("]"))
+                        temp[5].trim().substring(0, temp[5].trim().indexOf("]"))
                 ));
             }
         }
@@ -484,14 +484,14 @@ public class UserRepository implements Storeable {
             for (String model : gottenFile) {
                 String[] temp = model.split(",  ");
                 System.out.println(Arrays.toString(temp));
-            String[] date = temp[4].trim().split("-");
+                String[] date = temp[4].trim().split("-");
                 String[] time = temp[5].trim().split(":");
 
                 Manager.addCheckDocument(new CheckDoc(
                         temp[1].trim(),
                         temp[2],
                         ConverterTime.convertDate(ConverterTime.convertToPersian(temp[4].trim())),
-//                         new DateNizek(Integer.parseInt(date[2]),Integer.parseInt(date[1]),Integer.parseInt(date[0])),
+                        //                         new DateNizek(Integer.parseInt(date[2]),Integer.parseInt(date[1]),Integer.parseInt(date[0])),
                         new TimeNizek(Integer.parseInt(time[0]), Integer.parseInt(time[1])),
                         Converter.setBooleanCashed(temp[3].trim()),
                         Manager.costumerList.get(Integer.parseInt(temp[6].trim().substring(0, 1)))));
@@ -500,27 +500,25 @@ public class UserRepository implements Storeable {
     }
 
     @Override
-     public void readAndAddNormalDoc(File file) {
-         if (file.exists()) {
-        List<String> gottenFile = readWholeFile(file);
-        for (String model : gottenFile) {
-            String[] temp = model.split(",  ");
-            System.out.println(Arrays.toString(temp));
-           
-            
-            
-            String[] date = temp[4].trim().split("-");
-            String[] time = temp[5].trim().split(":");
-            Manager.addNormalDocument(new NormalDoc(
-                    temp[1].trim(),
-                    temp[2].trim(),
-                    Converter.setBooleanCreditor(temp[3].trim()),
-                    ConverterTime.convertDate(ConverterTime.convertToPersian(temp[4].trim())),
-//                    new DateNizek(Integer.parseInt(date[2]),Integer.parseInt(date[1]),Integer.parseInt(date[0])),
-                    new TimeNizek(Integer.parseInt(time[0]), Integer.parseInt(time[1])),
-                    Manager.costumerList.get(Integer.parseInt(temp[6].trim().substring(0, 1)))));
+    public void readAndAddNormalDoc(File file) {
+        if (file.exists()) {
+            List<String> gottenFile = readWholeFile(file);
+            for (String model : gottenFile) {
+                String[] temp = model.split(",  ");
+                System.out.println(Arrays.toString(temp));
+
+                String[] date = temp[4].trim().split("-");
+                String[] time = temp[5].trim().split(":");
+                Manager.addNormalDocument(new NormalDoc(
+                        temp[1].trim(),
+                        temp[2].trim(),
+                        Converter.setBooleanCreditor(temp[3].trim()),
+                        ConverterTime.convertDate(ConverterTime.convertToPersian(temp[4].trim())),
+                        //                    new DateNizek(Integer.parseInt(date[2]),Integer.parseInt(date[1]),Integer.parseInt(date[0])),
+                        new TimeNizek(Integer.parseInt(time[0]), Integer.parseInt(time[1])),
+                        Manager.costumerList.get(Integer.parseInt(temp[6].trim().substring(0, 1)))));
+            }
         }
-       }
     }
 
     @Override
@@ -535,8 +533,8 @@ public class UserRepository implements Storeable {
                         temp[2].trim().substring(0, temp[2].trim().indexOf("]"))
                 ));
             }
-        } else  {
-         System.out.println("file not found! admin!");
+        } else {
+            System.out.println("file not found! admin!");
         }
     }
 
@@ -552,28 +550,34 @@ public class UserRepository implements Storeable {
 
     // Remove Methods!
     public void removeFromNormalDocList(int deleteLine) {
+        if (deleteLine > Manager.normalDocList.size()) {
+            return;
+        }
         for (NormalDoc normalDoc : Manager.normalDocList) {
             if (deleteLine == normalDoc.getIdentifier()) {
                 Manager.removeFromList(normalDoc);
-                Manager.saveNormal();
             }
         }
     }
 
     public void removeFromCheckDocList(int deleteLine) {
+        if (deleteLine > Manager.checkDocList.size()) {
+            return;
+        }
         for (CheckDoc checkDoc : Manager.checkDocList) {
             if (deleteLine == checkDoc.getIdentifier()) {
                 Manager.removeFromList(checkDoc);
-                Manager.saveCheck();
             }
         }
     }
 
     public void removeFromCostumerList(int deleteLine) {
+        if (deleteLine > Manager.costumerList.size()) {
+            return;
+        }
         for (Costumer costumer : Manager.costumerList) {
             if (deleteLine == costumer.getID()) {
                 Manager.removeFromList(costumer);
-                Manager.saveCostumer();
             }
         }
     }
@@ -636,89 +640,98 @@ public class UserRepository implements Storeable {
         }
         return filteredList.get(0);
     }
-      public List<String> getDatesFormCheckDoc() {
+
+    public List<String> getDatesFormCheckDoc() {
         List<String> dateList = new ArrayList<>();
-        for (CheckDoc checkDoc: Manager.checkDocList) {
+        for (CheckDoc checkDoc : Manager.checkDocList) {
             dateList.add(ConverterTime.convertToGregorian(checkDoc.getDate()));
         }
         return dateList;
     }
+
     public List<String> getDatesFormNormalDoc() {
         List<String> dateList = new ArrayList<>();
-        for (NormalDoc normalDoc: Manager.normalDocList) {
+        for (NormalDoc normalDoc : Manager.normalDocList) {
             dateList.add(ConverterTime.convertToGregorian(normalDoc.getDate()));
         }
         return dateList;
     }
-     public String findName(String email, String password) {
+
+    public String findName(String email, String password) {
         String name = "";
-        for (Admin admin: Manager.adminList) {
+        for (Admin admin : Manager.adminList) {
             if (validateAdmin(email, password)) {
                 name = admin.getName();
             }
         }
         return name;
     }
-     public List<DateNizek> getDatesFormNormalDoc(List<NormalDoc> normalDocList) {
+
+    public List<DateNizek> getDatesFormNormalDoc(List<NormalDoc> normalDocList) {
         List<DateNizek> dateList = new ArrayList<>();
-        for (NormalDoc normalDoc: normalDocList) {
+        for (NormalDoc normalDoc : normalDocList) {
             dateList.add(normalDoc.getDate());
         }
         return dateList;
     }
-      public List<String> getTimeFromNormalDoc(List<NormalDoc> normalDocList) {
+
+    public List<String> getTimeFromNormalDoc(List<NormalDoc> normalDocList) {
         List<String> dateList = new ArrayList<>();
-        for (NormalDoc normalDoc: normalDocList) {
+        for (NormalDoc normalDoc : normalDocList) {
             dateList.add(normalDoc.getTime().toString());
         }
         return dateList;
     }
-      public List<DateNizek> getDatesFormCheckDoc(List<CheckDoc> checkDoclist) {
+
+    public List<DateNizek> getDatesFormCheckDoc(List<CheckDoc> checkDoclist) {
         List<DateNizek> dateList = new ArrayList<>();
-        for (CheckDoc checkDoc: checkDoclist) {
+        for (CheckDoc checkDoc : checkDoclist) {
             dateList.add(checkDoc.getDate());
         }
         return dateList;
     }
-      public List<String> getTimeFromCheckDoc(List<CheckDoc> checkDoclist) {
+
+    public List<String> getTimeFromCheckDoc(List<CheckDoc> checkDoclist) {
         List<String> dateList = new ArrayList<>();
-        for (CheckDoc checkDoc: checkDoclist) {
+        for (CheckDoc checkDoc : checkDoclist) {
             dateList.add(checkDoc.getTime().toString());
         }
         return dateList;
     }
-      
-      public int getToday() {
-        SimpleDateFormat formatter= new SimpleDateFormat("yyyy/MM/dd");
+
+    public int getToday() {
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy/MM/dd");
         Date date = new Date(System.currentTimeMillis());
         String time = formatter.format(date);
         String iranDate = ConverterTime.convertToPersian(time);
         String[] array = iranDate.trim().split("-");
         int day = Integer.parseInt(array[2]);
- 
+
         return day;
     }
-      public int getMonth() {
-        SimpleDateFormat formatter= new SimpleDateFormat("yyyy/MM/dd");
+
+    public int getMonth() {
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy/MM/dd");
         Date date = new Date(System.currentTimeMillis());
         String time = formatter.format(date);
 
         String iranDate = ConverterTime.convertToPersian(time);
-      
+
         String[] array = iranDate.trim().split("-");
         int month = Integer.parseInt(array[1]);
 
         return month;
     }
-      public int getYear() {
-        SimpleDateFormat formatter= new SimpleDateFormat("yyyy/MM/dd");
+
+    public int getYear() {
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy/MM/dd");
         Date date = new Date(System.currentTimeMillis());
         String time = formatter.format(date);
         String iranDate = ConverterTime.convertToPersian(time);
-      
+
         String[] array = iranDate.trim().split("-");
         int year = Integer.parseInt(array[0]);
- 
+
         return year;
     }
 }

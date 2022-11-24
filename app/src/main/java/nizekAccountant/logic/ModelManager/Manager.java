@@ -52,25 +52,16 @@ public class Manager {
 
     public static void removeFromList(NormalDoc normalDoc) {
         normalDocList.remove(normalDoc);
+         userRepository.writeToFileNormalDoc();
     }
 
     public static void removeFromList(CheckDoc checkDoc) {
         checkDocList.remove(checkDoc);
+         userRepository.writeToFileCheckDoc();
     }
 
     public static void removeFromList(Costumer costumer) {
         costumerList.remove(costumer);
-    }
-
-    public static void saveNormal() {
-        userRepository.writeToFileNormalDoc();
-    }
-
-    public static void saveCheck() {
-        userRepository.writeToFileCheckDoc();
-    }
-
-    public static void saveCostumer() {
         userRepository.writeToFileCostumer();
     }
 }
