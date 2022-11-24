@@ -9,7 +9,8 @@ import nizekAccountant.logic.ModelManager.Manager;
 
 public class NormalDoc {
 
-    static List<DayModel> listOfDays = new ArrayList<>();
+ public   static List<DayModel> listOfDays = new ArrayList<>();
+ public   static List<DayModel> listOfDays1 ;
 
     private Costumer costumer;
     private String cost;
@@ -149,32 +150,67 @@ public class NormalDoc {
         public double debt;
         public double credit;
         public DateNizek dateForChart;
-
-        public DayModel() {
+      //public NormalDoc doc;
+        public DayModel( double debt, double credit, DateNizek dateForChart) {
+       
+            this.debt = debt;
+            this.credit = credit;
+            this.dateForChart = dateForChart;
         }
+        
+        
+        public DayModel(){}
+        
+        
+
+        
 
 // adds to list if its not added before
         // if it exists 
-        public List<DayModel> generateDayModel(List<DayModel> dayList, List<NormalDoc> docList) {
+        public static List<DayModel> generateDayModel(List<NormalDoc> docList) {
             List<DayModel> listOfDays = new ArrayList<>();
+            double debt;
+            double credit;
             for (NormalDoc docs : docList) {
+                if(docs.identifier==0){
+               double dayCost= Double.parseDouble(docs.cost);
+               if(docs.isCreditor){
+                debt=dayCost;
+                credit=0;
+               }else{
+               credit=dayCost;
+               debt=0;
+               }
+               
+               DayModel firstday=new DayModel(debt,credit,docs.getDate());
+                    listOfDays.add(firstday);
+                }
+                
                 DayModel dayFinal = null;
                 for (DayModel days : listOfDays) {
                     if ((days.dateForChart.equals(docs.dateNizek))) {
-                        //listOfDays.add(new DayModel(docs.dateNizek));
                         dayFinal = days;
                         break;
                     }
                 }
                 if (dayFinal == null) {
                     dayFinal = new DayModel();
+                    dayFinal.dateForChart=docs.dateNizek;
+                   if (docs.isCreditor) {
+                        dayFinal.credit = Double.parseDouble(docs.cost);
+                        dayFinal.debt=0;
+                    } else {
+                    dayFinal.debt = Double.parseDouble(docs.cost);
+                    dayFinal.credit=0;
+                   }
                     listOfDays.add(dayFinal);
+                    
                 } else {
                     if (docs.isCreditor) {
-                        dayFinal.credit += credit;
+                        dayFinal.credit += Double.parseDouble(docs.cost);
 
                     } else {
-                        dayFinal.debt += debt;
+                    dayFinal.debt += Double.parseDouble(docs.cost);
                     }
                 }
             }

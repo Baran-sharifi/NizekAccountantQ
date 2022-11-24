@@ -29,161 +29,67 @@ import org.jfree.data.category.DefaultCategoryDataset;
 //import org.jfree.ui.ApplicationFrame;
 //import org.jfree.ui.RefineryUtilities;
 
-
 /**
  *
  * @author Lenovo
  */
-public class CreditorChart extends DashboardMenu {
-  
- static  List<NormalDoc.DayModel> listD = new ArrayList<>();
+public class CreditorChart extends javax.swing.JFrame {
+
+    List<NormalDoc.DayModel> listD = new ArrayList<>();
 
 //    List<NormalDoc.DayModel> dayModelList = new ArrayList<>();
-     
- 
- 
- 
- 
     public CreditorChart() {
 
-   
-
-        final CategoryDataset dataset1 = createDataset1();
+        final CategoryDataset dataset1 = createDataset();
 
         // create the chart...
         final JFreeChart chart = ChartFactory.createBarChart(
-            "Dual Axis Chart",        // chart title
-            "Category",               // domain axis label
-            "Value",                  // range axis label
-            dataset1,                 // data
-            PlotOrientation.VERTICAL,
-            true,                     // include legend
-            true,                     // tooltips?
-            false                     // URL generator?  Not required...
+                "نمودار تراز", // chart title
+                "تاریخ", // domain axis label
+                "مبلغ", // range axis label
+                dataset1, // data
+                PlotOrientation.VERTICAL,
+                true, // include legend
+                true, // tooltips?
+                false // URL generator?  Not required...
         );
 
-        // NOW DO SOME OPTIONAL CUSTOMISATION OF THE CHART...
+        //   chart.notify();
+
+        CategoryDataset dataset = createDataset();
+
+        ChartPanel panel = new ChartPanel(chart);
+        setContentPane(panel);
+
         chart.setBackgroundPaint(Color.white);
-//        chart.getLegend().setAnchor(Legend.SOUTH);
 
-        // get a reference to the plot for further customisation...
-        final CategoryPlot plot = chart.getCategoryPlot();
-        plot.setBackgroundPaint(new Color(0xEE, 0xEE, 0xFF));
-        plot.setDomainAxisLocation(AxisLocation.BOTTOM_OR_RIGHT);
-
-        final CategoryDataset dataset2 = createDataset2();
-        plot.setDataset(1, dataset2);
-        plot.mapDatasetToRangeAxis(1, 1);
-
-        final CategoryAxis domainAxis = plot.getDomainAxis();
-        domainAxis.setCategoryLabelPositions(CategoryLabelPositions.DOWN_45);
-        final ValueAxis axis2 = new NumberAxis("Secondary");
-        plot.setRangeAxis(1, axis2);
-
-//        final LineAndShapeRenderer renderer2 = new LineAndShapeRenderer();
-//        renderer2.setToolTipGenerator(new StandardCategoryToolTipGenerator());
-//        plot.setRenderer(1, renderer2);
-//        plot.setDatasetRenderingOrder(DatasetRenderingOrder.REVERSE);
-//        // OPTIONAL CUSTOMISATION COMPLETED.
-//    setContentPane(chartPanel);
-//
-//    }
-//        final ChartPanel chartPanel = new ChartPanel(chart);
-//        chartPanel.setPreferredSize(new java.awt.Dimension(500, 270));
-//        setContentPane(chartPanel);
-//
-//    }
-    
-     final ChartPanel chartPanel = new ChartPanel(chart);
-        chartPanel.setPreferredSize(new java.awt.Dimension(500, 270));    
     }
 
-    public static void setListD(List<NormalDoc.DayModel> listD) {
-        CreditorChart.listD = listD;
-    }
+    private CategoryDataset createDataset() {
 
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    private CategoryDataset createDataset1() {
+        DefaultCategoryDataset dataset = new DefaultCategoryDataset();
+        for (NormalDoc.DayModel day : listD) {
 
-        // row keys...
-        final String series1 = "First";
-        final String series2 = "Second";
-        final String series3 = "Third";
+            dataset.addValue(day.debt, "بدهکار", day.dateForChart.toString());
+            dataset.addValue(day.credit, "بستانکار", day.dateForChart.toString());
 
-        // column keys...
-        final String category1 = "Category 1";
-        final String category2 = "Category 2";
-        final String category3 = "Category 3";
-        final String category4 = "Category 4";
-        final String category5 = "Category 5";
-        final String category6 = "Category 6";
-        final String category7 = "Category 7";
-        final String category8 = "Category 8";
-
-        // create the dataset...
-        final DefaultCategoryDataset dataset = new DefaultCategoryDataset();
-
-        dataset.addValue(1.0, series1, category1);
-        dataset.addValue(4.0, series1, category2);
-        dataset.addValue(3.0, series1, category3);
-        dataset.addValue(5.0, series1, category4);
-        dataset.addValue(5.0, series1, category5);
-        dataset.addValue(7.0, series1, category6);
-        dataset.addValue(7.0, series1, category7);
-        dataset.addValue(8.0, series1, category8);
-
-        dataset.addValue(5.0, series2, category1);
-        dataset.addValue(7.0, series2, category2);
-        dataset.addValue(6.0, series2, category3);
-        dataset.addValue(8.0, series2, category4);
-        dataset.addValue(4.0, series2, category5);
-        dataset.addValue(4.0, series2, category6);
-        dataset.addValue(2.0, series2, category7);
-        dataset.addValue(1.0, series2, category8);
-
-        dataset.addValue(4.0, series3, category1);
-        dataset.addValue(3.0, series3, category2);
-        dataset.addValue(2.0, series3, category3);
-        dataset.addValue(3.0, series3, category4);
-        dataset.addValue(6.0, series3, category5);
-        dataset.addValue(3.0, series3, category6);
-        dataset.addValue(4.0, series3, category7);
-        dataset.addValue(3.0, series3, category8);
+        }
 
         return dataset;
 
     }
 
-    /**
-     * Creates a sample dataset.
-     *
-     * @return  The dataset.
-     */
-    private CategoryDataset createDataset2() {
+    public void setListD(List<NormalDoc.DayModel> listD) {
+        this.listD = listD;
 
-        // row keys...
-        final String series1 = "Fourth";
+    }
+
+//    private CategoryDataset createDataset1() {
+//
+//        // row keys...
+//        final String series1 = "First";
+//        final String series2 = "Second";
+//        final String series3 = "Third";
 //
 //        // column keys...
 //        final String category1 = "Category 1";
@@ -194,72 +100,43 @@ public class CreditorChart extends DashboardMenu {
 //        final String category6 = "Category 6";
 //        final String category7 = "Category 7";
 //        final String category8 = "Category 8";
+//
+//        // create the dataset...
+//        final DefaultCategoryDataset dataset = new DefaultCategoryDataset();
+//
+//        dataset.addValue(1.0, series1, category1);
+//        dataset.addValue(4.0, series1, category2);
+//        dataset.addValue(3.0, series1, category3);
+//        dataset.addValue(5.0, series1, category4);
+//        dataset.addValue(5.0, series1, category5);
+//        dataset.addValue(7.0, series1, category6);
+//        dataset.addValue(7.0, series1, category7);
+//        dataset.addValue(8.0, series1, category8);
+//
+//        dataset.addValue(5.0, series2, category1);
+//        dataset.addValue(7.0, series2, category2);
+//        dataset.addValue(6.0, series2, category3);
+//        dataset.addValue(8.0, series2, category4);
+//        dataset.addValue(4.0, series2, category5);
+//        dataset.addValue(4.0, series2, category6);
+//        dataset.addValue(2.0, series2, category7);
+//        dataset.addValue(1.0, series2, category8);
+//
+//        dataset.addValue(4.0, series3, category1);
+//        dataset.addValue(3.0, series3, category2);
+//        dataset.addValue(2.0, series3, category3);
+//        dataset.addValue(3.0, series3, category4);
+//        dataset.addValue(6.0, series3, category5);
+//        dataset.addValue(3.0, series3, category6);
+//        dataset.addValue(4.0, series3, category7);
+//        dataset.addValue(3.0, series3, category8);
+//
+//        return dataset;
+//
+//    }
 
-        // create the dataset...
-         DefaultCategoryDataset dataset = new DefaultCategoryDataset();
-for()
-//        dataset.addValue(15.0, series1, category1);
-//        dataset.addValue(24.0, series1, category2);
-//        dataset.addValue(31.0, series1, category3);
-//        dataset.addValue(25.0, series1, category4);
-//        dataset.addValue(56.0, series1, category5);
-//        dataset.addValue(37.0, series1, category6);
-//        dataset.addValue(77.0, series1, category7);
-//        dataset.addValue(18.0, series1, category8);
-
-        return dataset;
+   
 
     }
-    
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-}

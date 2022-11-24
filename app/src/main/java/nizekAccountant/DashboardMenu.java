@@ -13,6 +13,8 @@ import nizekAccountant.logic.AdminModel.Admin;
 import javax.swing.*;
 import java.awt.*;
 import java.io.File;
+import java.util.ArrayList;
+import java.util.Arrays;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 import nizekAccountant.logic.AccountingCalculations.Accounting;
@@ -38,6 +40,7 @@ public class DashboardMenu extends javax.swing.JFrame {
     private ShowDocRepository docRepo;
     private ShowPeopleRepository peopleRepo;
     private ShowCheckRepository checkRepo;
+    private CreditorChart creditorChart;
 
     private FilterChecks filterChecks;
     private FilterDocs filterDocs;
@@ -46,6 +49,7 @@ public class DashboardMenu extends javax.swing.JFrame {
     GroupType b = new GroupType("مشتری");
     String checkFilter;
     String docFilter;
+    boolean chart;
 
     public DashboardMenu() {
         initComponents();
@@ -67,8 +71,8 @@ public class DashboardMenu extends javax.swing.JFrame {
         userRepository.readAndAddNormalDoc(new File("C:\\csvProject\\normalFile.csv"));
         checkSlider1.setMaximum((int)userRepository.getMaxCheckDoc());//add check add doc
         checkSlider2.setMaximum((int)userRepository.getMaxCheckDoc());
-        docSlider1.setMaximum((int)userRepository.getMaxCheckDoc());//add check add doc
-        docSlider2.setMaximum((int)userRepository.getMaxCheckDoc());
+        docSlider1.setMaximum((int)userRepository.getMaxNormalDoc());//add check add doc
+        docSlider2.setMaximum((int)userRepository.getMaxNormalDoc());
 
 
         DefaultComboBoxModel<String> defaultComboBoxModel1 = new DefaultComboBoxModel<>();
@@ -116,12 +120,17 @@ public class DashboardMenu extends javax.swing.JFrame {
         checkRepo = new ShowCheckRepository();
         peopleRepo = new ShowPeopleRepository();
         docRepo = new ShowDocRepository();
-
+        creditorChart= new CreditorChart();
+    //    chartFrame.setListD(NormalDoc.DayModel.generateDayModel(Manager.normalDocList));
         checksTable.setModel(checkRepo);
         docsTable.setModel(docRepo);
         peopleTable.setModel(peopleRepo);
         //   ButtonRounder btnRounder =new ButtonRounder(10);
-  
+        
+ //System.out.println(Arrays.toString(daymodel.generateDayModel(Manager.normalDocList)));//daymodel.generateDayModel(Manager.normalDocList);
+
+// System.out.println("list of days");
+// System.out.println(NormalDoc.listOfDays.toArray().toString());
 
 //===========changing button colors====================
         btnmanager.btnChangeColor(filteringChecks);
@@ -380,7 +389,7 @@ public class DashboardMenu extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         backshowCheck3 = new javax.swing.JButton();
-        chart = new javax.swing.JPanel();
+        chartPanel = new javax.swing.JPanel();
         backshowCheck4 = new javax.swing.JButton();
         filteredDocs = new javax.swing.JPanel();
         jScrollPane5 = new javax.swing.JScrollPane();
@@ -598,7 +607,7 @@ public class DashboardMenu extends javax.swing.JFrame {
         });
 
         TimeCheckAddDay.setBackground(new java.awt.Color(102, 102, 102));
-        TimeCheckAddDay.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "روز", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Helvetica Neue", 0, 13), new java.awt.Color(255, 255, 255))); // NOI18N
+        TimeCheckAddDay.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "روز", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(255, 255, 255))); // NOI18N
         TimeCheckAddDay.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 TimeCheckAddDayActionPerformed(evt);
@@ -618,7 +627,7 @@ public class DashboardMenu extends javax.swing.JFrame {
         });
 
         TimeCheckAddYear.setBackground(new java.awt.Color(102, 102, 102));
-        TimeCheckAddYear.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "سال", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Helvetica Neue", 0, 13), new java.awt.Color(255, 255, 255))); // NOI18N
+        TimeCheckAddYear.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "سال", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(255, 255, 255))); // NOI18N
         TimeCheckAddYear.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 TimeCheckAddYearActionPerformed(evt);
@@ -626,7 +635,7 @@ public class DashboardMenu extends javax.swing.JFrame {
         });
 
         TimeCheckAddMonth.setBackground(new java.awt.Color(102, 102, 102));
-        TimeCheckAddMonth.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "ماه", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Helvetica Neue", 0, 13), new java.awt.Color(255, 255, 255))); // NOI18N
+        TimeCheckAddMonth.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "ماه", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(255, 255, 255))); // NOI18N
         TimeCheckAddMonth.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 TimeCheckAddMonthActionPerformed(evt);
@@ -1021,11 +1030,11 @@ public class DashboardMenu extends javax.swing.JFrame {
 
         DRangeDocsMonthFrom.setBackground(new java.awt.Color(102, 102, 102));
         DRangeDocsMonthFrom.setForeground(new java.awt.Color(255, 255, 255));
-        DRangeDocsMonthFrom.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "ماه", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Helvetica Neue", 0, 13), new java.awt.Color(255, 255, 255))); // NOI18N
+        DRangeDocsMonthFrom.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "ماه", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(255, 255, 255))); // NOI18N
 
         DRangeDocsDayFrom.setBackground(new java.awt.Color(102, 102, 102));
         DRangeDocsDayFrom.setForeground(new java.awt.Color(255, 255, 255));
-        DRangeDocsDayFrom.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "روز", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Helvetica Neue", 0, 13), new java.awt.Color(255, 255, 255))); // NOI18N
+        DRangeDocsDayFrom.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "روز", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(255, 255, 255))); // NOI18N
         DRangeDocsDayFrom.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 DRangeDocsDayFromActionPerformed(evt);
@@ -1034,7 +1043,7 @@ public class DashboardMenu extends javax.swing.JFrame {
 
         DRangeDocsmonthTo.setBackground(new java.awt.Color(102, 102, 102));
         DRangeDocsmonthTo.setForeground(new java.awt.Color(255, 255, 255));
-        DRangeDocsmonthTo.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "ماه", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Helvetica Neue", 0, 13), new java.awt.Color(255, 255, 255))); // NOI18N
+        DRangeDocsmonthTo.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "ماه", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(255, 255, 255))); // NOI18N
         DRangeDocsmonthTo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 DRangeDocsmonthToActionPerformed(evt);
@@ -1043,7 +1052,7 @@ public class DashboardMenu extends javax.swing.JFrame {
 
         DRangeDocsDayTo.setBackground(new java.awt.Color(102, 102, 102));
         DRangeDocsDayTo.setForeground(new java.awt.Color(255, 255, 255));
-        DRangeDocsDayTo.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "روز", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Helvetica Neue", 0, 13), new java.awt.Color(255, 255, 255))); // NOI18N
+        DRangeDocsDayTo.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "روز", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(255, 255, 255))); // NOI18N
 
         jLabel8.setFont(new java.awt.Font("B Roya", 1, 14)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
@@ -1071,11 +1080,11 @@ public class DashboardMenu extends javax.swing.JFrame {
 
         DRangeDocsYearFrom.setBackground(new java.awt.Color(102, 102, 102));
         DRangeDocsYearFrom.setForeground(new java.awt.Color(255, 255, 255));
-        DRangeDocsYearFrom.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "سال", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Helvetica Neue", 0, 13), new java.awt.Color(255, 255, 255))); // NOI18N
+        DRangeDocsYearFrom.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "سال", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(255, 255, 255))); // NOI18N
 
         DRangeDocsYearTo.setBackground(new java.awt.Color(102, 102, 102));
         DRangeDocsYearTo.setForeground(new java.awt.Color(255, 255, 255));
-        DRangeDocsYearTo.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "سال", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Helvetica Neue", 0, 13), new java.awt.Color(255, 255, 255))); // NOI18N
+        DRangeDocsYearTo.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "سال", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(255, 255, 255))); // NOI18N
 
         docSlider1.setBackground(new java.awt.Color(255, 255, 255));
         docSlider1.setForeground(new java.awt.Color(51, 51, 255));
@@ -1317,7 +1326,7 @@ public class DashboardMenu extends javax.swing.JFrame {
 
         docMonth.setBackground(new java.awt.Color(102, 102, 102));
         docMonth.setForeground(new java.awt.Color(255, 255, 255));
-        docMonth.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "ماه", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Helvetica Neue", 0, 13), new java.awt.Color(255, 255, 255))); // NOI18N
+        docMonth.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "ماه", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(255, 255, 255))); // NOI18N
         docMonth.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 docMonthActionPerformed(evt);
@@ -1326,11 +1335,11 @@ public class DashboardMenu extends javax.swing.JFrame {
 
         docDay.setBackground(new java.awt.Color(102, 102, 102));
         docDay.setForeground(new java.awt.Color(255, 255, 255));
-        docDay.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "روز", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Helvetica Neue", 0, 13), new java.awt.Color(255, 255, 255))); // NOI18N
+        docDay.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "روز", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(255, 255, 255))); // NOI18N
 
         docYear.setBackground(new java.awt.Color(102, 102, 102));
         docYear.setForeground(new java.awt.Color(255, 255, 255));
-        docYear.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "سال", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Helvetica Neue", 0, 13), new java.awt.Color(255, 255, 255))); // NOI18N
+        docYear.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "سال", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(255, 255, 255))); // NOI18N
 
         javax.swing.GroupLayout addingDocPanelLayout = new javax.swing.GroupLayout(addingDocPanel);
         addingDocPanel.setLayout(addingDocPanelLayout);
@@ -2082,11 +2091,11 @@ public class DashboardMenu extends javax.swing.JFrame {
 
         DRangeChecksYear.setBackground(new java.awt.Color(102, 102, 102));
         DRangeChecksYear.setForeground(new java.awt.Color(255, 255, 255));
-        DRangeChecksYear.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "سال", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Helvetica Neue", 0, 13), new java.awt.Color(255, 255, 255))); // NOI18N
+        DRangeChecksYear.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "سال", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(255, 255, 255))); // NOI18N
 
         DRangeChecksMonth.setBackground(new java.awt.Color(102, 102, 102));
         DRangeChecksMonth.setForeground(new java.awt.Color(255, 255, 255));
-        DRangeChecksMonth.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "ماه", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Helvetica Neue", 0, 13), new java.awt.Color(255, 255, 255))); // NOI18N
+        DRangeChecksMonth.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "ماه", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(255, 255, 255))); // NOI18N
 
         jLabel5.setFont(new java.awt.Font("B Roya", 1, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
@@ -2094,11 +2103,11 @@ public class DashboardMenu extends javax.swing.JFrame {
 
         DRangeDocsYear2.setBackground(new java.awt.Color(102, 102, 102));
         DRangeDocsYear2.setForeground(new java.awt.Color(255, 255, 255));
-        DRangeDocsYear2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "سال", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Helvetica Neue", 0, 13), new java.awt.Color(255, 255, 255))); // NOI18N
+        DRangeDocsYear2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "سال", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(255, 255, 255))); // NOI18N
 
         DRangeDocsMonth2.setBackground(new java.awt.Color(102, 102, 102));
         DRangeDocsMonth2.setForeground(new java.awt.Color(255, 255, 255));
-        DRangeDocsMonth2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "ماه", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Helvetica Neue", 0, 13), new java.awt.Color(255, 255, 255))); // NOI18N
+        DRangeDocsMonth2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "ماه", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(255, 255, 255))); // NOI18N
 
         jLabel28.setFont(new java.awt.Font("B Roya", 1, 14)); // NOI18N
         jLabel28.setForeground(new java.awt.Color(255, 255, 255));
@@ -2110,12 +2119,12 @@ public class DashboardMenu extends javax.swing.JFrame {
 
         DRangeChecksYear1.setBackground(new java.awt.Color(102, 102, 102));
         DRangeChecksYear1.setForeground(new java.awt.Color(255, 255, 255));
-        DRangeChecksYear1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "روز", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Helvetica Neue", 0, 13), new java.awt.Color(255, 255, 255))); // NOI18N
+        DRangeChecksYear1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "روز", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(255, 255, 255))); // NOI18N
         DRangeChecksYear1.setCaretColor(new java.awt.Color(255, 255, 255));
 
         DRangeDocsDay3.setBackground(new java.awt.Color(102, 102, 102));
         DRangeDocsDay3.setForeground(new java.awt.Color(255, 255, 255));
-        DRangeDocsDay3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "روز", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Helvetica Neue", 0, 13), new java.awt.Color(255, 255, 255))); // NOI18N
+        DRangeDocsDay3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "روز", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(255, 255, 255))); // NOI18N
 
         jLabel38.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel38.setForeground(new java.awt.Color(255, 255, 255));
@@ -2376,7 +2385,7 @@ public class DashboardMenu extends javax.swing.JFrame {
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 298, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(checkWeightLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
                 .addComponent(backshowCheck)
                 .addContainerGap())
         );
@@ -2432,7 +2441,7 @@ public class DashboardMenu extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, docsReportLayout.createSequentialGroup()
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 381, Short.MAX_VALUE)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 380, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(backshowCheck1)
                 .addContainerGap())
@@ -2555,18 +2564,18 @@ public class DashboardMenu extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout chartLayout = new javax.swing.GroupLayout(chart);
-        chart.setLayout(chartLayout);
-        chartLayout.setHorizontalGroup(
-            chartLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(chartLayout.createSequentialGroup()
+        javax.swing.GroupLayout chartPanelLayout = new javax.swing.GroupLayout(chartPanel);
+        chartPanel.setLayout(chartPanelLayout);
+        chartPanelLayout.setHorizontalGroup(
+            chartPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(chartPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(backshowCheck4)
                 .addContainerGap(483, Short.MAX_VALUE))
         );
-        chartLayout.setVerticalGroup(
-            chartLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, chartLayout.createSequentialGroup()
+        chartPanelLayout.setVerticalGroup(
+            chartPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, chartPanelLayout.createSequentialGroup()
                 .addContainerGap(551, Short.MAX_VALUE)
                 .addComponent(backshowCheck4)
                 .addContainerGap())
@@ -2744,7 +2753,7 @@ public class DashboardMenu extends javax.swing.JFrame {
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(0, 72, Short.MAX_VALUE)
-                    .addComponent(chart, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(chartPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(0, 72, Short.MAX_VALUE)))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
@@ -2826,7 +2835,7 @@ public class DashboardMenu extends javax.swing.JFrame {
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(0, 86, Short.MAX_VALUE)
-                    .addComponent(chart, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(chartPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(0, 86, Short.MAX_VALUE)))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
@@ -3272,7 +3281,7 @@ public class DashboardMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_ShowDocsbtnActionPerformed
 
     private void chartBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chartBtnActionPerformed
-        landPage(chart);
+        landPage(chartPanel);
     }//GEN-LAST:event_chartBtnActionPerformed
 
     private void showPeopleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showPeopleActionPerformed
@@ -3288,7 +3297,11 @@ public class DashboardMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_backToLoginActionPerformed
 
     private void tarazBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tarazBtnActionPerformed
-        landPage(tarazName);
+      chartFrame chartFrame= new chartFrame(NormalDoc.DayModel.generateDayModel(Manager.normalDocList));
+//       this.setVisible(false);
+            chartFrame.setSize(400, 400);
+            chartFrame.setVisible(true);
+ 
     }//GEN-LAST:event_tarazBtnActionPerformed
 
     private void dashboardBtnaddDocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dashboardBtnaddDocActionPerformed
@@ -3549,7 +3562,7 @@ filteringChecks.setEnabled(payeeCheckRBtn.isSelected()||TimeCheckRBtn.isSelected
 
         filteredDocs.setVisible(panel == filteredDocs);
         filteredChecks.setVisible(panel == filteredChecks);
-        chart.setVisible(panel == chart);
+        chartPanel.setVisible(panel == chartPanel);
         tarazName.setVisible(panel == tarazName);
         LoginPanel.setVisible(panel == LoginPanel);
         dashboard.setVisible(panel == dashboard);
@@ -3653,9 +3666,11 @@ filteringChecks.setEnabled(payeeCheckRBtn.isSelected()||TimeCheckRBtn.isSelected
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new DashboardMenu().setVisible(true);
-                final CreditorChart chart = new CreditorChart();
-
+                 DashboardMenu dashboard= new DashboardMenu();
+               dashboard.setVisible(true);
+               
+         //       final CreditorChart chart = new CreditorChart();
+         
             }
         });
     }
@@ -3724,8 +3739,8 @@ filteringChecks.setEnabled(payeeCheckRBtn.isSelected()||TimeCheckRBtn.isSelected
     private javax.swing.JTextField categoryFieldPhone;
     private javax.swing.JTextField categoryFieldَAddress;
     private javax.swing.JComboBox<String> changeStateComboBox;
-    private javax.swing.JPanel chart;
     private javax.swing.JButton chartBtn;
+    private javax.swing.JPanel chartPanel;
     private javax.swing.JLabel checkCostFrom;
     private javax.swing.JLabel checkCostTo;
     private javax.swing.JTextField checkIdentifier;
