@@ -96,11 +96,11 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="dashboard" alignment="0" max="32767" attributes="0"/>
+          <Component id="dashboard" alignment="0" min="-2" pref="1109" max="-2" attributes="0"/>
           <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
                   <EmptySpace min="0" pref="199" max="32767" attributes="0"/>
-                  <Component id="LoginPanel" min="-2" max="-2" attributes="0"/>
+                  <Component id="LoginPanel" min="-2" pref="1109" max="-2" attributes="0"/>
                   <EmptySpace min="0" pref="200" max="32767" attributes="0"/>
               </Group>
           </Group>
@@ -113,97 +113,97 @@
           <Group type="103" rootIndex="3" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
                   <EmptySpace min="0" pref="166" max="32767" attributes="0"/>
-                  <Component id="stateChangePanel" min="-2" max="-2" attributes="0"/>
+                  <Component id="stateChangePanel" min="-2" pref="1109" max="-2" attributes="0"/>
                   <EmptySpace min="0" pref="166" max="32767" attributes="0"/>
               </Group>
           </Group>
           <Group type="103" rootIndex="4" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="showDocPanel" pref="1115" max="32767" attributes="0"/>
+                  <Component id="showDocPanel" min="-2" pref="1109" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
           <Group type="103" rootIndex="5" groupAlignment="0" attributes="0">
               <Group type="102" alignment="1" attributes="0">
                   <EmptySpace min="0" pref="356" max="32767" attributes="0"/>
-                  <Component id="addDocPanel" min="-2" max="-2" attributes="0"/>
+                  <Component id="addDocPanel" min="-2" pref="1109" max="-2" attributes="0"/>
               </Group>
           </Group>
           <Group type="103" rootIndex="6" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
                   <EmptySpace min="0" pref="166" max="32767" attributes="0"/>
-                  <Component id="addPeoplePanel" min="-2" max="-2" attributes="0"/>
+                  <Component id="addPeoplePanel" min="-2" pref="1109" max="-2" attributes="0"/>
                   <EmptySpace min="0" pref="166" max="32767" attributes="0"/>
               </Group>
           </Group>
           <Group type="103" rootIndex="7" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
                   <EmptySpace min="0" pref="166" max="32767" attributes="0"/>
-                  <Component id="addCategoryPanel" min="-2" max="-2" attributes="0"/>
+                  <Component id="addCategoryPanel" min="-2" pref="1109" max="-2" attributes="0"/>
                   <EmptySpace min="0" pref="166" max="32767" attributes="0"/>
               </Group>
           </Group>
           <Group type="103" rootIndex="8" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
                   <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
-                  <Component id="showCheckpanel" pref="1109" max="32767" attributes="0"/>
+                  <Component id="showCheckpanel" min="-2" pref="1109" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
           <Group type="103" rootIndex="9" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
                   <EmptySpace min="0" pref="166" max="32767" attributes="0"/>
-                  <Component id="checksReport" min="-2" max="-2" attributes="0"/>
+                  <Component id="checksReport" min="-2" pref="1109" max="-2" attributes="0"/>
                   <EmptySpace min="0" pref="166" max="32767" attributes="0"/>
               </Group>
           </Group>
           <Group type="103" rootIndex="10" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                  <Component id="docsReport" min="-2" max="-2" attributes="0"/>
+                  <Component id="docsReport" min="-2" pref="1109" max="-2" attributes="0"/>
                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
               </Group>
           </Group>
           <Group type="103" rootIndex="11" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
                   <EmptySpace min="0" pref="166" max="32767" attributes="0"/>
-                  <Component id="peopleReports" min="-2" max="-2" attributes="0"/>
+                  <Component id="peopleReports" min="-2" pref="1109" max="-2" attributes="0"/>
                   <EmptySpace min="0" pref="166" max="32767" attributes="0"/>
               </Group>
           </Group>
           <Group type="103" rootIndex="12" groupAlignment="0" attributes="0">
               <Group type="102" alignment="1" attributes="0">
                   <EmptySpace pref="177" max="32767" attributes="0"/>
-                  <Component id="tarazName" min="-2" max="-2" attributes="0"/>
+                  <Component id="tarazName" min="-2" pref="1109" max="-2" attributes="0"/>
                   <EmptySpace pref="155" max="32767" attributes="0"/>
               </Group>
           </Group>
           <Group type="103" rootIndex="13" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
                   <EmptySpace min="0" pref="166" max="32767" attributes="0"/>
-                  <Component id="chart" min="-2" max="-2" attributes="0"/>
+                  <Component id="chart" min="-2" pref="1109" max="-2" attributes="0"/>
                   <EmptySpace min="0" pref="166" max="32767" attributes="0"/>
               </Group>
           </Group>
           <Group type="103" rootIndex="14" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                  <Component id="filteredDocs" min="-2" max="-2" attributes="0"/>
+                  <Component id="filteredDocs" pref="1109" max="32767" attributes="0"/>
                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
               </Group>
           </Group>
           <Group type="103" rootIndex="15" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                  <Component id="filteredChecks" min="-2" max="-2" attributes="0"/>
+                  <Component id="filteredChecks" min="-2" pref="1109" max="-2" attributes="0"/>
                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
               </Group>
           </Group>
           <Group type="103" rootIndex="16" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                  <Component id="registerPanel" min="-2" max="-2" attributes="0"/>
+                  <Component id="registerPanel" min="-2" pref="1109" max="-2" attributes="0"/>
                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
               </Group>
           </Group>
@@ -213,117 +213,117 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="dashboard" max="32767" attributes="0"/>
+              <Component id="dashboard" min="-2" pref="850" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
           <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
                   <EmptySpace min="0" pref="238" max="32767" attributes="0"/>
-                  <Component id="LoginPanel" min="-2" max="-2" attributes="0"/>
+                  <Component id="LoginPanel" min="-2" pref="800" max="-2" attributes="0"/>
                   <EmptySpace min="0" pref="238" max="32767" attributes="0"/>
               </Group>
           </Group>
           <Group type="103" rootIndex="2" groupAlignment="0" attributes="0">
               <Group type="102" alignment="1" attributes="0">
-                  <Component id="addcheckPanel" pref="1052" max="32767" attributes="0"/>
+                  <Component id="addcheckPanel" pref="800" max="32767" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
           <Group type="103" rootIndex="3" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
                   <EmptySpace min="0" pref="155" max="32767" attributes="0"/>
-                  <Component id="stateChangePanel" min="-2" max="-2" attributes="0"/>
+                  <Component id="stateChangePanel" min="-2" pref="800" max="-2" attributes="0"/>
                   <EmptySpace min="0" pref="156" max="32767" attributes="0"/>
               </Group>
           </Group>
           <Group type="103" rootIndex="4" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="showDocPanel" pref="1046" max="32767" attributes="0"/>
+                  <Component id="showDocPanel" min="-2" pref="800" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
           <Group type="103" rootIndex="5" groupAlignment="0" attributes="0">
               <Group type="102" alignment="1" attributes="0">
                   <EmptySpace max="32767" attributes="0"/>
-                  <Component id="addDocPanel" min="-2" max="-2" attributes="0"/>
+                  <Component id="addDocPanel" min="-2" pref="800" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
               </Group>
           </Group>
           <Group type="103" rootIndex="6" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
                   <EmptySpace min="0" pref="156" max="32767" attributes="0"/>
-                  <Component id="addPeoplePanel" min="-2" max="-2" attributes="0"/>
+                  <Component id="addPeoplePanel" min="-2" pref="800" max="-2" attributes="0"/>
                   <EmptySpace min="0" pref="155" max="32767" attributes="0"/>
               </Group>
           </Group>
           <Group type="103" rootIndex="7" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
                   <EmptySpace min="0" pref="155" max="32767" attributes="0"/>
-                  <Component id="addCategoryPanel" min="-2" max="-2" attributes="0"/>
+                  <Component id="addCategoryPanel" min="-2" pref="800" max="-2" attributes="0"/>
                   <EmptySpace min="0" pref="156" max="32767" attributes="0"/>
               </Group>
           </Group>
           <Group type="103" rootIndex="8" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="showCheckpanel" pref="1046" max="32767" attributes="0"/>
+                  <Component id="showCheckpanel" min="-2" pref="850" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
           <Group type="103" rootIndex="9" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
                   <EmptySpace min="0" pref="156" max="32767" attributes="0"/>
-                  <Component id="checksReport" min="-2" max="-2" attributes="0"/>
+                  <Component id="checksReport" min="-2" pref="800" max="-2" attributes="0"/>
                   <EmptySpace min="0" pref="155" max="32767" attributes="0"/>
               </Group>
           </Group>
           <Group type="103" rootIndex="10" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                  <Component id="docsReport" min="-2" max="-2" attributes="0"/>
+                  <Component id="docsReport" min="-2" pref="800" max="-2" attributes="0"/>
                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
               </Group>
           </Group>
           <Group type="103" rootIndex="11" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
                   <EmptySpace min="0" pref="155" max="32767" attributes="0"/>
-                  <Component id="peopleReports" min="-2" max="-2" attributes="0"/>
+                  <Component id="peopleReports" min="-2" pref="800" max="-2" attributes="0"/>
                   <EmptySpace min="0" pref="156" max="32767" attributes="0"/>
               </Group>
           </Group>
           <Group type="103" rootIndex="12" groupAlignment="0" attributes="0">
               <Group type="102" alignment="1" attributes="0">
                   <EmptySpace pref="125" max="32767" attributes="0"/>
-                  <Component id="tarazName" min="-2" max="-2" attributes="0"/>
+                  <Component id="tarazName" min="-2" pref="800" max="-2" attributes="0"/>
                   <EmptySpace pref="186" max="32767" attributes="0"/>
               </Group>
           </Group>
           <Group type="103" rootIndex="13" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
                   <EmptySpace min="0" pref="155" max="32767" attributes="0"/>
-                  <Component id="chart" min="-2" max="-2" attributes="0"/>
+                  <Component id="chart" min="-2" pref="800" max="-2" attributes="0"/>
                   <EmptySpace min="0" pref="156" max="32767" attributes="0"/>
               </Group>
           </Group>
           <Group type="103" rootIndex="14" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                  <Component id="filteredDocs" min="-2" max="-2" attributes="0"/>
+                  <Component id="filteredDocs" min="-2" pref="800" max="-2" attributes="0"/>
                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
               </Group>
           </Group>
           <Group type="103" rootIndex="15" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                  <Component id="filteredChecks" min="-2" max="-2" attributes="0"/>
+                  <Component id="filteredChecks" min="-2" pref="800" max="-2" attributes="0"/>
                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
               </Group>
           </Group>
           <Group type="103" rootIndex="16" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                  <Component id="registerPanel" min="-2" max="-2" attributes="0"/>
+                  <Component id="registerPanel" min="-2" pref="800" max="-2" attributes="0"/>
                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
               </Group>
           </Group>
@@ -349,37 +349,30 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
-                  <EmptySpace pref="259" max="32767" attributes="0"/>
+                  <EmptySpace pref="221" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
-                          <Component id="jLabel22" min="-2" pref="184" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="75" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="1" attributes="0">
-                          <Component id="passWordRecovery" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="225" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="1" attributes="0">
+                              <Component id="emailfieldLogin" min="-2" pref="150" max="-2" attributes="0"/>
+                              <Component id="passwordField" min="-2" pref="150" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
                           <Group type="103" groupAlignment="1" attributes="0">
-                              <Component id="passwordField" min="-2" pref="150" max="-2" attributes="0"/>
-                              <Component id="emailfieldLogin" min="-2" pref="150" max="-2" attributes="0"/>
+                              <Component id="signInbtn" min="-2" pref="140" max="-2" attributes="0"/>
+                              <Component id="enterBtn" min="-2" pref="200" max="-2" attributes="0"/>
+                              <Component id="passWordRecovery" alignment="1" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jLabel3" min="-2" pref="72" max="-2" attributes="0"/>
-                              <Component id="jLabel21" min="-2" pref="72" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace min="-2" pref="182" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="1" attributes="0">
-                          <Component id="enterBtn" min="-2" pref="200" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="250" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="1" attributes="0">
-                          <Component id="signInbtn" min="-2" pref="140" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="277" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
                       </Group>
                   </Group>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="jLabel3" min="-2" pref="72" max="-2" attributes="0"/>
+                      <Component id="jLabel21" min="-2" pref="72" max="-2" attributes="0"/>
+                      <Component id="jLabel22" min="-2" pref="184" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="75" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -398,13 +391,13 @@
                       <Component id="passwordField" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                       <Component id="jLabel21" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
                   <Component id="enterBtn" min="-2" pref="50" max="-2" attributes="0"/>
-                  <EmptySpace pref="81" max="32767" attributes="0"/>
+                  <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                   <Component id="signInbtn" min="-2" pref="52" max="-2" attributes="0"/>
-                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="passWordRecovery" min="-2" pref="40" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
+                  <EmptySpace pref="75" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -601,7 +594,7 @@
                           <Component id="addCheckScroll" min="-2" pref="450" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace pref="338" max="32767" attributes="0"/>
+                  <EmptySpace pref="32" max="32767" attributes="0"/>
                   <Component id="jLabel56" min="-2" pref="24" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jButton2" min="-2" pref="40" max="-2" attributes="0"/>
@@ -5487,43 +5480,40 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
-                  <EmptySpace min="-2" pref="288" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="emailRegister" alignment="0" min="-2" pref="160" max="-2" attributes="0"/>
-                      <Component id="userNameRegister" alignment="0" min="-2" pref="160" max="-2" attributes="0"/>
-                      <Component id="passwordRegister" alignment="0" min="-2" pref="160" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jLabel61" min="-2" pref="78" max="-2" attributes="0"/>
-                      <Component id="jLabel60" min="-2" pref="78" max="-2" attributes="0"/>
-                      <Component id="jLabel20" min="-2" pref="78" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace pref="207" max="32767" attributes="0"/>
-              </Group>
-              <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace max="32767" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="1" attributes="0">
-                          <Component id="backToLoginPanelBtn" min="-2" pref="144" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
-                          <Component id="registerBtn" min="-2" pref="110" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="260" max="-2" attributes="0"/>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="288" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="emailRegister" alignment="0" min="-2" pref="160" max="-2" attributes="0"/>
+                              <Component id="userNameRegister" alignment="0" min="-2" pref="160" max="-2" attributes="0"/>
+                              <Component id="passwordRegister" alignment="0" min="-2" pref="160" max="-2" attributes="0"/>
+                              <Group type="103" alignment="0" groupAlignment="1" attributes="0">
+                                  <Component id="registerBtn" min="-2" pref="110" max="-2" attributes="0"/>
+                                  <Component id="backToLoginPanelBtn" min="-2" pref="144" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="jLabel61" min="-2" pref="78" max="-2" attributes="0"/>
+                              <Component id="jLabel60" min="-2" pref="78" max="-2" attributes="0"/>
+                              <Component id="jLabel20" min="-2" pref="78" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
-                      <Group type="102" alignment="1" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="226" max="-2" attributes="0"/>
                           <Component id="jLabel62" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="235" max="-2" attributes="0"/>
                       </Group>
                   </Group>
+                  <EmptySpace pref="318" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
                   <Component id="jLabel62" min="-2" pref="65" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="64" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
                           <Component id="userNameRegister" min="-2" pref="30" max="-2" attributes="0"/>
@@ -5540,12 +5530,11 @@
                       <Component id="passwordRegister" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                       <Component id="jLabel61" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="86" max="32767" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="registerBtn" alignment="3" min="-2" pref="45" max="-2" attributes="0"/>
-                      <Component id="backToLoginPanelBtn" alignment="3" min="-2" pref="45" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace min="-2" pref="78" max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Component id="registerBtn" min="-2" pref="45" max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Component id="backToLoginPanelBtn" min="-2" pref="45" max="-2" attributes="0"/>
+                  <EmptySpace pref="83" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
