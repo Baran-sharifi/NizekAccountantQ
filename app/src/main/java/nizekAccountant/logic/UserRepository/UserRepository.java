@@ -204,8 +204,14 @@ public class UserRepository implements Storeable {
     }
 
     public double getMaxNormalDoc() {
+        double max=0;
         List<Double> costList = new ArrayList<>();
-        double max = 0;
+        if (Manager.normalDocList.isEmpty()) {
+           max =  0;
+        }
+        if (Manager.normalDocList.size() == 1) {
+         max = Double.parseDouble(Manager.normalDocList.get(0).getCost());
+        }
         for (NormalDoc normalDoc : Manager.normalDocList) {
             costList.add(Double.valueOf(normalDoc.getCost()));
         }
@@ -258,7 +264,7 @@ public class UserRepository implements Storeable {
     @Override
     public void writeToFileCostumer() {
         try {
-            FileWriter fileWriter = new FileWriter("C:\\csvProject\\costumerFile.csv");
+            FileWriter fileWriter = new FileWriter("costumerFile.csv");
             BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
             PrintWriter printWriter = new PrintWriter(bufferedWriter);
             for (Costumer object : Manager.costumerList) {
@@ -280,7 +286,7 @@ public class UserRepository implements Storeable {
     @Override
     public void writeToFileCheckDoc() {
         try {
-            FileWriter fileWriter = new FileWriter("C:\\csvProject\\checkFile.csv");
+            FileWriter fileWriter = new FileWriter("checkFile.csv");
             BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
             PrintWriter printWriter = new PrintWriter(bufferedWriter);
             for (CheckDoc object : Manager.checkDocList) {
@@ -306,7 +312,7 @@ public class UserRepository implements Storeable {
     public void writeToFileNormalDoc() {
         try {
 
-            FileWriter fileWriter = new FileWriter("C:\\csvProject\\normalFile.csv");
+            FileWriter fileWriter = new FileWriter("normalFile.csv");
 
             BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
             PrintWriter printWriter = new PrintWriter(bufferedWriter);
@@ -332,7 +338,7 @@ public class UserRepository implements Storeable {
     @Override
     public void writeToFileAdmin() {
         try {
-            FileWriter fileWriter = new FileWriter("C:\\csvProject\\adminFile.csv");
+            FileWriter fileWriter = new FileWriter("adminFile.csv");
             BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
             PrintWriter printWriter = new PrintWriter(bufferedWriter);
             for (Admin object : Manager.adminList) {
