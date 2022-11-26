@@ -182,7 +182,7 @@
           <Group type="103" rootIndex="13" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                  <Component id="filteredDocs" pref="1389" max="32767" attributes="0"/>
+                  <Component id="filteredDocs" pref="1428" max="32767" attributes="0"/>
                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
               </Group>
           </Group>

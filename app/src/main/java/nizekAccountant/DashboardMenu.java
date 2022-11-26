@@ -13,15 +13,11 @@ import nizekAccountant.logic.AdminModel.Admin;
 import javax.swing.*;
 import java.awt.*;
 import java.io.File;
-import java.util.ArrayList;
-import java.util.Arrays;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
-import javax.swing.table.DefaultTableModel;
 import nizekAccountant.logic.AccountingCalculations.Accounting;
 import static nizekAccountant.logic.ModelManager.Manager.userRepository;
 import nizekAccountant.logic.UserRepository.UserRepository;
-import org.jfree.data.category.DefaultCategoryDataset;
 
 /**
  * @author Lenovo
@@ -64,6 +60,7 @@ public class DashboardMenu extends javax.swing.JFrame {
 
 
     public DashboardMenu() {
+         userRepository.readAndAddAdmin(new File("adminFile.csv"));
         initComponents();
         btnmanager = new GraphicsManager(102, 102, 255, dimension);
         landPage(LoginPanel);
@@ -78,7 +75,7 @@ public class DashboardMenu extends javax.swing.JFrame {
 //filteringDocs.setEnabled(false);
         UserRepository userRepository = new UserRepository();
 
-        userRepository.readAndAddAdmin(new File("adminFile.csv"));
+       
         userRepository.readAndAddCostumer(new File("costumerFile.csv"));
         userRepository.readAndAddCheckDoc(new File("checkFile.csv"));
         userRepository.readAndAddNormalDoc(new File("normalFile.csv"));
@@ -3409,7 +3406,10 @@ public class DashboardMenu extends javax.swing.JFrame {
                 "", JOptionPane.ERROR_MESSAGE);
         }
         String name = userRepository.findName(email, password);
-        dashboardlabel.setText(dashboardlabel.getText() + " " + name);
+        // Start Bug Fixing
+//        dashboardlabel.setText(dashboardlabel.getText() + " " + name); // Amir Changed This
+        dashboardlabel.setText("حسابدار نایزک " + name);
+        // End Bug Fixed
 
     }//GEN-LAST:event_enterBtnActionPerformed
 
