@@ -60,20 +60,16 @@ public class DashboardMenu extends javax.swing.JFrame {
 
 
     public DashboardMenu() {
+         UserRepository userRepository = new UserRepository();
          userRepository.readAndAddAdmin(new File("adminFile.csv"));
         initComponents();
         btnmanager = new GraphicsManager(102, 102, 255, dimension);
         landPage(LoginPanel);
         disableFilter();
         SliderListener();
-        // Test
-
-
-
-//
-//filteringChecks.setEnabled(false);
-//filteringDocs.setEnabled(false);
-        UserRepository userRepository = new UserRepository();
+        
+        
+       
 
        
         userRepository.readAndAddCostumer(new File("costumerFile.csv"));
