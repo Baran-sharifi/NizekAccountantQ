@@ -10,26 +10,14 @@ import java.util.List;
 
 public interface Storeable {
 
-    // Read Implementations!
-    String readFile(CheckDoc normalDoc, int id);
-
-    String readFile(NormalDoc normalDoc, int id);
-
-    String readFile(Costumer normalDoc, String inputNationalID);
-
-    String readAdmin(Admin admin);
-
     // Write Implementations!
-
     void writeToFileAdmin();
 
-   void writeToFileCostumer();
+    void writeToFileCostumer();
 
     void writeToFileCheckDoc();
 
     void writeToFileNormalDoc();
-
-    ///********** WRITE ADMIN
 
     // Read ALL IMPLEMENTATION
     List<String> readWholeFile(File file);
@@ -39,8 +27,7 @@ public interface Storeable {
     void readAndAddCheckDoc(File file);
 
     void readAndAddNormalDoc(File file);
+
     void readAndAddAdmin(File file);
-
-
 
 }

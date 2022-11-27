@@ -9,8 +9,6 @@ import nizekAccountant.logic.Login.Costumer;
 
 import java.io.*;
 import java.text.SimpleDateFormat;
-import java.time.format.DateTimeFormatter;
-import java.time.LocalDateTime;
 import java.util.*;
 import nizekAccountant.logic.Date.TimeNizek;
 import nizekAccountant.logic.Date.DateNizek;
@@ -18,71 +16,6 @@ import nizekAccountant.logic.Login.GroupType;
 import nizekAccountant.logic.ModelManager.Manager;
 
 public class UserRepository implements Storeable {
-
-    static String tempNORMAL;
-    static String tempCHECk;
-    static String tempAdmin;
-
-    @Override
-    public String readFile(CheckDoc checkDoc, int id) {
-        String name;
-        String cost;
-        String description;
-        String date;
-        String time;
-        String userID;
-        try {
-            Scanner x = new Scanner(new File(checkDoc.getFilePath()));
-            x.useDelimiter("[,\n]");
-            while (x.hasNext()) {
-                name = x.next();
-                cost = x.next();
-                description = x.next();
-                date = x.next();
-                time = x.next();
-                userID = x.next();
-                if (id == checkDoc.getUserID()) {
-                    tempCHECk = String.format("%s, %s, %s, %s,  %s, %s", name, cost, description, ConverterTime.convertToPersian(date), time, userID);
-                    break;
-                }
-            }
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
-        return tempCHECk;
-    }
-
-    //$$$$$$$$$$$$$$$$$---------$$$$$$$$$$ FINAL $$$$$$$$$$---------$$$$$$$$$$$$$$$$$
-    @Override
-    public String readFile(NormalDoc normalDoc, int id) {
-        String name;
-        String cost;
-        String description;
-        String isCreditor;
-        String date;
-        String time;
-        String userID;
-        try {
-            Scanner x = new Scanner(new File(normalDoc.getFilePath()));
-            x.useDelimiter("[,\n]");
-            while (x.hasNext()) {
-                name = x.next();
-                cost = x.next();
-                description = x.next();
-                isCreditor = x.next();
-                date = x.next();
-                time = x.next();
-                userID = x.next();
-                if (id == normalDoc.getUserID()) {
-                    tempNORMAL = String.format("%s, %s, %s, %s, %s, %s, %s", name, cost, description, isCreditor, ConverterTime.convertToPersian(date), time, userID);
-                    break;
-                }
-            }
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
-        return tempNORMAL;
-    }
 
     public List<CheckDoc> findCheckBasedOnName(String name) {
         List<CheckDoc> filteredList = new ArrayList<>();
@@ -107,33 +40,6 @@ public class UserRepository implements Storeable {
     public Costumer findCostumerBasedOnIndex(int index) {
         return Manager.costumerList.get(index);
     }
-
-    public List<NormalDoc> readBasedOnDay() {
-        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd");
-        LocalDateTime now = LocalDateTime.now();
-        String formatted = dtf.format(now);
-        String[] formattedArray = formatted.split("/");
-        StringBuilder sb = new StringBuilder();
-        sb.append(formattedArray[0]);
-        sb.append("-");
-        sb.append(formattedArray[1]);
-        sb.append("-");
-        sb.append(formattedArray[2]);
-        String convertedTime = ConverterTime.convertToPersian(sb.toString());
-        String[] array = convertedTime.split("-");
-        int convertedDay = Integer.parseInt(array[2]);
-        int convertedMonth = Integer.parseInt(array[1]);
-        int convertedYear = Integer.parseInt(array[0]);
-//
-        List<NormalDoc> filteredList = new ArrayList<>();
-        for (NormalDoc object : Manager.normalDocList) {
-            if (convertedDay == object.getDate().getDay() && convertedMonth == object.getDate().getMonth() && convertedYear == object.getDate().getYear()) {
-                filteredList.add(object);
-            }
-        }
-        return filteredList;
-    }
-
     public List<NormalDoc> readFilterBasedOnCostNormal(double beforeCost, double afterCost) {
         List<NormalDoc> filteredList = new ArrayList<>();
         for (NormalDoc object : Manager.normalDocList) {
@@ -195,6 +101,9 @@ public class UserRepository implements Storeable {
             costList.add(Double.valueOf(checkDoc.getCost()));
         }
         for (int i = 0; i < costList.size() - 1; i++) {
+            if (costList.get(i) > costList.get(i + 1)) {
+               max = costList.get(i);
+            }
             if (costList.get(i) < costList.get(i + 1)) {
                 max = costList.get(i + 1);
             }
@@ -215,6 +124,9 @@ public class UserRepository implements Storeable {
             costList.add(Double.valueOf(normalDoc.getCost()));
         }
         for (int i = 0; i < costList.size() - 1; i++) {
+            if (costList.get(i) > costList.get(i + 1)) {
+               max = costList.get(i);
+            }
             if (costList.get(i) < costList.get(i + 1)) {
                 max = costList.get(i + 1);
             }
@@ -232,31 +144,6 @@ public class UserRepository implements Storeable {
         }
 
         return filteredList;
-    }
-
-    @Override
-    public String readFile(Costumer costumer, String inputNationalID) {
-        return "Unused!";
-    }
-
-    @Override
-    public String readAdmin(Admin admin) {
-        String name;
-        String email;
-        String password;
-        try {
-            Scanner x = new Scanner(new File(admin.getFilePath()));
-            x.useDelimiter("[,\n]");
-            while (x.hasNext()) {
-                name = x.next();
-                email = x.next();
-                password = x.next();
-                tempAdmin = String.format("%s , %s, %s", name, email, password);
-            }
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
-        return tempAdmin;
     }
 
     // *************** WRITE METHODS
@@ -303,7 +190,6 @@ public class UserRepository implements Storeable {
             printWriter.close();
 
         } catch (IOException e) {
-            e.printStackTrace();
         }
     }
 
@@ -330,7 +216,6 @@ public class UserRepository implements Storeable {
             printWriter.close();
 
         } catch (IOException e) {
-            e.printStackTrace();
         }
     }
 
@@ -349,7 +234,6 @@ public class UserRepository implements Storeable {
             printWriter.flush();
             printWriter.close();
         } catch (IOException e) {
-            e.printStackTrace();
         }
     }
 
@@ -368,8 +252,8 @@ public class UserRepository implements Storeable {
                 arraylist.add(a);
             }
             br.close();
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (IOException e) {
+            System.out.println(e);
         }
 
         return arraylist;
@@ -401,7 +285,6 @@ public class UserRepository implements Storeable {
             for (String model : gottenFile) {
                 String[] temp = model.split(",  ");
                 System.out.println(Arrays.toString(temp));
-                String[] date = temp[4].trim().split("-");
                 String[] time = temp[5].trim().split(":");
 
                 Manager.addCheckDocument(new CheckDoc(
@@ -422,9 +305,6 @@ public class UserRepository implements Storeable {
             List<String> gottenFile = readWholeFile(file);
             for (String model : gottenFile) {
                 String[] temp = model.split(",  ");
-                System.out.println(Arrays.toString(temp));
-
-                String[] date = temp[4].trim().split("-");
                 String[] time = temp[5].trim().split(":");
                 Manager.addNormalDocument(new NormalDoc(
                         temp[1].trim(),
@@ -511,7 +391,7 @@ public class UserRepository implements Storeable {
                 listColumn.add(data[column]);
             }
         } catch (IOException e) {
-            e.printStackTrace();
+            System.out.println(e);
         }
         return listColumn;
     }

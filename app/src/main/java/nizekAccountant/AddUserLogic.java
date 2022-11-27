@@ -1,22 +1,15 @@
-package nizekAccountant;
-
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
+package nizekAccountant;
 
 /**
  *
- * @author Lenovo
+ * @author persuara
  */
-public class AddUserLogic {
-
-    public AddUserLogic() {
-        
-        
-        
-    }
     
+class AddUserLogic {
     
     
     
@@ -71,20 +64,4 @@ public boolean canSubmitPeople(String payeeName, String phone, String nationallI
         
         
     }
-
-
-
-
-
-
-
-
-
 }
-    
-    
-    
-    
-    
-    
-

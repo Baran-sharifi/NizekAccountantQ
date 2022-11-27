@@ -33,7 +33,6 @@ public class DashboardMenu extends javax.swing.JFrame {
     private AddCheckLogic addCheckLogic;
     private AddDocLogic addDocLogic;
     private AddUserLogic addUserLogic;
-    private ChangeStateCheckLogic changeStateCheckLogic;
     private ShowDocRepository docRepo;
     private ShowPeopleRepository peopleRepo;
     private ShowCheckRepository checkRepo;
@@ -126,7 +125,6 @@ public class DashboardMenu extends javax.swing.JFrame {
         addDocLogic = new AddDocLogic();
         addUserLogic = new AddUserLogic();
 
-        changeStateCheckLogic = new ChangeStateCheckLogic();
 
         checkRepo = new ShowCheckRepository(statusTimeZoneCHECK);
         peopleRepo = new ShowPeopleRepository();
