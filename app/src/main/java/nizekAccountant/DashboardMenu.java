@@ -76,11 +76,10 @@ public class DashboardMenu extends javax.swing.JFrame {
         userRepository.readAndAddNormalDoc(new File("normalFile.csv"));
 
         checkSlider1.setMaximum((int)userRepository.getMaxCheckDoc());//add check add doc
-        System.out.println((int)userRepository.getMaxCheckDoc());
         checkSlider2.setMaximum((int)userRepository.getMaxCheckDoc());
 
-        docSlider1.setMaximum((int)userRepository.getMaxCheckDoc());//add check add doc
-        docSlider2.setMaximum((int)userRepository.getMaxCheckDoc());
+        docSlider1.setMaximum((int)userRepository.getMaxNormalDoc());//add check add doc
+        docSlider2.setMaximum((int)userRepository.getMaxNormalDoc());
 
   
 

@@ -40,6 +40,7 @@ public class UserRepository implements Storeable {
     public Costumer findCostumerBasedOnIndex(int index) {
         return Manager.costumerList.get(index);
     }
+
     public List<NormalDoc> readFilterBasedOnCostNormal(double beforeCost, double afterCost) {
         List<NormalDoc> filteredList = new ArrayList<>();
         for (NormalDoc object : Manager.normalDocList) {
@@ -100,35 +101,45 @@ public class UserRepository implements Storeable {
         for (CheckDoc checkDoc : Manager.checkDocList) {
             costList.add(Double.valueOf(checkDoc.getCost()));
         }
-        for (int i = 0; i < costList.size() - 1; i++) {
-            if (costList.get(i) > costList.get(i + 1)) {
-               max = costList.get(i);
-            }
-            if (costList.get(i) < costList.get(i + 1)) {
-                max = costList.get(i + 1);
+//        for (int i = 0; i < costList.size() - 1; i++) {
+//            if (costList.get(i) > costList.get(i + 1)) {
+//                max = costList.get(i);
+//            }
+//            if (costList.get(i) < costList.get(i + 1)) {
+//                max = costList.get(i + 1);
+//            }
+//        }
+        for (Double cost : costList) {
+            if (cost > max) {
+                max = cost;
             }
         }
         return max;
     }
 
     public double getMaxNormalDoc() {
-        double max=0;
+        double max = 0;
         List<Double> costList = new ArrayList<>();
         if (Manager.normalDocList.isEmpty()) {
-           max =  0;
+            max = 0;
         }
         if (Manager.normalDocList.size() == 1) {
-         max = Double.parseDouble(Manager.normalDocList.get(0).getCost());
+            max = Double.parseDouble(Manager.normalDocList.get(0).getCost());
         }
         for (NormalDoc normalDoc : Manager.normalDocList) {
             costList.add(Double.valueOf(normalDoc.getCost()));
         }
-        for (int i = 0; i < costList.size() - 1; i++) {
-            if (costList.get(i) > costList.get(i + 1)) {
-               max = costList.get(i);
-            }
-            if (costList.get(i) < costList.get(i + 1)) {
-                max = costList.get(i + 1);
+//        for (int i = 0; i < costList.size() - 1; i++) {
+//            if (costList.get(i) > costList.get(i + 1)) {
+//               max = costList.get(i);
+//            }
+//            if (costList.get(i) < costList.get(i + 1)) {
+//                max = costList.get(i + 1);
+//            }
+//        }
+        for (Double cost : costList) {
+            if (cost > max) {
+                max = cost;
             }
         }
         return max;
